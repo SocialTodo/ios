@@ -1,5 +1,5 @@
 /**
- # JSON List
+ # JSON Object
 
  A JSONItem that holds other JSONItems. Since it is a JSONItem itself, it also conforms to the Codable protocol.
 */
