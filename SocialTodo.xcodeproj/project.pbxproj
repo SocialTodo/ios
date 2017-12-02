@@ -12,9 +12,33 @@
 		C7DE93D01FD28907006F73F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DE93CE1FD28907006F73F0 /* Main.storyboard */; };
 		C7DE93D21FD28907006F73F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DE93D11FD28907006F73F0 /* Assets.xcassets */; };
 		C7DE93D51FD28907006F73F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DE93D31FD28907006F73F0 /* LaunchScreen.storyboard */; };
+		CF993520D47F9D90AED1AEC1 /* Pods_SocialTodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F981D4E3C21844FED7544BC /* Pods_SocialTodo.framework */; };
+		E9C91C1F1FD31CD600ADFEF9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E9C91C1E1FD31CD600ADFEF9 /* .swiftlint.yml */; };
+		E9C91C271FD31D9600ADFEF9 /* SocialTodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C91C261FD31D9600ADFEF9 /* SocialTodoTests.swift */; };
+		E9C91C351FD31DC700ADFEF9 /* SocialTodoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C91C341FD31DC700ADFEF9 /* SocialTodoUITests.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		E9C91C291FD31D9600ADFEF9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7DE93BF1FD28906006F73F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7DE93C61FD28906006F73F0;
+			remoteInfo = SocialTodo;
+		};
+		E9C91C371FD31DC700ADFEF9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C7DE93BF1FD28906006F73F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C7DE93C61FD28906006F73F0;
+			remoteInfo = SocialTodo;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		0F981D4E3C21844FED7544BC /* Pods_SocialTodo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialTodo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		935072707C4F55DBB2CFA465 /* Pods-SocialTodo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTodo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTodo/Pods-SocialTodo.release.xcconfig"; sourceTree = "<group>"; };
+		AD1D5EA6703B3A202E5D932F /* Pods-SocialTodo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTodo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTodo/Pods-SocialTodo.debug.xcconfig"; sourceTree = "<group>"; };
 		C7DE93C71FD28906006F73F0 /* SocialTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DE93CA1FD28906006F73F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7DE93CC1FD28906006F73F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,10 +46,33 @@
 		C7DE93D11FD28907006F73F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7DE93D41FD28907006F73F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7DE93D61FD28907006F73F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9C91C1E1FD31CD600ADFEF9 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
+		E9C91C241FD31D9600ADFEF9 /* SocialTodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialTodoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9C91C261FD31D9600ADFEF9 /* SocialTodoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialTodoTests.swift; sourceTree = "<group>"; };
+		E9C91C281FD31D9600ADFEF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9C91C321FD31DC700ADFEF9 /* SocialTodoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialTodoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E9C91C341FD31DC700ADFEF9 /* SocialTodoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialTodoUITests.swift; sourceTree = "<group>"; };
+		E9C91C361FD31DC700ADFEF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E9C91C3C1FD31E3200ADFEF9 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		C7DE93C41FD28906006F73F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF993520D47F9D90AED1AEC1 /* Pods_SocialTodo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9C91C211FD31D9600ADFEF9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9C91C2F1FD31DC700ADFEF9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -35,11 +82,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3C79FA3AF53C32629117FD51 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				AD1D5EA6703B3A202E5D932F /* Pods-SocialTodo.debug.xcconfig */,
+				935072707C4F55DBB2CFA465 /* Pods-SocialTodo.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		6A09C75C9B702B5DC20CD33E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0F981D4E3C21844FED7544BC /* Pods_SocialTodo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C7DE93BE1FD28906006F73F0 = {
 			isa = PBXGroup;
 			children = (
+				E9C91C3C1FD31E3200ADFEF9 /* Podfile */,
+				E9C91C1E1FD31CD600ADFEF9 /* .swiftlint.yml */,
 				C7DE93C91FD28906006F73F0 /* SocialTodo */,
+				E9C91C251FD31D9600ADFEF9 /* SocialTodoTests */,
+				E9C91C331FD31DC700ADFEF9 /* SocialTodoUITests */,
 				C7DE93C81FD28906006F73F0 /* Products */,
+				3C79FA3AF53C32629117FD51 /* Pods */,
+				6A09C75C9B702B5DC20CD33E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -47,6 +117,8 @@
 			isa = PBXGroup;
 			children = (
 				C7DE93C71FD28906006F73F0 /* SocialTodo.app */,
+				E9C91C241FD31D9600ADFEF9 /* SocialTodoTests.xctest */,
+				E9C91C321FD31DC700ADFEF9 /* SocialTodoUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,14 +126,80 @@
 		C7DE93C91FD28906006F73F0 /* SocialTodo */ = {
 			isa = PBXGroup;
 			children = (
+				E9C91C1C1FD31C5900ADFEF9 /* ControllerProtocols */,
+				E9C91C1B1FD31C5200ADFEF9 /* Controllers */,
+				E9C91C191FD31C1300ADFEF9 /* ModelProtocols */,
+				E9C91C181FD31C0B00ADFEF9 /* Models */,
+				E9C91C171FD31C0200ADFEF9 /* ViewControllerProtocols */,
+				E9C91C161FD31BF100ADFEF9 /* ViewControllers */,
 				C7DE93CA1FD28906006F73F0 /* AppDelegate.swift */,
-				C7DE93CC1FD28906006F73F0 /* ViewController.swift */,
 				C7DE93CE1FD28907006F73F0 /* Main.storyboard */,
 				C7DE93D11FD28907006F73F0 /* Assets.xcassets */,
 				C7DE93D31FD28907006F73F0 /* LaunchScreen.storyboard */,
 				C7DE93D61FD28907006F73F0 /* Info.plist */,
 			);
 			path = SocialTodo;
+			sourceTree = "<group>";
+		};
+		E9C91C161FD31BF100ADFEF9 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C7DE93CC1FD28906006F73F0 /* ViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		E9C91C171FD31C0200ADFEF9 /* ViewControllerProtocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllerProtocols;
+			sourceTree = "<group>";
+		};
+		E9C91C181FD31C0B00ADFEF9 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E9C91C191FD31C1300ADFEF9 /* ModelProtocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ModelProtocols;
+			sourceTree = "<group>";
+		};
+		E9C91C1B1FD31C5200ADFEF9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E9C91C1C1FD31C5900ADFEF9 /* ControllerProtocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ControllerProtocols;
+			sourceTree = "<group>";
+		};
+		E9C91C251FD31D9600ADFEF9 /* SocialTodoTests */ = {
+			isa = PBXGroup;
+			children = (
+				E9C91C261FD31D9600ADFEF9 /* SocialTodoTests.swift */,
+				E9C91C281FD31D9600ADFEF9 /* Info.plist */,
+			);
+			path = SocialTodoTests;
+			sourceTree = "<group>";
+		};
+		E9C91C331FD31DC700ADFEF9 /* SocialTodoUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E9C91C341FD31DC700ADFEF9 /* SocialTodoUITests.swift */,
+				E9C91C361FD31DC700ADFEF9 /* Info.plist */,
+			);
+			path = SocialTodoUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +209,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C7DE93D91FD28907006F73F0 /* Build configuration list for PBXNativeTarget "SocialTodo" */;
 			buildPhases = (
+				2B6AA8BEA53E9BB76F75E859 /* [CP] Check Pods Manifest.lock */,
+				E9C91C1D1FD31C7C00ADFEF9 /* Run Swiftlint Linter */,
 				C7DE93C31FD28906006F73F0 /* Sources */,
 				C7DE93C41FD28906006F73F0 /* Frameworks */,
 				C7DE93C51FD28906006F73F0 /* Resources */,
+				44DFC9637D338E786BB9E346 /* [CP] Embed Pods Frameworks */,
+				7F13F91F708FB4D591A810EA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -83,6 +225,42 @@
 			productName = SocialTodo;
 			productReference = C7DE93C71FD28906006F73F0 /* SocialTodo.app */;
 			productType = "com.apple.product-type.application";
+		};
+		E9C91C231FD31D9600ADFEF9 /* SocialTodoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9C91C2B1FD31D9600ADFEF9 /* Build configuration list for PBXNativeTarget "SocialTodoTests" */;
+			buildPhases = (
+				E9C91C201FD31D9600ADFEF9 /* Sources */,
+				E9C91C211FD31D9600ADFEF9 /* Frameworks */,
+				E9C91C221FD31D9600ADFEF9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E9C91C2A1FD31D9600ADFEF9 /* PBXTargetDependency */,
+			);
+			name = SocialTodoTests;
+			productName = SocialTodoTests;
+			productReference = E9C91C241FD31D9600ADFEF9 /* SocialTodoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E9C91C311FD31DC700ADFEF9 /* SocialTodoUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E9C91C391FD31DC700ADFEF9 /* Build configuration list for PBXNativeTarget "SocialTodoUITests" */;
+			buildPhases = (
+				E9C91C2E1FD31DC700ADFEF9 /* Sources */,
+				E9C91C2F1FD31DC700ADFEF9 /* Frameworks */,
+				E9C91C301FD31DC700ADFEF9 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E9C91C381FD31DC700ADFEF9 /* PBXTargetDependency */,
+			);
+			name = SocialTodoUITests;
+			productName = SocialTodoUITests;
+			productReference = E9C91C321FD31DC700ADFEF9 /* SocialTodoUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
@@ -97,6 +275,16 @@
 					C7DE93C61FD28906006F73F0 = {
 						CreatedOnToolsVersion = 9.1;
 						ProvisioningStyle = Automatic;
+					};
+					E9C91C231FD31D9600ADFEF9 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C7DE93C61FD28906006F73F0;
+					};
+					E9C91C311FD31DC700ADFEF9 = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = C7DE93C61FD28906006F73F0;
 					};
 				};
 			};
@@ -114,6 +302,8 @@
 			projectRoot = "";
 			targets = (
 				C7DE93C61FD28906006F73F0 /* SocialTodo */,
+				E9C91C231FD31D9600ADFEF9 /* SocialTodoTests */,
+				E9C91C311FD31DC700ADFEF9 /* SocialTodoUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -123,13 +313,104 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9C91C1F1FD31CD600ADFEF9 /* .swiftlint.yml in Resources */,
 				C7DE93D51FD28907006F73F0 /* LaunchScreen.storyboard in Resources */,
 				C7DE93D21FD28907006F73F0 /* Assets.xcassets in Resources */,
 				C7DE93D01FD28907006F73F0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E9C91C221FD31D9600ADFEF9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9C91C301FD31DC700ADFEF9 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2B6AA8BEA53E9BB76F75E859 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SocialTodo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		44DFC9637D338E786BB9E346 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SocialTodo/Pods-SocialTodo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialTodo/Pods-SocialTodo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F13F91F708FB4D591A810EA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialTodo/Pods-SocialTodo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E9C91C1D1FD31C7C00ADFEF9 /* Run Swiftlint Linter */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Swiftlint Linter";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect\n\"${PODS_ROOT}/SwiftLint/swiftlint\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C7DE93C31FD28906006F73F0 /* Sources */ = {
@@ -141,7 +422,36 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		E9C91C201FD31D9600ADFEF9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9C91C271FD31D9600ADFEF9 /* SocialTodoTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E9C91C2E1FD31DC700ADFEF9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E9C91C351FD31DC700ADFEF9 /* SocialTodoUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E9C91C2A1FD31D9600ADFEF9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C7DE93C61FD28906006F73F0 /* SocialTodo */;
+			targetProxy = E9C91C291FD31D9600ADFEF9 /* PBXContainerItemProxy */;
+		};
+		E9C91C381FD31DC700ADFEF9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C7DE93C61FD28906006F73F0 /* SocialTodo */;
+			targetProxy = E9C91C371FD31DC700ADFEF9 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		C7DE93CE1FD28907006F73F0 /* Main.storyboard */ = {
@@ -272,9 +582,11 @@
 		};
 		C7DE93DA1FD28907006F73F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD1D5EA6703B3A202E5D932F /* Pods-SocialTodo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SocialTodo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.saatvikarya.SocialTodo;
@@ -286,15 +598,75 @@
 		};
 		C7DE93DB1FD28907006F73F0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 935072707C4F55DBB2CFA465 /* Pods-SocialTodo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SocialTodo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = me.saatvikarya.SocialTodo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		E9C91C2C1FD31D9600ADFEF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SocialTodoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.saatvikarya.SocialTodoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SocialTodo.app/SocialTodo";
+			};
+			name = Debug;
+		};
+		E9C91C2D1FD31D9600ADFEF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SocialTodoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.saatvikarya.SocialTodoTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SocialTodo.app/SocialTodo";
+			};
+			name = Release;
+		};
+		E9C91C3A1FD31DC700ADFEF9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SocialTodoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.saatvikarya.SocialTodoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SocialTodo;
+			};
+			name = Debug;
+		};
+		E9C91C3B1FD31DC700ADFEF9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = SocialTodoUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = me.saatvikarya.SocialTodoUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = SocialTodo;
 			};
 			name = Release;
 		};
@@ -315,6 +687,24 @@
 			buildConfigurations = (
 				C7DE93DA1FD28907006F73F0 /* Debug */,
 				C7DE93DB1FD28907006F73F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9C91C2B1FD31D9600ADFEF9 /* Build configuration list for PBXNativeTarget "SocialTodoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9C91C2C1FD31D9600ADFEF9 /* Debug */,
+				E9C91C2D1FD31D9600ADFEF9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E9C91C391FD31DC700ADFEF9 /* Build configuration list for PBXNativeTarget "SocialTodoUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E9C91C3A1FD31DC700ADFEF9 /* Debug */,
+				E9C91C3B1FD31DC700ADFEF9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
