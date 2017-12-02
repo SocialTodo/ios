@@ -16,6 +16,8 @@
 		E9C91C1F1FD31CD600ADFEF9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E9C91C1E1FD31CD600ADFEF9 /* .swiftlint.yml */; };
 		E9C91C271FD31D9600ADFEF9 /* SocialTodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C91C261FD31D9600ADFEF9 /* SocialTodoTests.swift */; };
 		E9C91C351FD31DC700ADFEF9 /* SocialTodoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C91C341FD31DC700ADFEF9 /* SocialTodoUITests.swift */; };
+		E9C91C401FD3274300ADFEF9 /* JSONItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C91C3F1FD3274300ADFEF9 /* JSONItem.swift */; };
+		E9C91C421FD327BB00ADFEF9 /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C91C411FD327BB00ADFEF9 /* JSONObject.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		E9C91C341FD31DC700ADFEF9 /* SocialTodoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialTodoUITests.swift; sourceTree = "<group>"; };
 		E9C91C361FD31DC700ADFEF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9C91C3C1FD31E3200ADFEF9 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		E9C91C3F1FD3274300ADFEF9 /* JSONItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONItem.swift; sourceTree = "<group>"; };
+		E9C91C411FD327BB00ADFEF9 /* JSONObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONObject.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -166,6 +170,8 @@
 		E9C91C191FD31C1300ADFEF9 /* ModelProtocols */ = {
 			isa = PBXGroup;
 			children = (
+				E9C91C3F1FD3274300ADFEF9 /* JSONItem.swift */,
+				E9C91C411FD327BB00ADFEF9 /* JSONObject.swift */,
 			);
 			path = ModelProtocols;
 			sourceTree = "<group>";
@@ -419,6 +425,8 @@
 			files = (
 				C7DE93CD1FD28906006F73F0 /* ViewController.swift in Sources */,
 				C7DE93CB1FD28906006F73F0 /* AppDelegate.swift in Sources */,
+				E9C91C401FD3274300ADFEF9 /* JSONItem.swift in Sources */,
+				E9C91C421FD327BB00ADFEF9 /* JSONObject.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -586,10 +594,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = CH64A7AV3T;
 				INFOPLIST_FILE = SocialTodo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.saatvikarya.SocialTodo;
+				PRODUCT_BUNDLE_IDENTIFIER = me.saatvikarya.SocialTodoB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -602,10 +610,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = CH64A7AV3T;
 				INFOPLIST_FILE = SocialTodo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.saatvikarya.SocialTodo;
+				PRODUCT_BUNDLE_IDENTIFIER = me.saatvikarya.SocialTodoB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
