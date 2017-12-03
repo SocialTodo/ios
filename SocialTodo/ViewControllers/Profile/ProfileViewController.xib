@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="AvenirNext.ttc">
+            <string>AvenirNext-Bold</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProfileViewController" customModule="SocialTodo" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background" translatesAutoresizingMaskIntoConstraints="NO" id="aCz-p8-01c">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lxF-wu-0dW">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="header-bg" translatesAutoresizingMaskIntoConstraints="NO" id="1rx-Qu-lkD">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UCv-Tt-5DF">
+                            <rect key="frame" x="62" y="25" width="233" height="30"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="30" id="HJr-Qn-h5g"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="28"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IJn-k1-iSS">
+                            <rect key="frame" x="307" y="30" width="60" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="60" id="DPe-BV-lGk"/>
+                                <constraint firstAttribute="height" constant="20" id="HkC-ir-9xz"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="14"/>
+                            <state key="normal" title="My Lists">
+                                <color key="titleColor" red="0.86666666670000003" green="0.94901960780000005" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="1rx-Qu-lkD" secondAttribute="trailing" id="4Df-yp-NOn"/>
+                        <constraint firstItem="IJn-k1-iSS" firstAttribute="leading" secondItem="UCv-Tt-5DF" secondAttribute="trailing" constant="12" id="7QE-8s-KRA"/>
+                        <constraint firstAttribute="trailing" secondItem="IJn-k1-iSS" secondAttribute="trailing" constant="8" id="7sp-18-TJ4"/>
+                        <constraint firstItem="UCv-Tt-5DF" firstAttribute="top" secondItem="lxF-wu-0dW" secondAttribute="top" constant="25" id="9zK-Ac-uka"/>
+                        <constraint firstItem="1rx-Qu-lkD" firstAttribute="leading" secondItem="lxF-wu-0dW" secondAttribute="leading" id="BV3-3H-C3Q"/>
+                        <constraint firstItem="UCv-Tt-5DF" firstAttribute="leading" secondItem="lxF-wu-0dW" secondAttribute="leading" constant="62" id="WFl-0J-3q7"/>
+                        <constraint firstItem="IJn-k1-iSS" firstAttribute="top" secondItem="lxF-wu-0dW" secondAttribute="top" constant="30" id="Wcb-ME-s5V"/>
+                        <constraint firstItem="1rx-Qu-lkD" firstAttribute="top" secondItem="lxF-wu-0dW" secondAttribute="top" id="gBL-3i-941"/>
+                        <constraint firstAttribute="bottom" secondItem="1rx-Qu-lkD" secondAttribute="bottom" id="kTK-DT-dsC"/>
+                        <constraint firstAttribute="height" constant="70" id="vPd-33-peu"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="lxF-wu-0dW" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="13b-QS-Kld"/>
+                <constraint firstItem="aCz-p8-01c" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="6ZF-B1-CSd"/>
+                <constraint firstItem="lxF-wu-0dW" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="85Q-Os-FGS"/>
+                <constraint firstItem="lxF-wu-0dW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="EGT-cd-RXM"/>
+                <constraint firstItem="aCz-p8-01c" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="HdH-Cv-ZPp"/>
+                <constraint firstItem="aCz-p8-01c" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="pxC-Jb-1kX"/>
+                <constraint firstItem="aCz-p8-01c" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xlj-HK-tfe"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="background" width="374" height="585"/>
+        <image name="header-bg" width="375" height="81"/>
+    </resources>
+</document>
