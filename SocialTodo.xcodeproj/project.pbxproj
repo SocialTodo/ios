@@ -10,18 +10,18 @@
 		2AF03924BCD5FFC791FC4C22 /* Pods_SocialTodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A316BBAF39B18577D51709F9 /* Pods_SocialTodoTests.framework */; };
 		56297F7FC7ECD9FA9F3689E7 /* Pods_SocialTodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3B8FDD0BED0161CCC582B9 /* Pods_SocialTodoUITests.framework */; };
 		C77EBE901FD3D4F4004403B0 /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77EBE8E1FD3D4F4004403B0 /* AddFriendsViewController.swift */; };
-		C77EBE911FD3D4F4004403B0 /* AddFriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C77EBE8F1FD3D4F4004403B0 /* AddFriendsViewController.xib */; };
 		C77EBE981FD3D58A004403B0 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77EBE961FD3D589004403B0 /* FriendsViewController.swift */; };
-		C77EBE991FD3D58A004403B0 /* FriendsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C77EBE971FD3D589004403B0 /* FriendsViewController.xib */; };
 		C77EBE9E1FD3D5B7004403B0 /* TodoListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77EBE9C1FD3D5B7004403B0 /* TodoListsViewController.swift */; };
-		C77EBE9F1FD3D5B7004403B0 /* TodoListsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C77EBE9D1FD3D5B7004403B0 /* TodoListsViewController.xib */; };
 		C77EBEA21FD3D5C7004403B0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77EBEA01FD3D5C7004403B0 /* ProfileViewController.swift */; };
-		C77EBEA31FD3D5C7004403B0 /* ProfileViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = C77EBEA11FD3D5C7004403B0 /* ProfileViewController.xib */; };
 		C7DE93CB1FD28906006F73F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE93CA1FD28906006F73F0 /* AppDelegate.swift */; };
 		C7DE93CD1FD28906006F73F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE93CC1FD28906006F73F0 /* ViewController.swift */; };
 		C7DE93D01FD28907006F73F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DE93CE1FD28907006F73F0 /* Main.storyboard */; };
 		C7DE93D21FD28907006F73F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DE93D11FD28907006F73F0 /* Assets.xcassets */; };
 		C7DE93D51FD28907006F73F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DE93D31FD28907006F73F0 /* LaunchScreen.storyboard */; };
+		C7EE8D621FD4846E00FDC1A9 /* AddFriends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7EE8D611FD4846E00FDC1A9 /* AddFriends.storyboard */; };
+		C7EE8D641FD4848100FDC1A9 /* Friends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7EE8D631FD4848100FDC1A9 /* Friends.storyboard */; };
+		C7EE8D661FD4849D00FDC1A9 /* TodoLists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7EE8D651FD4849D00FDC1A9 /* TodoLists.storyboard */; };
+		C7EE8D681FD484AC00FDC1A9 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7EE8D671FD484AC00FDC1A9 /* Profile.storyboard */; };
 		CF993520D47F9D90AED1AEC1 /* Pods_SocialTodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F981D4E3C21844FED7544BC /* Pods_SocialTodo.framework */; };
 		E9C91C1F1FD31CD600ADFEF9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E9C91C1E1FD31CD600ADFEF9 /* .swiftlint.yml */; };
 		E9C91C271FD31D9600ADFEF9 /* SocialTodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C91C261FD31D9600ADFEF9 /* SocialTodoTests.swift */; };
@@ -57,13 +57,9 @@
 		BDF4CEC4A93E958D18B338A3 /* Pods-SocialTodoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTodoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTodoUITests/Pods-SocialTodoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		BE3B8FDD0BED0161CCC582B9 /* Pods_SocialTodoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialTodoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C77EBE8E1FD3D4F4004403B0 /* AddFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsViewController.swift; sourceTree = "<group>"; };
-		C77EBE8F1FD3D4F4004403B0 /* AddFriendsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddFriendsViewController.xib; sourceTree = "<group>"; };
 		C77EBE961FD3D589004403B0 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
-		C77EBE971FD3D589004403B0 /* FriendsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendsViewController.xib; sourceTree = "<group>"; };
 		C77EBE9C1FD3D5B7004403B0 /* TodoListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListsViewController.swift; sourceTree = "<group>"; };
-		C77EBE9D1FD3D5B7004403B0 /* TodoListsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TodoListsViewController.xib; sourceTree = "<group>"; };
 		C77EBEA01FD3D5C7004403B0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
-		C77EBEA11FD3D5C7004403B0 /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		C7DE93C71FD28906006F73F0 /* SocialTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DE93CA1FD28906006F73F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7DE93CC1FD28906006F73F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +67,10 @@
 		C7DE93D11FD28907006F73F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7DE93D41FD28907006F73F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7DE93D61FD28907006F73F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C7EE8D611FD4846E00FDC1A9 /* AddFriends.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddFriends.storyboard; sourceTree = "<group>"; };
+		C7EE8D631FD4848100FDC1A9 /* Friends.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Friends.storyboard; sourceTree = "<group>"; };
+		C7EE8D651FD4849D00FDC1A9 /* TodoLists.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TodoLists.storyboard; sourceTree = "<group>"; };
+		C7EE8D671FD484AC00FDC1A9 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		E9C91C1E1FD31CD600ADFEF9 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		E9C91C241FD31D9600ADFEF9 /* SocialTodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialTodoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C91C261FD31D9600ADFEF9 /* SocialTodoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialTodoTests.swift; sourceTree = "<group>"; };
@@ -138,8 +138,8 @@
 		C77EBE8D1FD3D4CF004403B0 /* AddFriends */ = {
 			isa = PBXGroup;
 			children = (
+				C7EE8D611FD4846E00FDC1A9 /* AddFriends.storyboard */,
 				C77EBE8E1FD3D4F4004403B0 /* AddFriendsViewController.swift */,
-				C77EBE8F1FD3D4F4004403B0 /* AddFriendsViewController.xib */,
 			);
 			path = AddFriends;
 			sourceTree = "<group>";
@@ -147,8 +147,8 @@
 		C77EBE921FD3D51E004403B0 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
+				C7EE8D631FD4848100FDC1A9 /* Friends.storyboard */,
 				C77EBE961FD3D589004403B0 /* FriendsViewController.swift */,
-				C77EBE971FD3D589004403B0 /* FriendsViewController.xib */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -156,8 +156,8 @@
 		C77EBE941FD3D53A004403B0 /* TodoLists */ = {
 			isa = PBXGroup;
 			children = (
+				C7EE8D651FD4849D00FDC1A9 /* TodoLists.storyboard */,
 				C77EBE9C1FD3D5B7004403B0 /* TodoListsViewController.swift */,
-				C77EBE9D1FD3D5B7004403B0 /* TodoListsViewController.xib */,
 			);
 			path = TodoLists;
 			sourceTree = "<group>";
@@ -165,8 +165,8 @@
 		C77EBE951FD3D544004403B0 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				C7EE8D671FD484AC00FDC1A9 /* Profile.storyboard */,
 				C77EBEA01FD3D5C7004403B0 /* ProfileViewController.swift */,
-				C77EBEA11FD3D5C7004403B0 /* ProfileViewController.xib */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -367,12 +367,12 @@
 			files = (
 				E9C91C1F1FD31CD600ADFEF9 /* .swiftlint.yml in Resources */,
 				C7DE93D51FD28907006F73F0 /* LaunchScreen.storyboard in Resources */,
-				C77EBEA31FD3D5C7004403B0 /* ProfileViewController.xib in Resources */,
-				C77EBE991FD3D58A004403B0 /* FriendsViewController.xib in Resources */,
-				C77EBE9F1FD3D5B7004403B0 /* TodoListsViewController.xib in Resources */,
+				C7EE8D621FD4846E00FDC1A9 /* AddFriends.storyboard in Resources */,
+				C7EE8D681FD484AC00FDC1A9 /* Profile.storyboard in Resources */,
+				C7EE8D661FD4849D00FDC1A9 /* TodoLists.storyboard in Resources */,
+				C7EE8D641FD4848100FDC1A9 /* Friends.storyboard in Resources */,
 				C7DE93D21FD28907006F73F0 /* Assets.xcassets in Resources */,
 				C7DE93D01FD28907006F73F0 /* Main.storyboard in Resources */,
-				C77EBE911FD3D4F4004403B0 /* AddFriendsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
