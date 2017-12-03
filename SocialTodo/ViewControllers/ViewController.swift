@@ -53,6 +53,7 @@ class ViewController: UIViewController {
     profile.view.frame = profileFrame
 
     self.scrollView.contentSize = CGSize(width: self.view.frame.width * 4, height: self.view.frame.size.height)
+    self.scrollView.setContentOffset(CGPoint(x: todoListsFrame.origin.x, y: todoListsFrame.origin.y), animated: true)
   }
 
   override func didReceiveMemoryWarning() {
