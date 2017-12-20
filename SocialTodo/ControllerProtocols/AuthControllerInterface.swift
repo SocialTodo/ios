@@ -1,12 +1,10 @@
-//
-//  AuthControllerInterface.swift
-//  SocialTodo
-//
-//  Created by Brannen Hall on 17-12-02.
-//  Copyright © 2017 Saatvik Arya. All rights reserved.
-//
+/**
+ # AuthControllerInterface
 
-import Foundation
+ A protocol that the AppDelegate class conforms to, which allows the application to call methods that typically would
+ be called on AuthController to allow the AppController to abstract away these objects.
+
+ */
 
 protocol AuthControllerInterface {
   //Use an implictly unwrapped optional because AppDelegate does not use traditional initializers.
@@ -14,5 +12,17 @@ protocol AuthControllerInterface {
 }
 
 extension AuthControllerInterface {
+  /**
+   If AccessToken.current is set to nil, this segues to the FacebookLoginViewController.
+   */
+  public func login() {
+    authController.login()
+  }
 
+  /**
+   Sets AccessToken.current to nil.
+   */
+  public func logout() {
+    authController.logout()
+  }
 }
