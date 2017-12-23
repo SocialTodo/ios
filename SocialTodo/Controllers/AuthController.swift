@@ -8,10 +8,6 @@ import FacebookCore
 import FacebookLogin
 
 class AuthController {
-    init() {
-
-    }
-
     public func login() {
         if AccessToken.current == nil {
             LoginManager().logIn(readPermissions: [.publicProfile, .email, .userFriends]) { (loginResult) in
