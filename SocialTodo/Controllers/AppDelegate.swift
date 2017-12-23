@@ -1,20 +1,21 @@
-//
-//  AppDelegate.swift
-//  SocialTodo
-//
-//  Created by Saatvik Arya on 12/2/17.
-//  Copyright © 2017 Saatvik Arya. All rights reserved.
-//
+/**
+ # App Delegat
+
+ */
 
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, DataControllerInterface, AuthControllerInterface {
 
   var window: UIWindow?
+  var dataController: DataController!
+  var authController: AuthController!
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
+    dataController = DataController()
+    authController = AuthController()
+    login()
     return true
   }
 
