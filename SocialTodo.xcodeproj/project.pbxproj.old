@@ -7,32 +7,34 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		068F42D3C175EE9B1F065828 /* Pods_SocialTodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE7ABA2DA3A0EB2222C769D /* Pods_SocialTodoUITests.framework */; };
-		C3F555C32976F5814ABDEF44 /* Pods_SocialTodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F619CA36187BD76A29B6BB28 /* Pods_SocialTodoTests.framework */; };
+		2AF03924BCD5FFC791FC4C22 /* Pods_SocialTodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A316BBAF39B18577D51709F9 /* Pods_SocialTodoTests.framework */; };
+		56297F7FC7ECD9FA9F3689E7 /* Pods_SocialTodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BE3B8FDD0BED0161CCC582B9 /* Pods_SocialTodoUITests.framework */; };
+		C77EBE901FD3D4F4004403B0 /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77EBE8E1FD3D4F4004403B0 /* AddFriendsViewController.swift */; };
+		C77EBE981FD3D58A004403B0 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77EBE961FD3D589004403B0 /* FriendsViewController.swift */; };
+		C77EBE9E1FD3D5B7004403B0 /* TodoListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77EBE9C1FD3D5B7004403B0 /* TodoListsViewController.swift */; };
+		C77EBEA21FD3D5C7004403B0 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77EBEA01FD3D5C7004403B0 /* ProfileViewController.swift */; };
+		634E11D8DF9FB39AD597C141 /* AuthControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E1EE1F38143014066A1F9 /* AuthControllerInterface.swift */; };
+		634E159ECA6ACB189EAF8994 /* DataControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = 634E14115BD735CDB3F83A32 /* DataControllerInterface.swift */; };
+		90DF38ECC262CDA54896E662 /* Pods_SocialTodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F619CA36187BD76A29B6BB28 /* Pods_SocialTodoTests.framework */; };
+		C7DE93CB1FD28906006F73F0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE93CA1FD28906006F73F0 /* AppDelegate.swift */; };
 		C7DE93CD1FD28906006F73F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE93CC1FD28906006F73F0 /* ViewController.swift */; };
 		C7DE93D01FD28907006F73F0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DE93CE1FD28907006F73F0 /* Main.storyboard */; };
 		C7DE93D21FD28907006F73F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DE93D11FD28907006F73F0 /* Assets.xcassets */; };
 		C7DE93D51FD28907006F73F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DE93D31FD28907006F73F0 /* LaunchScreen.storyboard */; };
+		C7EE8D621FD4846E00FDC1A9 /* AddFriends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7EE8D611FD4846E00FDC1A9 /* AddFriends.storyboard */; };
+		C7EE8D641FD4848100FDC1A9 /* Friends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7EE8D631FD4848100FDC1A9 /* Friends.storyboard */; };
+		C7EE8D661FD4849D00FDC1A9 /* TodoLists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7EE8D651FD4849D00FDC1A9 /* TodoLists.storyboard */; };
+		C7EE8D681FD484AC00FDC1A9 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7EE8D671FD484AC00FDC1A9 /* Profile.storyboard */; };
+		C8F740E0E290EED3DBB85ABF /* Pods_SocialTodoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE7ABA2DA3A0EB2222C769D /* Pods_SocialTodoUITests.framework */; };
 		CF993520D47F9D90AED1AEC1 /* Pods_SocialTodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F981D4E3C21844FED7544BC /* Pods_SocialTodo.framework */; };
-		E9848CA21FEEFEB8007ECCB2 /* FacebookLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D069671FE8A97C0044BDF4 /* FacebookLoginTest.swift */; };
+		E91F9D381FD341C200C01484 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91F9D371FD341C200C01484 /* DataController.swift */; };
+		E91F9D3A1FD341CF00C01484 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E91F9D391FD341CF00C01484 /* AuthController.swift */; };
 		E9C91C1F1FD31CD600ADFEF9 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E9C91C1E1FD31CD600ADFEF9 /* .swiftlint.yml */; };
 		E9C91C271FD31D9600ADFEF9 /* SocialTodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C91C261FD31D9600ADFEF9 /* SocialTodoTests.swift */; };
 		E9C91C351FD31DC700ADFEF9 /* SocialTodoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C91C341FD31DC700ADFEF9 /* SocialTodoUITests.swift */; };
 		E9C91C401FD3274300ADFEF9 /* JSONItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C91C3F1FD3274300ADFEF9 /* JSONItem.swift */; };
-		E9CBCF571FEEDBF800E8D7F7 /* DataControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBCF551FEEDBF800E8D7F7 /* DataControllerInterface.swift */; };
-		E9CBCF581FEEDBF800E8D7F7 /* AuthControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBCF561FEEDBF800E8D7F7 /* AuthControllerInterface.swift */; };
-		E9CBCF5C1FEEDC0100E8D7F7 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBCF591FEEDC0100E8D7F7 /* AuthController.swift */; };
-		E9CBCF5D1FEEDC0100E8D7F7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBCF5A1FEEDC0100E8D7F7 /* DataController.swift */; };
-		E9CBCF5E1FEEDC0100E8D7F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBCF5B1FEEDC0100E8D7F7 /* AppDelegate.swift */; };
-		E9CBCF611FEEDE4300E8D7F7 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7EE8D671FD484AC00FDC1A9 /* Profile.storyboard */; };
-		E9CBCF621FEEDE4700E8D7F7 /* AddFriends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7EE8D611FD4846E00FDC1A9 /* AddFriends.storyboard */; };
-		E9CBCF631FEEDE4E00E8D7F7 /* TodoLists.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7EE8D651FD4849D00FDC1A9 /* TodoLists.storyboard */; };
-		E9CBCF641FEEDE5100E8D7F7 /* Friends.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7EE8D631FD4848100FDC1A9 /* Friends.storyboard */; };
-		E9CBCF651FEEE36C00E8D7F7 /* JSONCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C91C411FD327BB00ADFEF9 /* JSONCollection.swift */; };
-		E9CBCF661FEEE37000E8D7F7 /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77EBE8E1FD3D4F4004403B0 /* AddFriendsViewController.swift */; };
-		E9CBCF671FEEE37400E8D7F7 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77EBE961FD3D589004403B0 /* FriendsViewController.swift */; };
-		E9CBCF681FEEE37700E8D7F7 /* TodoListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77EBE9C1FD3D5B7004403B0 /* TodoListsViewController.swift */; };
-		E9CBCF691FEEE37A00E8D7F7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77EBEA01FD3D5C7004403B0 /* ProfileViewController.swift */; };
+		E9C91C421FD327BB00ADFEF9 /* JSONCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C91C411FD327BB00ADFEF9 /* JSONCollection.swift */; };
+		E9D069681FE8A97C0044BDF4 /* FacebookLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D069671FE8A97C0044BDF4 /* FacebookLoginTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,15 +59,21 @@
 		2492E0CC40A0E1BC286238D9 /* Pods-SocialTodoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTodoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTodoTests/Pods-SocialTodoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2EF4B615255B39FCCFFF5700 /* Pods-SocialTodoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTodoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTodoTests/Pods-SocialTodoTests.release.xcconfig"; sourceTree = "<group>"; };
 		41502CAF0E2DCBA449EA0A2A /* Pods-SocialTodoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTodoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTodoUITests/Pods-SocialTodoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		634E14115BD735CDB3F83A32 /* DataControllerInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataControllerInterface.swift; sourceTree = "<group>"; };
+		634E1EE1F38143014066A1F9 /* AuthControllerInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthControllerInterface.swift; sourceTree = "<group>"; };
 		6AE7ABA2DA3A0EB2222C769D /* Pods_SocialTodoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialTodoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		79030B743087874D844CB600 /* Pods-SocialTodoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTodoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTodoUITests/Pods-SocialTodoUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		935072707C4F55DBB2CFA465 /* Pods-SocialTodo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTodo.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTodo/Pods-SocialTodo.release.xcconfig"; sourceTree = "<group>"; };
+		A316BBAF39B18577D51709F9 /* Pods_SocialTodoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialTodoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD1D5EA6703B3A202E5D932F /* Pods-SocialTodo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTodo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTodo/Pods-SocialTodo.debug.xcconfig"; sourceTree = "<group>"; };
+		BDF4CEC4A93E958D18B338A3 /* Pods-SocialTodoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTodoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTodoUITests/Pods-SocialTodoUITests.release.xcconfig"; sourceTree = "<group>"; };
+		BE3B8FDD0BED0161CCC582B9 /* Pods_SocialTodoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialTodoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C77EBE8E1FD3D4F4004403B0 /* AddFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsViewController.swift; sourceTree = "<group>"; };
 		C77EBE961FD3D589004403B0 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		C77EBE9C1FD3D5B7004403B0 /* TodoListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListsViewController.swift; sourceTree = "<group>"; };
 		C77EBEA01FD3D5C7004403B0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		C7DE93C71FD28906006F73F0 /* SocialTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7DE93CA1FD28906006F73F0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7DE93CC1FD28906006F73F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C7DE93CF1FD28907006F73F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C7DE93D11FD28907006F73F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -75,6 +83,8 @@
 		C7EE8D631FD4848100FDC1A9 /* Friends.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Friends.storyboard; sourceTree = "<group>"; };
 		C7EE8D651FD4849D00FDC1A9 /* TodoLists.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TodoLists.storyboard; sourceTree = "<group>"; };
 		C7EE8D671FD484AC00FDC1A9 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		E91F9D371FD341C200C01484 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		E91F9D391FD341CF00C01484 /* AuthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		E9C91C1E1FD31CD600ADFEF9 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text; path = .swiftlint.yml; sourceTree = "<group>"; };
 		E9C91C241FD31D9600ADFEF9 /* SocialTodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialTodoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C91C261FD31D9600ADFEF9 /* SocialTodoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialTodoTests.swift; sourceTree = "<group>"; };
@@ -84,12 +94,9 @@
 		E9C91C361FD31DC700ADFEF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9C91C3C1FD31E3200ADFEF9 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		E9C91C3F1FD3274300ADFEF9 /* JSONItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONItem.swift; sourceTree = "<group>"; };
+		E9C91C411FD327BB00ADFEF9 /* JSONObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONObject.swift; sourceTree = "<group>"; };
+		EA4E537541C5A4BD4D653ED0 /* Pods-SocialTodoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SocialTodoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SocialTodoTests/Pods-SocialTodoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E9C91C411FD327BB00ADFEF9 /* JSONCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCollection.swift; sourceTree = "<group>"; };
-		E9CBCF551FEEDBF800E8D7F7 /* DataControllerInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataControllerInterface.swift; sourceTree = "<group>"; };
-		E9CBCF561FEEDBF800E8D7F7 /* AuthControllerInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthControllerInterface.swift; sourceTree = "<group>"; };
-		E9CBCF591FEEDC0100E8D7F7 /* AuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
-		E9CBCF5A1FEEDC0100E8D7F7 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
-		E9CBCF5B1FEEDC0100E8D7F7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E9D069671FE8A97C0044BDF4 /* FacebookLoginTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookLoginTest.swift; sourceTree = "<group>"; };
 		F619CA36187BD76A29B6BB28 /* Pods_SocialTodoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SocialTodoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -107,7 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C3F555C32976F5814ABDEF44 /* Pods_SocialTodoTests.framework in Frameworks */,
+				2AF03924BCD5FFC791FC4C22 /* Pods_SocialTodoTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -115,7 +122,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				068F42D3C175EE9B1F065828 /* Pods_SocialTodoUITests.framework in Frameworks */,
+				C8F740E0E290EED3DBB85ABF /* Pods_SocialTodoUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,12 +215,8 @@
 		C7DE93C91FD28906006F73F0 /* SocialTodo */ = {
 			isa = PBXGroup;
 			children = (
-				E9CBCF541FEEDBD700E8D7F7 /* Controllers */,
-				E9CBCF531FEEDBD000E8D7F7 /* ControllerProtocols */,
-				E9CBCF5F1FEEDC1A00E8D7F7 /* Models */,
 				E9C91C191FD31C1300ADFEF9 /* ModelProtocols */,
 				E9C91C161FD31BF100ADFEF9 /* ViewControllers */,
-				E9CBCF601FEEDC3F00E8D7F7 /* ViewControllerProtocols */,
 				C7DE93CE1FD28907006F73F0 /* Main.storyboard */,
 				C7DE93D11FD28907006F73F0 /* Assets.xcassets */,
 				C7DE93D31FD28907006F73F0 /* LaunchScreen.storyboard */,
@@ -243,6 +246,28 @@
 			path = ModelProtocols;
 			sourceTree = "<group>";
 		};
+<<<<<<< HEAD
+=======
+		E9C91C1B1FD31C5200ADFEF9 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C7DE93CA1FD28906006F73F0 /* AppDelegate.swift */,
+				E91F9D371FD341C200C01484 /* DataController.swift */,
+				E91F9D391FD341CF00C01484 /* AuthController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		E9C91C1C1FD31C5900ADFEF9 /* ControllerProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				634E14115BD735CDB3F83A32 /* DataControllerInterface.swift */,
+				634E1EE1F38143014066A1F9 /* AuthControllerInterface.swift */,
+			);
+			path = ControllerProtocols;
+			sourceTree = "<group>";
+		};
+>>>>>>> fd2f83364c929540652d04562dde3da6a5b8e1c8
 		E9C91C251FD31D9600ADFEF9 /* SocialTodoTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -261,39 +286,6 @@
 				E9C91C361FD31DC700ADFEF9 /* Info.plist */,
 			);
 			path = SocialTodoUITests;
-			sourceTree = "<group>";
-		};
-		E9CBCF531FEEDBD000E8D7F7 /* ControllerProtocols */ = {
-			isa = PBXGroup;
-			children = (
-				E9CBCF561FEEDBF800E8D7F7 /* AuthControllerInterface.swift */,
-				E9CBCF551FEEDBF800E8D7F7 /* DataControllerInterface.swift */,
-			);
-			path = ControllerProtocols;
-			sourceTree = "<group>";
-		};
-		E9CBCF541FEEDBD700E8D7F7 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				E9CBCF5B1FEEDC0100E8D7F7 /* AppDelegate.swift */,
-				E9CBCF591FEEDC0100E8D7F7 /* AuthController.swift */,
-				E9CBCF5A1FEEDC0100E8D7F7 /* DataController.swift */,
-			);
-			path = Controllers;
-			sourceTree = "<group>";
-		};
-		E9CBCF5F1FEEDC1A00E8D7F7 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		E9CBCF601FEEDC3F00E8D7F7 /* ViewControllerProtocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewControllerProtocols;
 			sourceTree = "<group>";
 		};
 		E9D069651FE8A8EE0044BDF4 /* ModelTests */ = {
@@ -319,12 +311,12 @@
 			buildConfigurationList = C7DE93D91FD28907006F73F0 /* Build configuration list for PBXNativeTarget "SocialTodo" */;
 			buildPhases = (
 				2B6AA8BEA53E9BB76F75E859 /* [CP] Check Pods Manifest.lock */,
-				E9C91C1D1FD31C7C00ADFEF9 /* Run Swiftlint Linter */,
 				C7DE93C31FD28906006F73F0 /* Sources */,
 				C7DE93C41FD28906006F73F0 /* Frameworks */,
 				C7DE93C51FD28906006F73F0 /* Resources */,
 				44DFC9637D338E786BB9E346 /* [CP] Embed Pods Frameworks */,
 				7F13F91F708FB4D591A810EA /* [CP] Copy Pods Resources */,
+				E9C91C1D1FD31C7C00ADFEF9 /* Run Swiftlint Linter */,
 			);
 			buildRules = (
 			);
@@ -339,12 +331,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E9C91C2B1FD31D9600ADFEF9 /* Build configuration list for PBXNativeTarget "SocialTodoTests" */;
 			buildPhases = (
-				034B0DE8886E136D97DFAECD /* [CP] Check Pods Manifest.lock */,
+<<<<<<< HEAD
+				8C2AA4E7D57FC7AFB37F3903 /* [CP] Check Pods Manifest.lock */,
 				E9C91C201FD31D9600ADFEF9 /* Sources */,
 				E9C91C211FD31D9600ADFEF9 /* Frameworks */,
 				E9C91C221FD31D9600ADFEF9 /* Resources */,
-				49EA21B5EAE14409DEE1F24E /* [CP] Embed Pods Frameworks */,
-				FCDFCE24950662696F709CB8 /* [CP] Copy Pods Resources */,
+				FF3302BC84D9AEAD45D9886A /* [CP] Embed Pods Frameworks */,
+				5A7FA8872D52C4266B5FAF20 /* [CP] Copy Pods Resources */,
+=======
+				61ABE9BF7DAEBEE004FDB585 /* [CP] Check Pods Manifest.lock */,
+				E9C91C201FD31D9600ADFEF9 /* Sources */,
+				E9C91C211FD31D9600ADFEF9 /* Frameworks */,
+				E9C91C221FD31D9600ADFEF9 /* Resources */,
+				CD90E9D01A2CABD69C688EE2 /* [CP] Embed Pods Frameworks */,
+				70B1B1DA987A2D1F1FBA4281 /* [CP] Copy Pods Resources */,
+>>>>>>> fd2f83364c929540652d04562dde3da6a5b8e1c8
 			);
 			buildRules = (
 			);
@@ -360,12 +361,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E9C91C391FD31DC700ADFEF9 /* Build configuration list for PBXNativeTarget "SocialTodoUITests" */;
 			buildPhases = (
-				9DC0DE92E47B53BD0B70F690 /* [CP] Check Pods Manifest.lock */,
+<<<<<<< HEAD
+				7CCDFE573BC42FEE1C2362B2 /* [CP] Check Pods Manifest.lock */,
 				E9C91C2E1FD31DC700ADFEF9 /* Sources */,
 				E9C91C2F1FD31DC700ADFEF9 /* Frameworks */,
 				E9C91C301FD31DC700ADFEF9 /* Resources */,
-				553B6055E4C8CE2D41E3087A /* [CP] Embed Pods Frameworks */,
-				31DB77385B010C872EFF7C4B /* [CP] Copy Pods Resources */,
+				C9B10819AF71ADEE390EA589 /* [CP] Embed Pods Frameworks */,
+				71F2AD2B3ACA849432DFF1A4 /* [CP] Copy Pods Resources */,
+=======
+				3D2421649D4E983CB18565CE /* [CP] Check Pods Manifest.lock */,
+				E9C91C2E1FD31DC700ADFEF9 /* Sources */,
+				E9C91C2F1FD31DC700ADFEF9 /* Frameworks */,
+				E9C91C301FD31DC700ADFEF9 /* Resources */,
+				E76CD5D9C3FC0B641BCCB27B /* [CP] Embed Pods Frameworks */,
+				29E7F5DDDBE962A81154218D /* [CP] Copy Pods Resources */,
+>>>>>>> fd2f83364c929540652d04562dde3da6a5b8e1c8
 			);
 			buildRules = (
 			);
@@ -428,12 +438,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9CBCF641FEEDE5100E8D7F7 /* Friends.storyboard in Resources */,
-				E9CBCF631FEEDE4E00E8D7F7 /* TodoLists.storyboard in Resources */,
-				E9CBCF621FEEDE4700E8D7F7 /* AddFriends.storyboard in Resources */,
-				E9CBCF611FEEDE4300E8D7F7 /* Profile.storyboard in Resources */,
 				E9C91C1F1FD31CD600ADFEF9 /* .swiftlint.yml in Resources */,
 				C7DE93D51FD28907006F73F0 /* LaunchScreen.storyboard in Resources */,
+				C7EE8D621FD4846E00FDC1A9 /* AddFriends.storyboard in Resources */,
+				C7EE8D681FD484AC00FDC1A9 /* Profile.storyboard in Resources */,
+				C7EE8D661FD4849D00FDC1A9 /* TodoLists.storyboard in Resources */,
+				C7EE8D641FD4848100FDC1A9 /* Friends.storyboard in Resources */,
 				C7DE93D21FD28907006F73F0 /* Assets.xcassets in Resources */,
 				C7DE93D01FD28907006F73F0 /* Main.storyboard in Resources */,
 			);
@@ -456,22 +466,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		034B0DE8886E136D97DFAECD /* [CP] Check Pods Manifest.lock */ = {
+		29E7F5DDDBE962A81154218D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SocialTodoTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialTodoUITests/Pods-SocialTodoUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		2B6AA8BEA53E9BB76F75E859 /* [CP] Check Pods Manifest.lock */ = {
@@ -492,19 +499,22 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		31DB77385B010C872EFF7C4B /* [CP] Copy Pods Resources */ = {
+		3D2421649D4E983CB18565CE /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SocialTodoUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialTodoUITests/Pods-SocialTodoUITests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		44DFC9637D338E786BB9E346 /* [CP] Embed Pods Frameworks */ = {
@@ -535,12 +545,118 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialTodo/Pods-SocialTodo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		49EA21B5EAE14409DEE1F24E /* [CP] Embed Pods Frameworks */ = {
+<<<<<<< HEAD
+		5A7FA8872D52C4266B5FAF20 /* [CP] Copy Pods Resources */ = {
+=======
+		61ABE9BF7DAEBEE004FDB585 /* [CP] Check Pods Manifest.lock */ = {
+>>>>>>> fd2f83364c929540652d04562dde3da6a5b8e1c8
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+<<<<<<< HEAD
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialTodoTests/Pods-SocialTodoTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		71F2AD2B3ACA849432DFF1A4 /* [CP] Copy Pods Resources */ = {
+=======
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SocialTodoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		70B1B1DA987A2D1F1FBA4281 /* [CP] Copy Pods Resources */ = {
+>>>>>>> fd2f83364c929540652d04562dde3da6a5b8e1c8
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+<<<<<<< HEAD
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialTodoUITests/Pods-SocialTodoUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7CCDFE573BC42FEE1C2362B2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SocialTodoUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+=======
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialTodoTests/Pods-SocialTodoTests-resources.sh\"\n";
+>>>>>>> fd2f83364c929540652d04562dde3da6a5b8e1c8
+			showEnvVarsInLog = 0;
+		};
+		7F13F91F708FB4D591A810EA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialTodo/Pods-SocialTodo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+<<<<<<< HEAD
+		8C2AA4E7D57FC7AFB37F3903 /* [CP] Check Pods Manifest.lock */ = {
+=======
+		CD90E9D01A2CABD69C688EE2 /* [CP] Embed Pods Frameworks */ = {
+>>>>>>> fd2f83364c929540652d04562dde3da6a5b8e1c8
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+<<<<<<< HEAD
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SocialTodoTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C9B10819AF71ADEE390EA589 /* [CP] Embed Pods Frameworks */ = {
+=======
 				"${SRCROOT}/Pods/Target Support Files/Pods-SocialTodoTests/Pods-SocialTodoTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
@@ -563,14 +679,18 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialTodoTests/Pods-SocialTodoTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		553B6055E4C8CE2D41E3087A /* [CP] Embed Pods Frameworks */ = {
+		E76CD5D9C3FC0B641BCCB27B /* [CP] Embed Pods Frameworks */ = {
+>>>>>>> fd2f83364c929540652d04562dde3da6a5b8e1c8
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SocialTodoUITests/Pods-SocialTodoUITests-frameworks.sh",
+<<<<<<< HEAD
+=======
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+>>>>>>> fd2f83364c929540652d04562dde3da6a5b8e1c8
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
@@ -579,7 +699,10 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+<<<<<<< HEAD
+=======
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+>>>>>>> fd2f83364c929540652d04562dde3da6a5b8e1c8
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
@@ -589,39 +712,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialTodoUITests/Pods-SocialTodoUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7F13F91F708FB4D591A810EA /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialTodo/Pods-SocialTodo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9DC0DE92E47B53BD0B70F690 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SocialTodoUITests-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E9C91C1D1FD31C7C00ADFEF9 /* Run Swiftlint Linter */ = {
@@ -638,19 +728,30 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/SwiftLint/swiftlint\" autocorrect\n\"${PODS_ROOT}/SwiftLint/swiftlint\"";
 		};
-		FCDFCE24950662696F709CB8 /* [CP] Copy Pods Resources */ = {
+		FF3302BC84D9AEAD45D9886A /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SocialTodoTests/Pods-SocialTodoTests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
+				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
 			);
-			name = "[CP] Copy Pods Resources";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialTodoTests/Pods-SocialTodoTests-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SocialTodoTests/Pods-SocialTodoTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -660,18 +761,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E9CBCF691FEEE37A00E8D7F7 /* ProfileViewController.swift in Sources */,
-				E9CBCF681FEEE37700E8D7F7 /* TodoListsViewController.swift in Sources */,
-				E9CBCF671FEEE37400E8D7F7 /* FriendsViewController.swift in Sources */,
-				E9CBCF661FEEE37000E8D7F7 /* AddFriendsViewController.swift in Sources */,
-				E9CBCF651FEEE36C00E8D7F7 /* JSONCollection.swift in Sources */,
+				E91F9D381FD341C200C01484 /* DataController.swift in Sources */,
+				E91F9D3A1FD341CF00C01484 /* AuthController.swift in Sources */,
 				C7DE93CD1FD28906006F73F0 /* ViewController.swift in Sources */,
-				E9CBCF5D1FEEDC0100E8D7F7 /* DataController.swift in Sources */,
-				E9CBCF571FEEDBF800E8D7F7 /* DataControllerInterface.swift in Sources */,
-				E9CBCF5C1FEEDC0100E8D7F7 /* AuthController.swift in Sources */,
-				E9CBCF5E1FEEDC0100E8D7F7 /* AppDelegate.swift in Sources */,
+				C77EBE901FD3D4F4004403B0 /* AddFriendsViewController.swift in Sources */,
+				C7DE93CB1FD28906006F73F0 /* AppDelegate.swift in Sources */,
 				E9C91C401FD3274300ADFEF9 /* JSONItem.swift in Sources */,
-				E9CBCF581FEEDBF800E8D7F7 /* AuthControllerInterface.swift in Sources */,
+<<<<<<< HEAD
+				C77EBE9E1FD3D5B7004403B0 /* TodoListsViewController.swift in Sources */,
+				C77EBE981FD3D58A004403B0 /* FriendsViewController.swift in Sources */,
+				C77EBEA21FD3D5C7004403B0 /* ProfileViewController.swift in Sources */,
+				E9C91C421FD327BB00ADFEF9 /* JSONObject.swift in Sources */,
+=======
+				E9C91C421FD327BB00ADFEF9 /* JSONCollection.swift in Sources */,
+				634E159ECA6ACB189EAF8994 /* DataControllerInterface.swift in Sources */,
+				634E11D8DF9FB39AD597C141 /* AuthControllerInterface.swift in Sources */,
+>>>>>>> fd2f83364c929540652d04562dde3da6a5b8e1c8
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -680,7 +785,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E9C91C271FD31D9600ADFEF9 /* SocialTodoTests.swift in Sources */,
-				E9848CA21FEEFEB8007ECCB2 /* FacebookLoginTest.swift in Sources */,
+				E9D069681FE8A97C0044BDF4 /* FacebookLoginTest.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -868,7 +973,11 @@
 		};
 		E9C91C2C1FD31D9600ADFEF9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+<<<<<<< HEAD
+			baseConfigurationReference = EA4E537541C5A4BD4D653ED0 /* Pods-SocialTodoTests.debug.xcconfig */;
+=======
 			baseConfigurationReference = 2492E0CC40A0E1BC286238D9 /* Pods-SocialTodoTests.debug.xcconfig */;
+>>>>>>> fd2f83364c929540652d04562dde3da6a5b8e1c8
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -884,7 +993,11 @@
 		};
 		E9C91C2D1FD31D9600ADFEF9 /* Release */ = {
 			isa = XCBuildConfiguration;
+<<<<<<< HEAD
+			baseConfigurationReference = 8B9A6484A388029227A28463 /* Pods-SocialTodoTests.release.xcconfig */;
+=======
 			baseConfigurationReference = 2EF4B615255B39FCCFFF5700 /* Pods-SocialTodoTests.release.xcconfig */;
+>>>>>>> fd2f83364c929540652d04562dde3da6a5b8e1c8
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -900,7 +1013,11 @@
 		};
 		E9C91C3A1FD31DC700ADFEF9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+<<<<<<< HEAD
+			baseConfigurationReference = 2F3937B4418157A55BB000E5 /* Pods-SocialTodoUITests.debug.xcconfig */;
+=======
 			baseConfigurationReference = 79030B743087874D844CB600 /* Pods-SocialTodoUITests.debug.xcconfig */;
+>>>>>>> fd2f83364c929540652d04562dde3da6a5b8e1c8
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SocialTodoUITests/Info.plist;
@@ -915,7 +1032,11 @@
 		};
 		E9C91C3B1FD31DC700ADFEF9 /* Release */ = {
 			isa = XCBuildConfiguration;
+<<<<<<< HEAD
+			baseConfigurationReference = BDF4CEC4A93E958D18B338A3 /* Pods-SocialTodoUITests.release.xcconfig */;
+=======
 			baseConfigurationReference = 41502CAF0E2DCBA449EA0A2A /* Pods-SocialTodoUITests.release.xcconfig */;
+>>>>>>> fd2f83364c929540652d04562dde3da6a5b8e1c8
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SocialTodoUITests/Info.plist;
