@@ -1,7 +1,7 @@
 /**
  # Authorization Controller
 
- Object that handles getting OAuth tokens and authenticating with servers. It can be implemented though the AuthControllerInterface protocol.
+ Object that handles getting OAuth tokens and authenticating with servers. It can be implemented though the AuthInterface protocol.
  */
 
 import FacebookCore
@@ -17,7 +17,7 @@ class AuthController {
         case .cancelled:
           print("User canceled login")
         case .success(_, _, let fbAccessToken):
-          (UIApplication.shared.delegate as! DataControllerInterface)
+          (UIApplication.shared.delegate as! DataInterface)
             .sendFacebookToken(fbAccessToken: fbAccessToken)
         }
       }

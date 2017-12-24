@@ -8,13 +8,13 @@
 
 import UIKit
 
-protocol AuthControllerInterface {
+protocol AuthInterface {
   //Use an implictly unwrapped optional because AppDelegate does not use traditional initializers.
   var authController: AuthController! { get }
   var window: UIWindow? { get }
 }
 
-extension AuthControllerInterface {
+extension AuthInterface {
   /**
    If AccessToken.current is set to nil, this segues to the FacebookLoginViewController.
    */

@@ -6,7 +6,7 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, DataControllerInterface, AuthControllerInterface {
+class AppDelegate: UIResponder, UIApplicationDelegate, DataInterface, AuthInterface {
 
   var window: UIWindow?
   var dataController: DataController!

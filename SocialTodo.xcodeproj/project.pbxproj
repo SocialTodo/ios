@@ -19,8 +19,8 @@
 		E9C91C271FD31D9600ADFEF9 /* SocialTodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C91C261FD31D9600ADFEF9 /* SocialTodoTests.swift */; };
 		E9C91C351FD31DC700ADFEF9 /* SocialTodoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C91C341FD31DC700ADFEF9 /* SocialTodoUITests.swift */; };
 		E9C91C401FD3274300ADFEF9 /* JSONItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C91C3F1FD3274300ADFEF9 /* JSONItem.swift */; };
-		E9CBCF571FEEDBF800E8D7F7 /* DataControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBCF551FEEDBF800E8D7F7 /* DataControllerInterface.swift */; };
-		E9CBCF581FEEDBF800E8D7F7 /* AuthControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBCF561FEEDBF800E8D7F7 /* AuthControllerInterface.swift */; };
+		E9CBCF571FEEDBF800E8D7F7 /* DataInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBCF551FEEDBF800E8D7F7 /* DataInterface.swift */; };
+		E9CBCF581FEEDBF800E8D7F7 /* AuthInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBCF561FEEDBF800E8D7F7 /* AuthInterface.swift */; };
 		E9CBCF5C1FEEDC0100E8D7F7 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBCF591FEEDC0100E8D7F7 /* AuthController.swift */; };
 		E9CBCF5D1FEEDC0100E8D7F7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBCF5A1FEEDC0100E8D7F7 /* DataController.swift */; };
 		E9CBCF5E1FEEDC0100E8D7F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBCF5B1FEEDC0100E8D7F7 /* AppDelegate.swift */; };
@@ -85,8 +85,8 @@
 		E9C91C3C1FD31E3200ADFEF9 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
 		E9C91C3F1FD3274300ADFEF9 /* JSONItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONItem.swift; sourceTree = "<group>"; };
 		E9C91C411FD327BB00ADFEF9 /* JSONCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCollection.swift; sourceTree = "<group>"; };
-		E9CBCF551FEEDBF800E8D7F7 /* DataControllerInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataControllerInterface.swift; sourceTree = "<group>"; };
-		E9CBCF561FEEDBF800E8D7F7 /* AuthControllerInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthControllerInterface.swift; sourceTree = "<group>"; };
+		E9CBCF551FEEDBF800E8D7F7 /* DataInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataInterface.swift; sourceTree = "<group>"; };
+		E9CBCF561FEEDBF800E8D7F7 /* AuthInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthInterface.swift; sourceTree = "<group>"; };
 		E9CBCF591FEEDC0100E8D7F7 /* AuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		E9CBCF5A1FEEDC0100E8D7F7 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		E9CBCF5B1FEEDC0100E8D7F7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -266,8 +266,8 @@
 		E9CBCF531FEEDBD000E8D7F7 /* ControllerProtocols */ = {
 			isa = PBXGroup;
 			children = (
-				E9CBCF561FEEDBF800E8D7F7 /* AuthControllerInterface.swift */,
-				E9CBCF551FEEDBF800E8D7F7 /* DataControllerInterface.swift */,
+				E9CBCF561FEEDBF800E8D7F7 /* AuthInterface.swift */,
+				E9CBCF551FEEDBF800E8D7F7 /* DataInterface.swift */,
 			);
 			path = ControllerProtocols;
 			sourceTree = "<group>";
@@ -667,11 +667,11 @@
 				E9CBCF651FEEE36C00E8D7F7 /* JSONCollection.swift in Sources */,
 				C7DE93CD1FD28906006F73F0 /* ViewController.swift in Sources */,
 				E9CBCF5D1FEEDC0100E8D7F7 /* DataController.swift in Sources */,
-				E9CBCF571FEEDBF800E8D7F7 /* DataControllerInterface.swift in Sources */,
+				E9CBCF571FEEDBF800E8D7F7 /* DataInterface.swift in Sources */,
 				E9CBCF5C1FEEDC0100E8D7F7 /* AuthController.swift in Sources */,
 				E9CBCF5E1FEEDC0100E8D7F7 /* AppDelegate.swift in Sources */,
 				E9C91C401FD3274300ADFEF9 /* JSONItem.swift in Sources */,
-				E9CBCF581FEEDBF800E8D7F7 /* AuthControllerInterface.swift in Sources */,
+				E9CBCF581FEEDBF800E8D7F7 /* AuthInterface.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

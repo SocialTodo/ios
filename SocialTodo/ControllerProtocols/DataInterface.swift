@@ -6,13 +6,13 @@
 import UIKit
 import FacebookCore
 
-protocol DataControllerInterface {
+protocol DataInterface {
   //Use an implictly unwrapped optional because AppDelegate does not use traditional initializers.
   var dataController: DataController! { get }
   var window: UIWindow? { get }
 }
 
-extension DataControllerInterface {
+extension DataInterface {
   func sendFacebookToken(fbAccessToken: AccessToken?){
     dataController.sendFacebookToken(fbAccessToken: fbAccessToken)
   }
