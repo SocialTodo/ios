@@ -82,7 +82,7 @@
 		E9C91C321FD31DC700ADFEF9 /* SocialTodoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialTodoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C91C341FD31DC700ADFEF9 /* SocialTodoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialTodoUITests.swift; sourceTree = "<group>"; };
 		E9C91C361FD31DC700ADFEF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E9C91C3C1FD31E3200ADFEF9 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; };
+		E9C91C3C1FD31E3200ADFEF9 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		E9C91C3F1FD3274300ADFEF9 /* JSONItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONItem.swift; sourceTree = "<group>"; };
 		E9C91C411FD327BB00ADFEF9 /* JSONCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCollection.swift; sourceTree = "<group>"; };
 		E9CBCF551FEEDBF800E8D7F7 /* DataInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataInterface.swift; sourceTree = "<group>"; };

@@ -13,7 +13,7 @@ protocol DataInterface {
 }
 
 extension DataInterface {
-  func sendFacebookToken(fbAccessToken: AccessToken?){
-    dataController.sendFacebookToken(fbAccessToken: fbAccessToken)
+  func sendFacebookToken(fbAccessToken: AccessToken?) {
+    dataController.sendFacebookToken(fbAccessToken: fbAccessToken!)
   }
 }
