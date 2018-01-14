@@ -10,25 +10,45 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+	let background: UIImageView = {
+		let iv = UIImageView()
+		iv.image = #imageLiteral(resourceName: "background")
+		return iv
+	}()
 
-        // Do any additional setup after loading the view.
-    }
+	let myListsButton: UIBarButtonItem = {
+		let button = UIButton(type: .system)
+		button.setTitle("My Lists", for: .normal)
+		button.titleLabel?.font = UIFont(name: "AvenirNext-Bold", size: 14)
+		button.tintColor = UIColor(red: 221/255, green: 242/255, blue: 255/255, alpha: 1)
+		let barButton = UIBarButtonItem(customView: button)
+		return barButton
+	}()
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
+	override func viewDidLoad() {
+		super.viewDidLoad()
 
-    /*
-    // MARK: - Navigation
+		navigationItem.title = "Profile"
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+		navigationItem.leftBarButtonItem = myListsButton
+		myListsButton.customView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showMyLists)))
+
+		view.addSubview(background)
+		setupLayout()
+
+	}
+
+	func setupLayout() {
+		background.translatesAutoresizingMaskIntoConstraints = false
+		background.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+		background.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+		background.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+		background.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+
+	}
+
+	@objc func showMyLists() {
+		print("show my lists")
+	}
 
 }

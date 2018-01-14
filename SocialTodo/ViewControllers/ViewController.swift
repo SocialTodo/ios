@@ -12,57 +12,43 @@ class ViewController: UIViewController {
 
   @IBOutlet weak var scrollView: UIScrollView!
 
+	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
+
   override func viewDidLoad() {
     super.viewDidLoad()
 
-		let addFriendsStoryboard = UIStoryboard(name: "AddFriends", bundle: nil)
-		let addFriends = addFriendsStoryboard.instantiateViewController(withIdentifier: "AddFriendsNav")
-		self.addChildViewController(addFriends)
-		self.scrollView.addSubview(addFriends.view)
-		addFriends.didMove(toParentViewController: self)
+		let lightNavColor = UIColor(red: 0/255, green: 217/255, blue: 250/255, alpha: 1)
+		let darkNavColor = UIColor(red: 3/255, green: 144/255, blue: 231/255, alpha: 1)
 
-		var addFriendsFrame: CGRect = addFriends.view.frame
-		addFriendsFrame.origin.x = 0 * self.view.frame.width
-		addFriends.view.frame = addFriendsFrame
-
-		let friendsStoryboard = UIStoryboard(name: "Friends", bundle: nil)
-		let friends = friendsStoryboard.instantiateViewController(withIdentifier: "FriendsNav")
-		self.addChildViewController(friends)
-		self.scrollView.addSubview(friends.view)
-		friends.didMove(toParentViewController: self)
-
-		var friendsFrame: CGRect = friends.view.frame
-		friendsFrame.origin.x = self.view.frame.width
-		friends.view.frame = friendsFrame
-
-		let todoListsStoryboard = UIStoryboard(name: "TodoLists", bundle: nil)
-		let todoLists = todoListsStoryboard.instantiateViewController(withIdentifier: "TodoListsNav")
-		self.addChildViewController(todoLists)
-		self.scrollView.addSubview(todoLists.view)
-		todoLists.didMove(toParentViewController: self)
-
-		var todoListsFrame: CGRect = todoLists.view.frame
-		todoListsFrame.origin.x = 2 * self.view.frame.width
-		todoLists.view.frame = todoListsFrame
-
-		self.scrollView.setContentOffset(CGPoint(x: todoListsFrame.origin.x, y: todoListsFrame.origin.y), animated: true)
-
-		let profileStoryboard = UIStoryboard(name: "Profile", bundle: nil)
-		let profile = profileStoryboard.instantiateViewController(withIdentifier: "ProfileNav")
-		self.addChildViewController(profile)
-		self.scrollView.addSubview(profile.view)
-		profile.didMove(toParentViewController: self)
-
-		var profileFrame: CGRect = profile.view.frame
-		profileFrame.origin.x = 3 * self.view.frame.width
-		profile.view.frame = profileFrame
+		setupViewController(viewController: AddFriendsViewController(), navColor: lightNavColor, index: 0)
+		setupViewController(viewController: FriendsViewController(), navColor: lightNavColor, index: 1)
+		setupViewController(viewController: TodoListsViewController(), navColor: darkNavColor, index: 2)
+		setupViewController(viewController: ProfileViewController(), navColor: lightNavColor, index: 3)
 
     self.scrollView.contentSize = CGSize(width: self.view.frame.width * 4, height: self.view.frame.size.height)
   }
 
-  override func didReceiveMemoryWarning() {
-    super.didReceiveMemoryWarning()
+	func setupViewController(viewController: UIViewController, navColor: UIColor, index: CGFloat) {
+		let navController = UINavigationController(rootViewController: viewController)
+		navController.navigationBar.barTintColor = navColor
+		navController.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 28) ?? UIFont.boldSystemFont(ofSize: 28), NSAttributedStringKey.foregroundColor: UIColor.white]
 
-  }
+		addToScrollView(viewController: navController, index: index)
+
+	}
+
+	func addToScrollView(viewController: UIViewController, index: CGFloat) {
+		addChildViewController(viewController)
+		scrollView.addSubview(viewController.view)
+		viewController.didMove(toParentViewController: self)
+
+		var frame: CGRect = viewController.view.frame
+		frame.origin.x = index * self.view.frame.width
+		viewController.view.frame = frame
+
+		if index == 2 {
+			self.scrollView.setContentOffset(CGPoint(x: viewController.view.frame.origin.x, y: viewController.view.frame.origin.y), animated: true)
+		}
+	}
 
 }
