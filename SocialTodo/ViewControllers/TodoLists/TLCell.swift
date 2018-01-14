@@ -42,16 +42,16 @@ class TLCell: UITableViewCell {
 
 	func setupLayout() {
 		background.translatesAutoresizingMaskIntoConstraints = false
-		background.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5).isActive = true
-		background.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5).isActive = true
-		background.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 8).isActive = true
-		background.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -8).isActive = true
+		background.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
+		background.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
+		background.leftAnchor.constraint(equalTo: leftAnchor, constant: 12).isActive = true
+		background.rightAnchor.constraint(equalTo: rightAnchor, constant: -12).isActive = true
 		background.heightAnchor.constraint(equalToConstant: 60).isActive = true
 
 		label.translatesAutoresizingMaskIntoConstraints = false
-		label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor).isActive = true
-		label.leftAnchor.constraint(equalTo: contentView.leftAnchor, constant: 20).isActive = true
-		label.rightAnchor.constraint(equalTo: contentView.rightAnchor, constant: -20).isActive = true
+		label.centerYAnchor.constraint(equalTo: background.centerYAnchor).isActive = true
+		label.leftAnchor.constraint(equalTo: background.leftAnchor, constant: 12).isActive = true
+		label.rightAnchor.constraint(equalTo: background.rightAnchor, constant: -12).isActive = true
 		label.heightAnchor.constraint(equalToConstant: 50).isActive = true
 
 	}

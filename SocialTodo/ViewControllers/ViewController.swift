@@ -10,12 +10,25 @@ import UIKit
 
 class ViewController: UIViewController {
 
-  @IBOutlet weak var scrollView: UIScrollView!
+	let scrollView: UIScrollView = {
+		let sv = UIScrollView(frame: UIScreen.main.bounds)
+		sv.isScrollEnabled = true
+		sv.isPagingEnabled = true
+		sv.showsVerticalScrollIndicator = false
+		sv.showsHorizontalScrollIndicator = false
+		sv.bounces = false
+		sv.bouncesZoom = false
+		sv.clipsToBounds = true
+		return sv
+	}()
 
 	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
   override func viewDidLoad() {
     super.viewDidLoad()
+
+		view.addSubview(scrollView)
+		setupLayout()
 
 		let lightNavColor = UIColor(red: 0/255, green: 217/255, blue: 250/255, alpha: 1)
 		let darkNavColor = UIColor(red: 3/255, green: 144/255, blue: 231/255, alpha: 1)
@@ -27,6 +40,14 @@ class ViewController: UIViewController {
 
     self.scrollView.contentSize = CGSize(width: self.view.frame.width * 4, height: self.view.frame.size.height)
   }
+
+	func setupLayout() {
+		scrollView.translatesAutoresizingMaskIntoConstraints = false
+		scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+		scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+		scrollView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
+		scrollView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+	}
 
 	func setupViewController(viewController: UIViewController, navColor: UIColor, index: CGFloat) {
 		let navController = UINavigationController(rootViewController: viewController)
