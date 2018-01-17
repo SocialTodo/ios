@@ -13,9 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, DataControllerInterface, 
   var authController: AuthController!
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-    dataController = DataController()
-    authController = AuthController()
-    login()
+
+		window = UIWindow(frame: UIScreen.main.bounds)
+		window?.rootViewController = ViewController()
+		window?.makeKeyAndVisible()
+
+//    dataController = DataController()
+//    authController = AuthController()
+//    login()
     return true
   }
 

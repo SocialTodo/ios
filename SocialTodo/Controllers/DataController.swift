@@ -10,8 +10,8 @@ import FacebookLogin
 
 class DataController {
   init() {}
-  
+
   func sendFacebookToken(fbAccessToken: AccessToken) {
-    
+
   }
 }
