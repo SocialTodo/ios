@@ -19,7 +19,7 @@ extension AuthControllerInterface {
    If AccessToken.current is set to nil, this segues to the FacebookLoginViewController.
    */
   public func login() {
-    authController.login()
+//    authController.login()
   }
 
   /**

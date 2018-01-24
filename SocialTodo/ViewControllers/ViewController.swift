@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import FacebookCore
+import FacebookLogin
 
 class ViewController: UIViewController {
 
@@ -24,8 +26,8 @@ class ViewController: UIViewController {
 
 	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
-  override func viewDidLoad() {
-    super.viewDidLoad()
+	override func viewDidLoad() {
+		super.viewDidLoad()
 
 		view.addSubview(scrollView)
 		setupLayout()
@@ -38,8 +40,15 @@ class ViewController: UIViewController {
 		setupViewController(viewController: TodoListsViewController(), navColor: darkNavColor, index: 2)
 		setupViewController(viewController: ProfileViewController(), navColor: lightNavColor, index: 3)
 
-    self.scrollView.contentSize = CGSize(width: self.view.frame.width * 4, height: self.view.frame.size.height)
-  }
+		self.scrollView.contentSize = CGSize(width: self.view.frame.width * 4, height: self.view.frame.size.height)
+
+		DispatchQueue.main.async {
+			if AccessToken.current == nil {
+				self.present(LoginViewController(), animated: true, completion: nil)
+			}
+		}
+
+	}
 
 	func setupLayout() {
 		scrollView.translatesAutoresizingMaskIntoConstraints = false

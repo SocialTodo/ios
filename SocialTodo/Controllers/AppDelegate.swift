@@ -6,11 +6,11 @@
 import UIKit
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, DataControllerInterface, AuthControllerInterface {
+class AppDelegate: UIResponder, UIApplicationDelegate {
 
   var window: UIWindow?
-  var dataController: DataController!
-  var authController: AuthController!
+//  var dataController: DataController!
+//  var authController: AuthController!
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 
