@@ -40,11 +40,8 @@ class ProfileViewController: UIViewController {
 
 	func setupLayout() {
 		background.translatesAutoresizingMaskIntoConstraints = false
-		background.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-		background.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-		background.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-		background.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
-
+        background.anchorX(left: view.leftAnchor, right: view.rightAnchor)
+        background.anchorY(top: view.topAnchor, bottom: view.bottomAnchor)
 	}
 
 	@objc func showMyLists() {

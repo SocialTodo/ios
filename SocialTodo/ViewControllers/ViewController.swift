@@ -8,7 +8,6 @@
 
 import UIKit
 import FacebookCore
-import FacebookLogin
 
 class ViewController: UIViewController {
 
@@ -29,19 +28,10 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		view.addSubview(scrollView)
 		setupLayout()
+		setupScrollView()
 
-		let lightNavColor = UIColor(red: 0/255, green: 217/255, blue: 250/255, alpha: 1)
-		let darkNavColor = UIColor(red: 3/255, green: 144/255, blue: 231/255, alpha: 1)
-
-		setupViewController(viewController: AddFriendsViewController(), navColor: lightNavColor, index: 0)
-		setupViewController(viewController: FriendsViewController(), navColor: lightNavColor, index: 1)
-		setupViewController(viewController: TodoListsViewController(), navColor: darkNavColor, index: 2)
-		setupViewController(viewController: ProfileViewController(), navColor: lightNavColor, index: 3)
-
-		self.scrollView.contentSize = CGSize(width: self.view.frame.width * 4, height: self.view.frame.size.height)
-
+		// if not logged in present LoginVC
 		DispatchQueue.main.async {
 			if AccessToken.current == nil {
 				self.present(LoginViewController(), animated: true, completion: nil)
@@ -51,11 +41,11 @@ class ViewController: UIViewController {
 	}
 
 	func setupLayout() {
+		view.addSubview(scrollView)
 		scrollView.translatesAutoresizingMaskIntoConstraints = false
-		scrollView.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-		scrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-		scrollView.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-		scrollView.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        scrollView.anchorX(left: view.leftAnchor, right: view.rightAnchor)
+        scrollView.anchorY(top: view.topAnchor, bottom: view.bottomAnchor)
+		self.scrollView.contentSize = CGSize(width: self.view.frame.width * 4, height: self.view.frame.size.height)
 	}
 
 	func setupViewController(viewController: UIViewController, navColor: UIColor, index: CGFloat) {
@@ -64,7 +54,6 @@ class ViewController: UIViewController {
 		navController.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 28) ?? UIFont.boldSystemFont(ofSize: 28), NSAttributedStringKey.foregroundColor: UIColor.white]
 
 		addToScrollView(viewController: navController, index: index)
-
 	}
 
 	func addToScrollView(viewController: UIViewController, index: CGFloat) {
@@ -79,6 +68,14 @@ class ViewController: UIViewController {
 		if index == 2 {
 			self.scrollView.setContentOffset(CGPoint(x: viewController.view.frame.origin.x, y: viewController.view.frame.origin.y), animated: true)
 		}
+	}
+
+	func setupScrollView() {
+
+		setupViewController(viewController: AddFriendsViewController(), navColor: Colors.lightNavColor, index: 0)
+		setupViewController(viewController: FriendsViewController(), navColor: Colors.lightNavColor, index: 1)
+		setupViewController(viewController: TodoListsViewController(), navColor: Colors.darkNavColor, index: 2)
+		setupViewController(viewController: ProfileViewController(), navColor: Colors.lightNavColor, index: 3)
 	}
 
 }

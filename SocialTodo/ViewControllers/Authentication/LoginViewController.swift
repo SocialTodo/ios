@@ -60,20 +60,16 @@ class LoginViewController: UIViewController {
 
     func setupLayout() {
         background.translatesAutoresizingMaskIntoConstraints = false
-        background.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
-        background.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        background.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        background.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        background.anchorX(left: view.leftAnchor, right: view.rightAnchor)
+        background.anchorY(top: view.topAnchor, bottom: view.bottomAnchor)
 
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.topAnchor.constraint(equalTo: view.topAnchor, constant: 25).isActive = true
-        label.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8).isActive = true
-        label.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -8).isActive = true
+        label.anchorY(top: view.topAnchor, topConstant: 25)
+        label.anchorX(left: view.leftAnchor, leftConstant: 8, right: view.rightAnchor, rightConstant: -8)
 
         loginButton.translatesAutoresizingMaskIntoConstraints = false
-        loginButton.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -25).isActive = true
-        loginButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8).isActive = true
-        loginButton.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -8).isActive = true
-        loginButton.heightAnchor.constraint(equalToConstant: 50)
+        loginButton.size(height: 40)
+        loginButton.anchorX(left: view.leftAnchor, leftConstant: 8, right: view.rightAnchor, rightConstant: -8)
+        loginButton.anchorY(bottom: view.bottomAnchor, bottomConstant: -25)
     }
 }
