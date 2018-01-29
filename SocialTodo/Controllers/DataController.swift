@@ -17,6 +17,16 @@ class DataController {
         let driver = try! SQLiteDriver(path: documentDirectory.path)
          self.database = Fluent.Database(driver)
         print("database created")
+        databasePreparations()
+        print("database prepared")
+    }
+    
+    func databasePreparations() {
+        do {
+            try database.prepare([FacebookUser.self, TodoList.self, TodoItem.self])
+        } catch {
+            print(error)
+        }
     }
     
     func sendFacebookToken(fbAccessToken: AccessToken) {

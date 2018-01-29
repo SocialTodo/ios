@@ -29,7 +29,7 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
         
         
-        DataController()
+        let dataController = DataController()
 
 		setupLayout()
 		setupScrollView()

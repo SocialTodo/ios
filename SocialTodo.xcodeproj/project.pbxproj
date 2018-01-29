@@ -12,6 +12,9 @@
 		C70FB386201EC2FF00BBFCF6 /* CSQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C70FB387201EC2FF00BBFCF6 /* CSQLite.framework */; };
 		C70FB388201EC62400BBFCF6 /* libc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C70FB38A201EC62400BBFCF6 /* libc.framework */; };
 		C70FB389201EC62400BBFCF6 /* PathIndexable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C70FB38B201EC62400BBFCF6 /* PathIndexable.framework */; };
+		C70FB390201EDB8500BBFCF6 /* FacebookUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70FB38F201EDB8500BBFCF6 /* FacebookUser.swift */; };
+		C70FB392201EDC6300BBFCF6 /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70FB391201EDC6300BBFCF6 /* TodoList.swift */; };
+		C70FB394201EDC8E00BBFCF6 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70FB393201EDC8E00BBFCF6 /* TodoItem.swift */; };
 		C721C8DA201EB95C00EC7F4C /* Fluent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C721C8DB201EB95C00EC7F4C /* Fluent.framework */; };
 		C721C8DC201EB97500EC7F4C /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C721C8DD201EB97500EC7F4C /* SQLite.framework */; };
 		C721C8DE201EB9B200EC7F4C /* Bits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C721C8E2201EB9B200EC7F4C /* Bits.framework */; };
@@ -73,6 +76,9 @@
 		C70FB387201EC2FF00BBFCF6 /* CSQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CSQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C70FB38A201EC62400BBFCF6 /* libc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = libc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C70FB38B201EC62400BBFCF6 /* PathIndexable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PathIndexable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C70FB38F201EDB8500BBFCF6 /* FacebookUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookUser.swift; sourceTree = "<group>"; };
+		C70FB391201EDC6300BBFCF6 /* TodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
+		C70FB393201EDC8E00BBFCF6 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
 		C721C8DB201EB95C00EC7F4C /* Fluent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Fluent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C721C8DD201EB97500EC7F4C /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C721C8E2201EB9B200EC7F4C /* Bits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Bits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -183,6 +189,16 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C70FB38E201EDB6E00BBFCF6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C70FB38F201EDB8500BBFCF6 /* FacebookUser.swift */,
+				C70FB391201EDC6300BBFCF6 /* TodoList.swift */,
+				C70FB393201EDC8E00BBFCF6 /* TodoItem.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		C767F5D8201924CB00C532D0 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,10 +270,9 @@
 				C7EB3386200B1C2D004D5E1B /* Main.storyboard */,
 				E9CBCF541FEEDBD700E8D7F7 /* Controllers */,
 				E9CBCF531FEEDBD000E8D7F7 /* ControllerProtocols */,
-				E9CBCF5F1FEEDC1A00E8D7F7 /* Models */,
+				C70FB38E201EDB6E00BBFCF6 /* Models */,
 				E9C91C191FD31C1300ADFEF9 /* ModelProtocols */,
 				E9C91C161FD31BF100ADFEF9 /* ViewControllers */,
-				E9CBCF601FEEDC3F00E8D7F7 /* ViewControllerProtocols */,
 				C767F5D8201924CB00C532D0 /* Helpers */,
 				C7DE93D11FD28907006F73F0 /* Assets.xcassets */,
 				C7DE93D31FD28907006F73F0 /* LaunchScreen.storyboard */,
@@ -333,20 +348,6 @@
 				E9CBCF5A1FEEDC0100E8D7F7 /* DataController.swift */,
 			);
 			path = Controllers;
-			sourceTree = "<group>";
-		};
-		E9CBCF5F1FEEDC1A00E8D7F7 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		E9CBCF601FEEDC3F00E8D7F7 /* ViewControllerProtocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewControllerProtocols;
 			sourceTree = "<group>";
 		};
 		E9D069651FE8A8EE0044BDF4 /* ModelTests */ = {
@@ -695,12 +696,15 @@
 			files = (
 				C7F9209320128E0D00EBC6DF /* LoginViewController.swift in Sources */,
 				E9CBCF691FEEE37A00E8D7F7 /* ProfileViewController.swift in Sources */,
+				C70FB394201EDC8E00BBFCF6 /* TodoItem.swift in Sources */,
 				E9CBCF681FEEE37700E8D7F7 /* TodoListsViewController.swift in Sources */,
 				E9CBCF671FEEE37400E8D7F7 /* FriendsViewController.swift in Sources */,
 				C7EB3385200ACFDD004D5E1B /* TLCell.swift in Sources */,
 				C767F5D7201923D100C532D0 /* Constants.swift in Sources */,
 				E9CBCF661FEEE37000E8D7F7 /* AddFriendsViewController.swift in Sources */,
+				C70FB390201EDB8500BBFCF6 /* FacebookUser.swift in Sources */,
 				E9CBCF651FEEE36C00E8D7F7 /* JSONCollection.swift in Sources */,
+				C70FB392201EDC6300BBFCF6 /* TodoList.swift in Sources */,
 				C7DE93CD1FD28906006F73F0 /* ViewController.swift in Sources */,
 				E9CBCF5D1FEEDC0100E8D7F7 /* DataController.swift in Sources */,
 				E9CBCF571FEEDBF800E8D7F7 /* DataControllerInterface.swift in Sources */,
