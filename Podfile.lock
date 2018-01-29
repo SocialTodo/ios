@@ -18,13 +18,11 @@ PODS:
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.28.0):
     - FBSDKCoreKit
-  - SwiftLint (0.24.0)
 
 DEPENDENCIES:
   - Alamofire
   - FacebookCore
   - FacebookLogin
-  - SwiftLint
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
@@ -33,8 +31,7 @@ SPEC CHECKSUMS:
   FacebookLogin: 0af839ea858faef99550d16596b87b4a8e8906e6
   FBSDKCoreKit: ca961e279113f691fd83dc634c0bbad9d4e3f370
   FBSDKLoginKit: b077381c27d800f21661757e8140cf2c80a91e4a
-  SwiftLint: a014c92b4664e8b13f380f8640a51bb1733778ba
 
-PODFILE CHECKSUM: 1035a82e5e105d10799909ee906354bcb993f691
+PODFILE CHECKSUM: 3c456988fa25846181e526114df1d3e597a4a8e2
 
 COCOAPODS: 1.3.1
