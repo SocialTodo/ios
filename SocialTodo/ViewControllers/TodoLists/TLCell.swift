@@ -22,6 +22,11 @@ class TLCell: UITableViewCell {
 		label.text = "Todo List"
 		return label
 	}()
+    
+    let sharedButton: SharedSwitch = {
+        let sharedSwitch = SharedSwitch()
+        return sharedSwitch
+    }()
 
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -32,13 +37,16 @@ class TLCell: UITableViewCell {
 
 		addSubview(background)
 		addSubview(label)
+        addSubview(sharedButton)
 
 		setupLayout()
-	}
+    
+    }
 
 	required init?(coder aDecoder: NSCoder) {
 		fatalError("init(coder:) has not been implemented")
-	}
+    }
+    
 
 	func setupLayout() {
 		background.translatesAutoresizingMaskIntoConstraints = false
@@ -50,9 +58,12 @@ class TLCell: UITableViewCell {
 
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.centerYAnchor.constraint(equalTo: background.centerYAnchor).isActive = true
-		label.leftAnchor.constraint(equalTo: background.leftAnchor, constant: 12).isActive = true
-		label.rightAnchor.constraint(equalTo: background.rightAnchor, constant: -12).isActive = true
-		label.heightAnchor.constraint(equalToConstant: 50).isActive = true
-
+        label.anchorX(left: background.leftAnchor, leftConstant: 12, right: sharedButton.leftAnchor, rightConstant: -12)
+		label.size(height: 50)
+        
+        sharedButton.translatesAutoresizingMaskIntoConstraints = false
+        sharedButton.centerYAnchor.constraint(equalTo: background.centerYAnchor).isActive = true
+        sharedButton.anchorX(right: background.rightAnchor, rightConstant: -12)
+        sharedButton.size(height: 30, width: 100)
 	}
 }

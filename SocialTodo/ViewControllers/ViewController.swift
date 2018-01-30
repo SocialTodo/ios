@@ -35,11 +35,11 @@ class ViewController: UIViewController {
 		setupScrollView()
 
 		// if not logged in present LoginVC
-		DispatchQueue.main.async {
-			if AccessToken.current == nil {
-				self.present(LoginViewController(), animated: true, completion: nil)
-			}
-		}
+//        DispatchQueue.main.async {
+//            if AccessToken.current == nil {
+//                self.present(LoginViewController(), animated: true, completion: nil)
+//            }
+//        }
 
 	}
 

@@ -15,6 +15,8 @@
 		C70FB390201EDB8500BBFCF6 /* FacebookUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70FB38F201EDB8500BBFCF6 /* FacebookUser.swift */; };
 		C70FB392201EDC6300BBFCF6 /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70FB391201EDC6300BBFCF6 /* TodoList.swift */; };
 		C70FB394201EDC8E00BBFCF6 /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70FB393201EDC8E00BBFCF6 /* TodoItem.swift */; };
+		C71C09F9201EE80E00DAF961 /* TodoItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71C09F8201EE80E00DAF961 /* TodoItemsViewController.swift */; };
+		C71C09FB201EE82400DAF961 /* TICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71C09FA201EE82400DAF961 /* TICell.swift */; };
 		C721C8DA201EB95C00EC7F4C /* Fluent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C721C8DB201EB95C00EC7F4C /* Fluent.framework */; };
 		C721C8DC201EB97500EC7F4C /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C721C8DD201EB97500EC7F4C /* SQLite.framework */; };
 		C721C8DE201EB9B200EC7F4C /* Bits.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C721C8E2201EB9B200EC7F4C /* Bits.framework */; };
@@ -24,6 +26,7 @@
 		C721C8E6201EB9D300EC7F4C /* Debugging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C721C8E7201EB9D300EC7F4C /* Debugging.framework */; };
 		C767F5D7201923D100C532D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767F5D6201923D100C532D0 /* Constants.swift */; };
 		C767F5DA201924EE00C532D0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767F5D9201924EE00C532D0 /* Extensions.swift */; };
+		C7A42A4D201FBC960099F6A2 /* SharedSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A42A4C201FBC960099F6A2 /* SharedSwitch.swift */; };
 		C7DE93CD1FD28906006F73F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE93CC1FD28906006F73F0 /* ViewController.swift */; };
 		C7DE93D21FD28907006F73F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DE93D11FD28907006F73F0 /* Assets.xcassets */; };
 		C7DE93D51FD28907006F73F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DE93D31FD28907006F73F0 /* LaunchScreen.storyboard */; };
@@ -79,6 +82,8 @@
 		C70FB38F201EDB8500BBFCF6 /* FacebookUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookUser.swift; sourceTree = "<group>"; };
 		C70FB391201EDC6300BBFCF6 /* TodoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoList.swift; sourceTree = "<group>"; };
 		C70FB393201EDC8E00BBFCF6 /* TodoItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItem.swift; sourceTree = "<group>"; };
+		C71C09F8201EE80E00DAF961 /* TodoItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemsViewController.swift; sourceTree = "<group>"; };
+		C71C09FA201EE82400DAF961 /* TICell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TICell.swift; sourceTree = "<group>"; };
 		C721C8DB201EB95C00EC7F4C /* Fluent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Fluent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C721C8DD201EB97500EC7F4C /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C721C8E2201EB9B200EC7F4C /* Bits.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Bits.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -92,6 +97,7 @@
 		C77EBE961FD3D589004403B0 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		C77EBE9C1FD3D5B7004403B0 /* TodoListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListsViewController.swift; sourceTree = "<group>"; };
 		C77EBEA01FD3D5C7004403B0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C7A42A4C201FBC960099F6A2 /* SharedSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedSwitch.swift; sourceTree = "<group>"; };
 		C7DE93C71FD28906006F73F0 /* SocialTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DE93CC1FD28906006F73F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		C7DE93D11FD28907006F73F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -199,6 +205,15 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		C71C09F7201EE7E000DAF961 /* TodoItems */ = {
+			isa = PBXGroup;
+			children = (
+				C71C09F8201EE80E00DAF961 /* TodoItemsViewController.swift */,
+				C71C09FA201EE82400DAF961 /* TICell.swift */,
+			);
+			path = TodoItems;
+			sourceTree = "<group>";
+		};
 		C767F5D8201924CB00C532D0 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +244,8 @@
 			children = (
 				C77EBE9C1FD3D5B7004403B0 /* TodoListsViewController.swift */,
 				C7EB3384200ACFDC004D5E1B /* TLCell.swift */,
+				C7A42A4C201FBC960099F6A2 /* SharedSwitch.swift */,
+				C71C09F7201EE7E000DAF961 /* TodoItems */,
 			);
 			path = TodoLists;
 			sourceTree = "<group>";
@@ -703,8 +720,10 @@
 				C767F5D7201923D100C532D0 /* Constants.swift in Sources */,
 				E9CBCF661FEEE37000E8D7F7 /* AddFriendsViewController.swift in Sources */,
 				C70FB390201EDB8500BBFCF6 /* FacebookUser.swift in Sources */,
+				C7A42A4D201FBC960099F6A2 /* SharedSwitch.swift in Sources */,
 				E9CBCF651FEEE36C00E8D7F7 /* JSONCollection.swift in Sources */,
 				C70FB392201EDC6300BBFCF6 /* TodoList.swift in Sources */,
+				C71C09F9201EE80E00DAF961 /* TodoItemsViewController.swift in Sources */,
 				C7DE93CD1FD28906006F73F0 /* ViewController.swift in Sources */,
 				E9CBCF5D1FEEDC0100E8D7F7 /* DataController.swift in Sources */,
 				E9CBCF571FEEDBF800E8D7F7 /* DataControllerInterface.swift in Sources */,
@@ -713,6 +732,7 @@
 				E9CBCF5E1FEEDC0100E8D7F7 /* AppDelegate.swift in Sources */,
 				E9C91C401FD3274300ADFEF9 /* JSONItem.swift in Sources */,
 				E9CBCF581FEEDBF800E8D7F7 /* AuthControllerInterface.swift in Sources */,
+				C71C09FB201EE82400DAF961 /* TICell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
