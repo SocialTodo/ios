@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodoListsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TodoListsViewController: ScrollableViewController, UITableViewDataSource, UITableViewDelegate {
 
 	let background: UIImageView = {
 		let iv = UIImageView()
@@ -40,19 +40,8 @@ class TodoListsViewController: UIViewController, UITableViewDataSource, UITableV
 	let barButton = UIBarButtonItem(customView: button)
 	return barButton
 	}()
-
-    let scrollView: UIScrollView
     
     let todoListCell = "TLCell"
-    
-    init(scrollView: UIScrollView) {
-        self.scrollView = scrollView
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
