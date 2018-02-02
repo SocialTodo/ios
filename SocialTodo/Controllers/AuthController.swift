@@ -18,8 +18,8 @@ class AuthController {
 				print("User canceled login")
 			case .success(_, _, let fbAccessToken):
 				print("fb logged in")
+                UserDefaults.standard.set(fbAccessToken.authenticationToken, forKey: "authToken")
 				success()
-
 				//(UIApplication.shared.delegate as! DataControllerInterface)
 				//.sendFacebookToken(fbAccessToken: fbAccessToken)
 			}

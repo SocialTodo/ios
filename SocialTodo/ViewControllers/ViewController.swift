@@ -33,13 +33,19 @@ class ViewController: UIViewController {
 
 		setupLayout()
 		setupScrollView()
-
-//         if not logged in present LoginVC
+        
+        // get token from userdefaults
+        if let authToken = UserDefaults.standard.string(forKey: "authToken") {
+            AccessToken.current = AccessToken.init(authenticationToken: authToken)
+        }
+        // if not logged in present LoginVC
         DispatchQueue.main.async {
             if AccessToken.current == nil {
                 self.present(LoginViewController(), animated: true, completion: nil)
             }
         }
+        
+        print("auth token: ", AccessToken.current?.authenticationToken)
 
 	}
 
