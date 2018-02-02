@@ -55,33 +55,6 @@ class TodoItemsViewController: UIViewController, UITableViewDataSource, UITableV
             return barButton
         }()
         
-//        let rightBarButton: UIBarButtonItem = {
-//            let view = UIView()
-//            let sharedSwitch = SharedSwitch()
-//            view.addSubview(sharedSwitch)
-//
-//            let button = UIButton(type: .system)
-//            button.setTitle("Edit", for: .normal)
-//            button.titleLabel?.font = UIFont(name: "AvenirNext-Regular", size: 16)
-//            button.tintColor = UIColor(r: 199, g: 244, b: 250)
-//            button.addTarget(self, action: #selector(editTodoList), for: .touchUpInside)
-//            button.sizeToFit()
-//
-//            view.addSubview(button)
-//
-//            sharedSwitch.translatesAutoresizingMaskIntoConstraints = false
-//            sharedSwitch.anchorX(left: view.leftAnchor, right: button.leftAnchor, rightConstant: -8)
-//            sharedSwitch.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-//            sharedSwitch.size(height: 30, width: 100)
-//
-//            button.translatesAutoresizingMaskIntoConstraints = false
-//            button.anchorX(left: sharedSwitch.rightAnchor, leftConstant: 8, right: view.rightAnchor)
-//            button.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-//
-//            let barButton = UIBarButtonItem(customView: view)
-//            return barButton
-//        }()
-        
         let sharedSwitch: UIBarButtonItem = {
             let sharedSwitch = SharedSwitch()
             sharedSwitch.translatesAutoresizingMaskIntoConstraints = false
