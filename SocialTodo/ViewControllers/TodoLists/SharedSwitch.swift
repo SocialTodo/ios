@@ -33,7 +33,7 @@ class SharedSwitch: UIView {
         slider = UIView()
         slider.layer.cornerRadius = 0
         slider.backgroundColor = UIColor(r: 100, g: 191, b: 251)
-        slider.layer.cornerRadius = 12
+        slider.layer.cornerRadius = 16
         slider.clipsToBounds = true
         addSubview(slider)
         
@@ -73,8 +73,8 @@ class SharedSwitch: UIView {
     func setupLayout() {
         
         background.translatesAutoresizingMaskIntoConstraints = false
-        background.anchorX(left: leftAnchor, leftConstant: -5, right: rightAnchor, rightConstant: 5)
-        background.anchorY(top: topAnchor, topConstant: -5, bottom: bottomAnchor, bottomConstant: 5)
+        background.anchorX(left: leftAnchor, leftConstant: 0, right: rightAnchor, rightConstant: 0)
+        background.anchorY(top: topAnchor, topConstant: 0, bottom: bottomAnchor, bottomConstant: 0)
         
         button.translatesAutoresizingMaskIntoConstraints = false
         button.anchorX(left: background.leftAnchor, right: background.rightAnchor)
@@ -83,7 +83,7 @@ class SharedSwitch: UIView {
         slider.translatesAutoresizingMaskIntoConstraints = false
         sliderPrivateConstraint = slider.leftAnchor.constraint(equalTo: background.leftAnchor)
         sliderSharedConstraint = slider.rightAnchor.constraint(equalTo: background.rightAnchor)
-        slider.size(width: 60)
+        slider.size(width: 50)
         slider.anchorY(top: background.topAnchor, bottom: background.bottomAnchor)
         
         sharedImage.translatesAutoresizingMaskIntoConstraints = false

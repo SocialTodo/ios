@@ -19,12 +19,23 @@ class ProfileViewController: UIViewController {
 	let myListsButton: UIBarButtonItem = {
 		let button = UIButton(type: .system)
 		button.setTitle("My Lists", for: .normal)
-		button.titleLabel?.font = UIFont(name: "AvenirNext-Bold", size: 14)
+		button.titleLabel?.font = UIFont(name: "AvenirNext-Bold", size: 18)
 		button.tintColor = UIColor(red: 221/255, green: 242/255, blue: 255/255, alpha: 1)
 		let barButton = UIBarButtonItem(customView: button)
 		return barButton
 	}()
-
+    
+    let scrollView: UIScrollView
+    
+    init(scrollView: UIScrollView) {
+        self.scrollView = scrollView
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -46,6 +57,7 @@ class ProfileViewController: UIViewController {
 
 	@objc func showMyLists() {
 		print("show my lists")
+        scrollView.setContentOffset(CGPoint(x: self.view.frame.width * 2, y: 0.0), animated: true)
 	}
 
 }

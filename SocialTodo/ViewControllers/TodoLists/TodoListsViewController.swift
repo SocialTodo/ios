@@ -26,7 +26,7 @@ class TodoListsViewController: UIViewController, UITableViewDataSource, UITableV
 	let friendsButton: UIBarButtonItem = {
 		let button = UIButton(type: .system)
 		button.setTitle("Friends", for: .normal)
-		button.titleLabel?.font = UIFont(name: "AvenirNext-Bold", size: 14)
+		button.titleLabel?.font = UIFont(name: "AvenirNext-Bold", size: 18)
 		button.tintColor = UIColor(red: 100/255, green: 191/255, blue: 251/255, alpha: 1)
 		let barButton = UIBarButtonItem(customView: button)
 		return barButton
@@ -35,12 +35,25 @@ class TodoListsViewController: UIViewController, UITableViewDataSource, UITableV
 	let profileButton: UIBarButtonItem = {
 	let button = UIButton(type: .system)
 	button.setTitle("Profile", for: .normal)
-	button.titleLabel?.font = UIFont(name: "AvenirNext-Bold", size: 14)
+	button.titleLabel?.font = UIFont(name: "AvenirNext-Bold", size: 18)
 	button.tintColor = UIColor(red: 100/255, green: 191/255, blue: 251/255, alpha: 1)
 	let barButton = UIBarButtonItem(customView: button)
 	return barButton
 	}()
 
+    let scrollView: UIScrollView
+    
+    let todoListCell = "TLCell"
+    
+    init(scrollView: UIScrollView) {
+        self.scrollView = scrollView
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -58,6 +71,8 @@ class TodoListsViewController: UIViewController, UITableViewDataSource, UITableV
 
 		tableView.dataSource = self
 		tableView.delegate = self
+        
+        tableView.register(TLCell.self, forCellReuseIdentifier: todoListCell)
 	}
 
 	func setupLayout() {
@@ -71,11 +86,11 @@ class TodoListsViewController: UIViewController, UITableViewDataSource, UITableV
 	}
 
 	@objc func showFriends() {
-		print("123")
+        scrollView.setContentOffset(CGPoint(x: self.view.frame.width, y: 0.0), animated: true)
 	}
 
 	@objc func showProfile() {
-		print("123")
+        scrollView.setContentOffset(CGPoint(x: self.view.frame.width * 3, y: 0.0), animated: true)
 	}
 
 	func numberOfSections(in tableView: UITableView) -> Int {
@@ -91,8 +106,15 @@ class TodoListsViewController: UIViewController, UITableViewDataSource, UITableV
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = TLCell(style: .default, reuseIdentifier: "TLCell")
+		let cell = tableView.dequeueReusableCell(withIdentifier: todoListCell)!
 		return cell
 	}
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let TodoItemVC = TodoItemsViewController()
+        let navigationVC = UINavigationController(rootViewController: TodoItemVC)
+        
+        present(navigationVC, animated: true, completion: nil)
+    }
 
 }

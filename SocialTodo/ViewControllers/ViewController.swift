@@ -59,13 +59,14 @@ class ViewController: UIViewController {
 		addToScrollView(viewController: navController, index: index)
 	}
 
-	func addToScrollView(viewController: UIViewController, index: CGFloat) {
+    func addToScrollView(viewController: UIViewController, index: CGFloat) {
 		addChildViewController(viewController)
 		scrollView.addSubview(viewController.view)
 		viewController.didMove(toParentViewController: self)
 
 		var frame: CGRect = viewController.view.frame
 		frame.origin.x = index * self.view.frame.width
+        print(frame.origin.x)
 		viewController.view.frame = frame
 
 		if index == 2 {
@@ -75,10 +76,10 @@ class ViewController: UIViewController {
 
 	func setupScrollView() {
 
-		setupViewController(viewController: AddFriendsViewController(), navColor: Colors.lightNavColor, index: 0)
-		setupViewController(viewController: FriendsViewController(), navColor: Colors.lightNavColor, index: 1)
-		setupViewController(viewController: TodoListsViewController(), navColor: Colors.darkNavColor, index: 2)
-		setupViewController(viewController: ProfileViewController(), navColor: Colors.lightNavColor, index: 3)
+        setupViewController(viewController: AddFriendsViewController(scrollView: scrollView), navColor: Colors.lightNavColor, index: 0)
+        setupViewController(viewController: FriendsViewController(scrollView: scrollView), navColor: Colors.lightNavColor, index: 1)
+		setupViewController(viewController: TodoListsViewController(scrollView: scrollView), navColor: Colors.darkNavColor, index: 2)
+		setupViewController(viewController: ProfileViewController(scrollView: scrollView), navColor: Colors.lightNavColor, index: 3)
 	}
 
 }

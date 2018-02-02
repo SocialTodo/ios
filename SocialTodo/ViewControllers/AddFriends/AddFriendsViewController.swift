@@ -19,12 +19,23 @@ class AddFriendsViewController: UIViewController {
 	let friendsButton: UIBarButtonItem = {
 		let button = UIButton(type: .system)
 		button.setTitle("Friends", for: .normal)
-		button.titleLabel?.font = UIFont(name: "AvenirNext-Bold", size: 14)
+		button.titleLabel?.font = UIFont(name: "AvenirNext-Bold", size: 18)
 		button.tintColor = UIColor(red: 221/255, green: 242/255, blue: 255/255, alpha: 1)
 		let barButton = UIBarButtonItem(customView: button)
 		return barButton
 	}()
+    
+    let scrollView: UIScrollView
 
+    init(scrollView: UIScrollView) {
+        self.scrollView = scrollView
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -35,6 +46,7 @@ class AddFriendsViewController: UIViewController {
 
 		view.addSubview(background)
 		setupLayout()
+        
 
 	}
 
@@ -46,6 +58,7 @@ class AddFriendsViewController: UIViewController {
 
 	@objc func showFriends() {
 		print("show friends")
+        scrollView.setContentOffset(CGPoint(x: self.view.frame.width, y: 0.0), animated: true)
 	}
 
 }
