@@ -41,10 +41,11 @@ class TodoListsViewController: ScrollableViewController, UITableViewDataSource, 
 	return barButton
 	}()
     
+    var todoLists: [TodoList]?
     let todoListCell = "TLCell"
     
 	override func viewDidLoad() {
-		super.viewDidLoad()
+        super.viewDidLoad()
 
 		navigationItem.title = "My Lists"
 
@@ -62,7 +63,13 @@ class TodoListsViewController: ScrollableViewController, UITableViewDataSource, 
 		tableView.delegate = self
         
         tableView.register(TLCell.self, forCellReuseIdentifier: todoListCell)
-	}
+        
+        dataController.getMyLists() { todoLists in
+            self.todoLists = todoLists
+            self.tableView.reloadData()
+        }
+        
+    }
 
 	func setupLayout() {
 		background.translatesAutoresizingMaskIntoConstraints = false
@@ -87,7 +94,7 @@ class TodoListsViewController: ScrollableViewController, UITableViewDataSource, 
 	}
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 5
+		return todoLists?.count ?? 0
 	}
 
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -95,14 +102,17 @@ class TodoListsViewController: ScrollableViewController, UITableViewDataSource, 
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: todoListCell)!
+		let cell = tableView.dequeueReusableCell(withIdentifier: todoListCell, for: indexPath) as! TLCell
+        let list = todoLists![indexPath.row]
+        cell.label.text = list.title
+        cell.sharedButton.isShared = list.isShared
+        
 		return cell
 	}
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let TodoItemVC = TodoItemsViewController()
         let navigationVC = UINavigationController(rootViewController: TodoItemVC)
-        dataController.getMyLists()
         present(navigationVC, animated: true, completion: nil)
     }
 

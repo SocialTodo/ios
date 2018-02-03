@@ -38,11 +38,9 @@ class DataController {
         // Switch to JSONEncoding.default
     }
     
-    func getMyLists() {
-        guard let accessToken = AccessToken.current else {
-            print("nil access token")
-            return
-        }
+    func getMyLists(completion: @escaping ([TodoList]) -> Void) {
+        var todoLists = [TodoList]()
+        let accessToken = AccessToken.current!
         let headers: HTTPHeaders = ["user_id": accessToken.userId!, "token": accessToken.authenticationToken, "owner_id": accessToken.userId!]
         
         Alamofire.request("http://localhost:8080/api/list/", method: .get, headers: headers).responseData { (response) in
@@ -50,10 +48,11 @@ class DataController {
                 print("data not found")
                 return
             }
-
-            guard let todoLists = try? JSONDecoder().decode([TodoList].self, from: data) else {
-                print("error decoding todoLists")
-                return
+            
+            do {
+                todoLists = try JSONDecoder().decode([TodoList].self, from: data)
+            } catch {
+                print(error)
             }
             
             for todoList in todoLists {
@@ -61,7 +60,10 @@ class DataController {
                 // TODO: create entity and save to db
             }
             
+            completion(todoLists)
         }
+        
+        
     }
 }
 

@@ -16,7 +16,17 @@ class SharedSwitch: UIView {
     var sliderPrivateConstraint: NSLayoutConstraint!
     var privateImage: UIImageView!
     var sharedImage: UIImageView!
-    var isShared: Bool!
+    var isShared: Bool! {
+        didSet {
+            if isShared {
+                sliderPrivateConstraint.isActive = false
+                sliderSharedConstraint.isActive = true
+            } else {
+                sliderSharedConstraint.isActive = false
+                sliderPrivateConstraint.isActive = true
+            }
+        }
+    }
     var button: UIButton!
     
     override init(frame: CGRect) {
@@ -58,14 +68,10 @@ class SharedSwitch: UIView {
         if isShared {
             button.isEnabled = false
             isShared = false
-            sliderSharedConstraint.isActive = false
-            sliderPrivateConstraint.isActive = true
             button.isEnabled = true
         } else {
             button.isEnabled = false
             isShared = true
-            sliderPrivateConstraint.isActive = false
-            sliderSharedConstraint.isActive = true
             button.isEnabled = true
         }
     }
