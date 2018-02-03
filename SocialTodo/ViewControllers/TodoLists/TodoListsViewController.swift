@@ -102,7 +102,7 @@ class TodoListsViewController: ScrollableViewController, UITableViewDataSource, 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let TodoItemVC = TodoItemsViewController()
         let navigationVC = UINavigationController(rootViewController: TodoItemVC)
-        
+        dataController.getLists()
         present(navigationVC, animated: true, completion: nil)
     }
 

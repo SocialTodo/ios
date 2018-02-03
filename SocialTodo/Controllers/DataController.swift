@@ -23,7 +23,7 @@ class DataController {
     
     func databasePreparations() {
         do {
-            try database.prepare([FacebookUser.self, TodoList.self, TodoItem.self])
+            try database.prepare([FacebookUser.self, TodoListEntity.self, TodoItemEntity.self])
         } catch {
             print(error)
         }
@@ -34,6 +34,18 @@ class DataController {
         // REMOVE EXEMPTION FROM Info.plist TO TEST
         Alamofire.request("http://ihrca.info:1337/api/login", method: .post, parameters: fbAccessToken.serializableToken(), encoding: URLEncoding.default)
         // Switch to JSONEncoding.default
+    }
+    
+    func getLists() {
+        let headers: HTTPHeaders = ["user_id":"106718993442628", "token": "EAAELThYwkZCsBACprsLAlySHYbwiqKRlruXAInsVtDgMbyQCFisZChVCZAP8SVbXChKZASEoheSVMCthKtBSS5gZAZBVTFsUycZBdAcutZCXuAEO7wNNuN2cmjNfpJn7KYlaCbFmSDYeahKsDpdVCydWsnzFWE6vO8CZAiFZChpZC6J1r9djgZB9O9ZCQFbrRL1V57DZCMZCKTc4kXlt294zlciuv7UzONNfYm33pRbuwnV5bW0ZAQZDZD", "owner_id":"106718993442628"]
+        Alamofire.request("http://localhost:8080/api/list/", method: .get, headers: headers).responseJSON { (response) in
+            guard let json = response.value as? [[String: Any]] else {
+                print("json not found")
+                return
+            }
+            print(json)
+            
+        }
     }
 }
 

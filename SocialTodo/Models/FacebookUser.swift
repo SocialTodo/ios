@@ -20,7 +20,7 @@ final class FacebookUser: Entity {
     var facebookFriends: Siblings<FacebookUser, FacebookUser, Pivot<FacebookUser,FacebookUser>> {
         return siblings()
     }
-    var todoLists: Children<FacebookUser, TodoList> {
+    var todoLists: Children<FacebookUser, TodoListEntity> {
         return children()
     }
     

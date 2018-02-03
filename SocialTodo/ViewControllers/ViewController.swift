@@ -22,6 +22,8 @@ class ViewController: UIViewController {
 		sv.clipsToBounds = true
 		return sv
 	}()
+    
+    let dataController = DataController()
 
 	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
@@ -29,7 +31,6 @@ class ViewController: UIViewController {
 		super.viewDidLoad()
         
         
-        let dataController = DataController()
 
 		setupLayout()
 		setupScrollView()
