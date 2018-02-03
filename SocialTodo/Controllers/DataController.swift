@@ -8,12 +8,14 @@ import Alamofire
 import FacebookCore
 import FacebookLogin
 import Fluent
+import Foundation
 
 class DataController {
     let database: Database
     
     init() {
         let documentDirectory = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true).appendingPathComponent("db").appendingPathExtension("sqlite3")
+        print(documentDirectory.path)
         let driver = try! SQLiteDriver(path: documentDirectory.path)
          self.database = Fluent.Database(driver)
         print("database created")
@@ -36,14 +38,28 @@ class DataController {
         // Switch to JSONEncoding.default
     }
     
-    func getLists() {
-        let headers: HTTPHeaders = ["user_id":"106718993442628", "token": "EAAELThYwkZCsBACprsLAlySHYbwiqKRlruXAInsVtDgMbyQCFisZChVCZAP8SVbXChKZASEoheSVMCthKtBSS5gZAZBVTFsUycZBdAcutZCXuAEO7wNNuN2cmjNfpJn7KYlaCbFmSDYeahKsDpdVCydWsnzFWE6vO8CZAiFZChpZC6J1r9djgZB9O9ZCQFbrRL1V57DZCMZCKTc4kXlt294zlciuv7UzONNfYm33pRbuwnV5bW0ZAQZDZD", "owner_id":"106718993442628"]
-        Alamofire.request("http://localhost:8080/api/list/", method: .get, headers: headers).responseJSON { (response) in
-            guard let json = response.value as? [[String: Any]] else {
-                print("json not found")
+    func getMyLists() {
+        guard let accessToken = AccessToken.current else {
+            print("nil access token")
+            return
+        }
+        let headers: HTTPHeaders = ["user_id": accessToken.userId!, "token": accessToken.authenticationToken, "owner_id": accessToken.userId!]
+        
+        Alamofire.request("http://localhost:8080/api/list/", method: .get, headers: headers).responseData { (response) in
+            guard let data = response.value else {
+                print("data not found")
                 return
             }
-            print(json)
+
+            guard let todoLists = try? JSONDecoder().decode([TodoList].self, from: data) else {
+                print("error decoding todoLists")
+                return
+            }
+            
+            for todoList in todoLists {
+                print(todoList.title)
+                // TODO: create entity and save to db
+            }
             
         }
     }

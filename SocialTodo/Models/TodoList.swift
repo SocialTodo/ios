@@ -11,7 +11,7 @@ import Foundation
 struct TodoList: Codable {
     var title: String
     var id: Int
-    var facebookUserId: Int
+    var facebookUserId: String
     var isShared: Bool
     
     enum CodingKeys: String, CodingKey {

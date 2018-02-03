@@ -23,6 +23,7 @@ class ViewController: UIViewController {
 		return sv
 	}()
     
+    let authController = AuthController()
     let dataController = DataController()
 
 	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
@@ -36,8 +37,10 @@ class ViewController: UIViewController {
 		setupScrollView()
         
         // get token from userdefaults
-        if let authToken = UserDefaults.standard.string(forKey: "authToken") {
-            AccessToken.current = AccessToken.init(authenticationToken: authToken)
+        if let facebookAccessToken = UserDefaults.standard.dictionary(forKey: "facebookAccessToken") {
+            let token = authController.createAccessToken(with: facebookAccessToken)
+            AccessToken.current = token
+            AccessToken.refreshCurrentToken()
         }
         // if not logged in present LoginVC
         DispatchQueue.main.async {

@@ -16,15 +16,58 @@ class AuthController {
 				print(error)
 			case .cancelled:
 				print("User canceled login")
-			case .success(_, _, let fbAccessToken):
+            case .success(let grantedPermissions, let declinedPermissions, let token):
 				print("fb logged in")
-                UserDefaults.standard.set(fbAccessToken.authenticationToken, forKey: "authToken")
+                self.storeAccessToken(grantedPermissions: grantedPermissions, declinedPermissions: declinedPermissions, token: token)
 				success()
 				//(UIApplication.shared.delegate as! DataControllerInterface)
 				//.sendFacebookToken(fbAccessToken: fbAccessToken)
 			}
 		}
 	}
+    
+    public func createAccessToken(with facebookAccessToken: [String: Any]) -> AccessToken {
+        let appId = facebookAccessToken["appId"] as! String
+        let authenticationToken = facebookAccessToken["authToken"] as! String
+        let userId = facebookAccessToken["userId"] as! String?
+        let refreshDate = facebookAccessToken["refreshDate"] as! Date
+        let expirationDate = facebookAccessToken["expirationDate"] as! Date
+        let grantedPermissionsArray = facebookAccessToken["grantedPermissions"] as! [String]
+        let declinedPermissionsArray = facebookAccessToken["declinedPermissions"] as! [String]
+        
+        var grantedPermissions = Set<Permission>()
+        for permission in grantedPermissionsArray {
+            grantedPermissions.insert(Permission(name: permission))
+        }
+        
+        var declinedPermissions = Set<Permission>()
+        for permission in declinedPermissionsArray {
+            declinedPermissions.insert(Permission(name: permission))
+        }
+        
+        
+        let token = AccessToken.init(appId: appId, authenticationToken: authenticationToken, userId: userId, refreshDate: refreshDate, expirationDate: expirationDate, grantedPermissions: grantedPermissions, declinedPermissions: declinedPermissions)
+        
+        return token
+    }
+    
+    public func storeAccessToken(grantedPermissions: Set<Permission>, declinedPermissions: Set<Permission>, token: AccessToken) {
+        var grantedPermissionsArray = [String]()
+        for permission in grantedPermissions {
+            grantedPermissionsArray.append(permission.name)
+        }
+        var declinedPermissionsArray = [String]()
+        for permission in declinedPermissions {
+            declinedPermissionsArray.append(permission.name)
+        }
+        UserDefaults.standard.setValuesForKeys(["facebookAccessToken": ["appId" : token.appId,
+                                                                        "authToken": token.authenticationToken,
+                                                                        "userId": token.userId,
+                                                                        "refreshDate": token.refreshDate,
+                                                                        "expirationDate": token.expirationDate,
+                                                                        "grantedPermissions": grantedPermissionsArray,
+                                                                        "declinedPermissions": declinedPermissionsArray]])
+    }
 
 	/*private func fetchGraph(user: User) {
 	struct UserInfoRequest: GraphRequestProtocol {
