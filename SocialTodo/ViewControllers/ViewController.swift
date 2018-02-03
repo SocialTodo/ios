@@ -82,10 +82,10 @@ class ViewController: UIViewController {
 
 	func setupScrollView() {
 
-        setupViewController(viewController: AddFriendsViewController(scrollView: scrollView), navColor: Colors.lightNavColor, index: 0)
-        setupViewController(viewController: FriendsViewController(scrollView: scrollView), navColor: Colors.lightNavColor, index: 1)
-		setupViewController(viewController: TodoListsViewController(scrollView: scrollView), navColor: Colors.darkNavColor, index: 2)
-		setupViewController(viewController: ProfileViewController(scrollView: scrollView), navColor: Colors.lightNavColor, index: 3)
+        setupViewController(viewController: AddFriendsViewController(dataController: dataController, scrollView: scrollView), navColor: Colors.lightNavColor, index: 0)
+        setupViewController(viewController: FriendsViewController(dataController: dataController, scrollView: scrollView), navColor: Colors.lightNavColor, index: 1)
+		setupViewController(viewController: TodoListsViewController(dataController: dataController, scrollView: scrollView), navColor: Colors.darkNavColor, index: 2)
+		setupViewController(viewController: ProfileViewController(dataController: dataController, scrollView: scrollView), navColor: Colors.lightNavColor, index: 3)
 	}
 
 }
