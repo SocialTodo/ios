@@ -43,6 +43,7 @@ class TodoListsViewController: ScrollableViewController, UITableViewDataSource, 
     
     var todoLists: [TodoList]?
     let todoListCell = "TLCell"
+    let addTodoListCell = "AddTLCell"
     
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,6 +64,8 @@ class TodoListsViewController: ScrollableViewController, UITableViewDataSource, 
 		tableView.delegate = self
         
         tableView.register(TLCell.self, forCellReuseIdentifier: todoListCell)
+        tableView.register(AddTLCell.self, forCellReuseIdentifier: addTodoListCell)
+
         
         dataController.getMyLists() { todoLists in
             self.todoLists = todoLists
@@ -94,7 +97,7 @@ class TodoListsViewController: ScrollableViewController, UITableViewDataSource, 
 	}
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return todoLists?.count ?? 0
+		return (todoLists?.count ?? 0) + 1
 	}
 
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -102,12 +105,19 @@ class TodoListsViewController: ScrollableViewController, UITableViewDataSource, 
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: todoListCell, for: indexPath) as! TLCell
-        let list = todoLists![indexPath.row]
-        cell.label.text = list.title
-        cell.sharedButton.isShared = list.isShared
+        if indexPath.row < todoLists?.count ?? 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: todoListCell, for: indexPath) as! TLCell
+            let list = todoLists![indexPath.row]
+            cell.label.text = list.title
+            cell.sharedButton.isShared = list.isShared
+            return cell
+        }
+        else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: addTodoListCell, for: indexPath) as! AddTLCell
+            cell.dataController = dataController
+            return cell
+        }
         
-		return cell
 	}
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {

@@ -39,29 +39,72 @@ class DataController {
     }
     
     func getMyLists(completion: @escaping ([TodoList]) -> Void) {
+        
         var todoLists = [TodoList]()
         let accessToken = AccessToken.current!
         let headers: HTTPHeaders = ["user_id": accessToken.userId!, "token": accessToken.authenticationToken, "owner_id": accessToken.userId!]
         
-        Alamofire.request("http://localhost:8080/api/list/", method: .get, headers: headers).responseData { (response) in
-            guard let data = response.value else {
-                print("data not found")
+        var urlRequest: URLRequest
+        do {
+            urlRequest = try URLRequest(url: "http://localhost:8080/api/list/", method: .get, headers: headers)
+        } catch {
+            return
+        }
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        
+        let task = session.dataTask(with: urlRequest) { (data, response, error) in
+            
+            guard error == nil else {
                 return
             }
-            
+            guard let responseData = data else {
+                return
+            }
             do {
-                todoLists = try JSONDecoder().decode([TodoList].self, from: data)
+                todoLists = try JSONDecoder().decode([TodoList].self, from: responseData)
             } catch {
                 print(error)
             }
             
+            DispatchQueue.main.async {
+                completion(todoLists)
+            }
+
             for todoList in todoLists {
                 print(todoList.title)
                 // TODO: create entity and save to db
             }
             
-            completion(todoLists)
         }
+        task.resume()
+    }
+    
+    func postTodoList(todoList: TodoList) {
+        let accessToken = AccessToken.current!
+        let headers = ["user_id": accessToken.userId!, "token": accessToken.authenticationToken, "owner_id": accessToken.userId!, "Content-Type": "application/json"]
+        do {
+            var urlRequest = try URLRequest(url: "http://localhost:8080/api/list", method: .post, headers: headers)
+            let data = try JSONEncoder().encode(todoList)
+            urlRequest.httpBody = data
+            
+            let config = URLSessionConfiguration.default
+            let session = URLSession(configuration: config)
+            
+            let task = session.dataTask(with: urlRequest) { (data, response, error) in
+                
+                print(data)
+                print(response)
+                print(error)
+            }
+            
+            task.resume()
+            
+        } catch {
+            print(error)
+        }
+        
         
         
     }
