@@ -26,6 +26,7 @@
 		C721C8E0201EB9B200EC7F4C /* Node.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C721C8E4201EB9B200EC7F4C /* Node.framework */; };
 		C721C8E1201EB9B200EC7F4C /* Random.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C721C8E5201EB9B200EC7F4C /* Random.framework */; };
 		C721C8E6201EB9D300EC7F4C /* Debugging.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C721C8E7201EB9D300EC7F4C /* Debugging.framework */; };
+		C758B25D2027F239009DA12C /* AddTICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C758B25C2027F238009DA12C /* AddTICell.swift */; };
 		C767F5D7201923D100C532D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767F5D6201923D100C532D0 /* Constants.swift */; };
 		C767F5DA201924EE00C532D0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767F5D9201924EE00C532D0 /* Extensions.swift */; };
 		C7A42A4D201FBC960099F6A2 /* SharedSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A42A4C201FBC960099F6A2 /* SharedSwitch.swift */; };
@@ -98,6 +99,7 @@
 		C721C8E4201EB9B200EC7F4C /* Node.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Node.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C721C8E5201EB9B200EC7F4C /* Random.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Random.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C721C8E7201EB9D300EC7F4C /* Debugging.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Debugging.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C758B25C2027F238009DA12C /* AddTICell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTICell.swift; sourceTree = "<group>"; };
 		C767F5D6201923D100C532D0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C767F5D9201924EE00C532D0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		C77EBE8E1FD3D4F4004403B0 /* AddFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsViewController.swift; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				C71C09F8201EE80E00DAF961 /* TodoItemsViewController.swift */,
 				C71C09FA201EE82400DAF961 /* TICell.swift */,
 				C7EF931D2023AAC600F9A68D /* TodoCheckbox.swift */,
+				C758B25C2027F238009DA12C /* AddTICell.swift */,
 			);
 			path = TodoItems;
 			sourceTree = "<group>";
@@ -734,6 +737,7 @@
 				E9CBCF671FEEE37400E8D7F7 /* FriendsViewController.swift in Sources */,
 				C70DBC0620262E73001E647A /* TodoListEntity.swift in Sources */,
 				C7EB3385200ACFDD004D5E1B /* TLCell.swift in Sources */,
+				C758B25D2027F239009DA12C /* AddTICell.swift in Sources */,
 				C767F5D7201923D100C532D0 /* Constants.swift in Sources */,
 				E9CBCF661FEEE37000E8D7F7 /* AddFriendsViewController.swift in Sources */,
 				C70FB390201EDB8500BBFCF6 /* FacebookUser.swift in Sources */,

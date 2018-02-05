@@ -50,11 +50,9 @@ class TICell: UITableViewCell {
     
     func setupLayout() {
         background.translatesAutoresizingMaskIntoConstraints = false
-        background.topAnchor.constraint(equalTo: topAnchor, constant: 5).isActive = true
-        background.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -5).isActive = true
-        background.leftAnchor.constraint(equalTo: leftAnchor, constant: 12).isActive = true
-        background.rightAnchor.constraint(equalTo: rightAnchor, constant: -12).isActive = true
-        background.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        background.anchorX(left: leftAnchor, leftConstant: 12, right: rightAnchor, rightConstant: -12)
+        background.anchorY(top: topAnchor, topConstant: 5, bottom: bottomAnchor, bottomConstant: -5)
+        background.size(height: 60)
         
         todoCheckbox.translatesAutoresizingMaskIntoConstraints = false
         todoCheckbox.centerYAnchor.constraint(equalTo: background.centerYAnchor).isActive = true

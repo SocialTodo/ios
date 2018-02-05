@@ -25,14 +25,16 @@ class TodoItemsViewController: UIViewController, UITableViewDataSource, UITableV
     
     let dataController: DataController
     
-    let listId: Int
+    let todoListId: Int
     var todoItems: [TodoItem]?
     
     let todoItemCell = "TodoItemCell"
+    let addTodoItemCell = "AddTodoItemCell"
+
     
-    init(dataController: DataController, listId: Int) {
+    init(dataController: DataController, todoListId: Int) {
         self.dataController = dataController
-        self.listId = listId
+        self.todoListId = todoListId
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -92,8 +94,9 @@ class TodoItemsViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.delegate = self
         
         tableView.register(TICell.self, forCellReuseIdentifier: todoItemCell)
+        tableView.register(AddTICell.self, forCellReuseIdentifier: addTodoItemCell)
         
-        dataController.getTodoItems(listId: listId) { (todoItems) in
+        dataController.getTodoItems(todoListId: todoListId) { (todoItems) in
             self.todoItems = todoItems
             self.tableView.reloadData()
         }
@@ -123,7 +126,7 @@ class TodoItemsViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return todoItems?.count ?? 0
+        return (todoItems?.count ?? 0) + 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -131,10 +134,18 @@ class TodoItemsViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: todoItemCell) as! TICell
-        cell.label.text = todoItems![indexPath.row].title
-        cell.todoCheckbox.isChecked = todoItems![indexPath.row].isChecked
-        return cell
+        if indexPath.row < todoItems?.count ?? 0 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: todoItemCell) as! TICell
+            cell.label.text = todoItems![indexPath.row].title
+            cell.todoCheckbox.isChecked = todoItems![indexPath.row].isChecked
+            return cell
+        } else {
+            let cell = tableView.dequeueReusableCell(withIdentifier: addTodoItemCell) as! AddTICell
+            cell.dataController = dataController
+            cell.todoListId = todoListId
+            return cell
+        }
+        
     }
     
 }

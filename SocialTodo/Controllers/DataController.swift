@@ -99,18 +99,15 @@ class DataController {
             print(response)
             print(error)
         }
-        
         task.resume()
-            
-        
     }
     
-    func getTodoItems(listId: Int, completion: @escaping ([TodoItem]) -> Void) {
+    func getTodoItems(todoListId: Int, completion: @escaping ([TodoItem]) -> Void) {
         var todoItems = [TodoItem]()
         let headers = getRequestHeaders()
         var urlRequest: URLRequest
         do {
-            urlRequest = try URLRequest(url: "http://localhost:8080/api/list/\(listId)", method: .get, headers: headers)
+            urlRequest = try URLRequest(url: "http://localhost:8080/api/list/\(todoListId)", method: .get, headers: headers)
         } catch {
             return
         }
@@ -139,6 +136,30 @@ class DataController {
                 // TODO: create entity and save to db
             }
             
+        }
+        
+        task.resume()
+    }
+    
+    func postTodoItem(todoItem: TodoItem) {
+        var headers = getRequestHeaders()
+        headers["Content-Type"] = "application/json"
+        var urlRequest: URLRequest
+        do {
+            urlRequest = try URLRequest(url: "http://localhost:8080/api/item/", method: .post, headers: headers)
+            let data = try JSONEncoder().encode(todoItem)
+            urlRequest.httpBody = data
+        } catch {
+            return
+        }
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        let task = session.dataTask(with: urlRequest) { (data, response, error) in
+            // TODO: handle error and response
+            print(data)
+            print(response)
+            print(error)
         }
         
         task.resume()

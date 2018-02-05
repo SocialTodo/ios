@@ -11,9 +11,11 @@ import Foundation
 struct TodoItem: Codable {
     var title: String
     var isChecked: Bool
+    var todoListId: Int
     
     enum CodingKeys: String, CodingKey {
         case title
         case isChecked = "checked"
+        case todoListId = "todo_list_id"
     }
 }

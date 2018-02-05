@@ -1,21 +1,21 @@
 //
-//  AddTLCell.swift
+//  AddTICell.swift
 //  SocialTodo
 //
-//  Created by Saatvik Arya on 1/31/18.
+//  Created by Saatvik Arya on 2/4/18.
 //  Copyright © 2018 Saatvik Arya. All rights reserved.
 //
 
+import Foundation
 import UIKit
 
-class AddTLCell: UITableViewCell, UITextFieldDelegate {
-    
+class AddTICell: UITableViewCell, UITextFieldDelegate {
     let background: UIImageView = {
         let iv = UIImageView()
         iv.image = #imageLiteral(resourceName: "TLCell")
         return iv
     }()
-    
+
     let textField: UITextField = {
         let tf = UITextField()
         tf.adjustsFontSizeToFitWidth = true
@@ -24,18 +24,14 @@ class AddTLCell: UITableViewCell, UITextFieldDelegate {
         return tf
     }()
     
-    let sharedButton: SharedSwitch = {
-        let sharedSwitch = SharedSwitch()
-        return sharedSwitch
-    }()
-    
     let addButton: UIButton = {
         let button = UIButton()
         button.setImage(#imageLiteral(resourceName: "add"), for: .normal)
         return button
     }()
-    
+
     var dataController: DataController?
+    var todoListId: Int?
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -46,34 +42,32 @@ class AddTLCell: UITableViewCell, UITextFieldDelegate {
         
         addSubview(background)
         addSubview(textField)
-        addSubview(sharedButton)
         addSubview(addButton)
         
-        addButton.addTarget(self, action: #selector(handleAddTodoList), for: .touchUpInside)
-        textField.delegate = self
+        addButton.addTarget(self, action: #selector(handleAddTodoItem), for: .touchUpInside)
         
         setupLayout()
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @objc func handleAddTodoList() {
-        print("handle add todo list")
+    @objc func handleAddTodoItem() {
+        print("handle add todo item")
         guard let title = textField.text else {
             return
         }
-        guard let isShared = sharedButton.isShared else {
+        guard let todoListId = todoListId else {
             return
         }
         
-        let todoList = TodoList(title: title, id: nil, isShared: isShared)
-        dataController?.postTodoList(todoList: todoList)
+        let todoItem = TodoItem(title: title, isChecked: false, todoListId: todoListId)
+        
+        dataController?.postTodoItem(todoItem: todoItem)
         
         textField.text = nil
-        sharedButton.isShared = false
-        
         textField.resignFirstResponder()
     }
     
@@ -83,7 +77,7 @@ class AddTLCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        handleAddTodoList()
+        handleAddTodoItem()
         return true
     }
     
@@ -92,21 +86,19 @@ class AddTLCell: UITableViewCell, UITextFieldDelegate {
         background.anchorX(left: leftAnchor, leftConstant: 12, right: rightAnchor, rightConstant: -12)
         background.anchorY(top: topAnchor, topConstant: 5, bottom: bottomAnchor, bottomConstant: -5)
         background.size(height: 60)
-        
+
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.centerYAnchor.constraint(equalTo: background.centerYAnchor).isActive = true
-        textField.anchorX(left: background.leftAnchor, leftConstant: 12, right: sharedButton.leftAnchor, rightConstant: -8)
+        textField.anchorX(left: background.leftAnchor, leftConstant: 12, right: addButton.leftAnchor, rightConstant: -8)
         textField.size(height: 50)
-        
-        sharedButton.translatesAutoresizingMaskIntoConstraints = false
-        sharedButton.centerYAnchor.constraint(equalTo: background.centerYAnchor).isActive = true
-        sharedButton.anchorX(left: textField.rightAnchor, leftConstant: 8, right: addButton.leftAnchor, rightConstant: -8)
-        sharedButton.size(height: 30, width: 100)
         
         addButton.translatesAutoresizingMaskIntoConstraints = false
         addButton.centerYAnchor.constraint(equalTo: background.centerYAnchor).isActive = true
         addButton.size(height: 30, width: 30)
-        addButton.anchorX(left: sharedButton.rightAnchor, leftConstant: 8, right: background.rightAnchor, rightConstant: -12)
+        addButton.anchorX(left: textField.rightAnchor, leftConstant: 8, right: background.rightAnchor, rightConstant: -12)
     }
+    
 }
+
+
 
