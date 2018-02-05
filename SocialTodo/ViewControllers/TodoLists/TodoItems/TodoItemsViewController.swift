@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodoItemsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class TodoItemsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddTICellDelegate {
     
     let background: UIImageView = {
         let iv = UIImageView()
@@ -141,11 +141,16 @@ class TodoItemsViewController: UIViewController, UITableViewDataSource, UITableV
             return cell
         } else {
             let cell = tableView.dequeueReusableCell(withIdentifier: addTodoItemCell) as! AddTICell
-            cell.dataController = dataController
-            cell.todoListId = todoListId
+            cell.delegate = self
             return cell
         }
-        
+    }
+    
+    func addTodoItem(todoItem: TodoItem) {
+        todoItems?.append(todoItem)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
     }
     
 }

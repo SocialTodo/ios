@@ -9,6 +9,12 @@
 import Foundation
 import UIKit
 
+protocol AddTICellDelegate {
+    var dataController: DataController { get }
+    var todoListId: Int { get }
+    func addTodoItem(todoItem: TodoItem)
+}
+
 class AddTICell: UITableViewCell, UITextFieldDelegate {
     let background: UIImageView = {
         let iv = UIImageView()
@@ -30,8 +36,8 @@ class AddTICell: UITableViewCell, UITextFieldDelegate {
         return button
     }()
 
-    var dataController: DataController?
-    var todoListId: Int?
+    var delegate: AddTICellDelegate!
+    
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -43,10 +49,11 @@ class AddTICell: UITableViewCell, UITextFieldDelegate {
         addSubview(background)
         addSubview(textField)
         addSubview(addButton)
+    
+        setupLayout()
         
         addButton.addTarget(self, action: #selector(handleAddTodoItem), for: .touchUpInside)
-        
-        setupLayout()
+        textField.delegate = self
         
     }
     
@@ -59,20 +66,20 @@ class AddTICell: UITableViewCell, UITextFieldDelegate {
         guard let title = textField.text else {
             return
         }
-        guard let todoListId = todoListId else {
-            return
-        }
+        let todoListId = delegate.todoListId
         
         let todoItem = TodoItem(title: title, isChecked: false, todoListId: todoListId)
         
-        dataController?.postTodoItem(todoItem: todoItem)
-        
+        delegate.dataController.postTodoItem(todoItem: todoItem) { todoItem in
+            self.delegate.addTodoItem(todoItem: todoItem)
+        }
+                
         textField.text = nil
         textField.resignFirstResponder()
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        textField.typingAttributes = [NSAttributedStringKey.font.rawValue: UIFont(name: "AvenirNext-DemiBold", size: 22) ?? UIFont.boldSystemFont(ofSize: 22)]
+        textField.typingAttributes = [NSAttributedStringKey.font.rawValue: UIFont(name: "AvenirNext-Regular", size: 22) ?? UIFont.boldSystemFont(ofSize: 22)]
         return true
     }
     

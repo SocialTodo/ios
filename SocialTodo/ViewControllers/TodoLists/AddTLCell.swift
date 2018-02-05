@@ -8,6 +8,11 @@
 
 import UIKit
 
+protocol AddTLCellDelegate {
+    var dataController: DataController { get }
+    func addTodoList(todoList: TodoList)
+}
+
 class AddTLCell: UITableViewCell, UITextFieldDelegate {
     
     let background: UIImageView = {
@@ -35,7 +40,7 @@ class AddTLCell: UITableViewCell, UITextFieldDelegate {
         return button
     }()
     
-    var dataController: DataController?
+    var delegate: AddTLCellDelegate!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -69,7 +74,10 @@ class AddTLCell: UITableViewCell, UITextFieldDelegate {
         }
         
         let todoList = TodoList(title: title, id: nil, isShared: isShared)
-        dataController?.postTodoList(todoList: todoList)
+        delegate.dataController.postTodoList(todoList: todoList) { todoList in
+            self.delegate.addTodoList(todoList: todoList)
+        }
+        
         
         textField.text = nil
         sharedButton.isShared = false

@@ -79,7 +79,7 @@ class DataController {
         task.resume()
     }
 
-    func postTodoList(todoList: TodoList) {
+    func postTodoList(todoList: TodoList, completion: @escaping (TodoList) -> Void) {
         var headers = getRequestHeaders()
         headers["Content-Type"] = "application/json"
         var urlRequest: URLRequest
@@ -94,10 +94,19 @@ class DataController {
         let session = URLSession(configuration: config)
         
         let task = session.dataTask(with: urlRequest) { (data, response, error) in
-            // TODO: handle error and response
-            print(data)
-            print(response)
-            print(error)
+            guard error == nil else {
+                return
+            }
+            guard let responseData = data else {
+                return
+            }
+            do {
+                let todoListResponse = try JSONDecoder().decode(TodoList.self, from: responseData)
+                completion(todoListResponse)
+            } catch {
+                print(error)
+            }
+            
         }
         task.resume()
     }
@@ -141,7 +150,7 @@ class DataController {
         task.resume()
     }
     
-    func postTodoItem(todoItem: TodoItem) {
+    func postTodoItem(todoItem: TodoItem, completion: @escaping (TodoItem) -> Void) {
         var headers = getRequestHeaders()
         headers["Content-Type"] = "application/json"
         var urlRequest: URLRequest
@@ -156,10 +165,20 @@ class DataController {
         let session = URLSession(configuration: config)
         
         let task = session.dataTask(with: urlRequest) { (data, response, error) in
-            // TODO: handle error and response
-            print(data)
-            print(response)
-            print(error)
+            guard error == nil else {
+                return
+            }
+            guard let responseData = data else {
+                return
+            }
+            do {
+                let todoItemResponse = try JSONDecoder().decode(TodoItem.self, from: responseData)
+                completion(todoItemResponse)
+            } catch {
+                print(error)
+            }
+            
+            
         }
         
         task.resume()

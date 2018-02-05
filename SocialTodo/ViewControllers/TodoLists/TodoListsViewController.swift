@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodoListsViewController: ScrollableViewController, UITableViewDataSource, UITableViewDelegate {
+class TodoListsViewController: ScrollableViewController, UITableViewDataSource, UITableViewDelegate, AddTLCellDelegate {
 
 	let background: UIImageView = {
 		let iv = UIImageView()
@@ -114,11 +114,18 @@ class TodoListsViewController: ScrollableViewController, UITableViewDataSource, 
         }
         else {
             let cell = tableView.dequeueReusableCell(withIdentifier: addTodoListCell, for: indexPath) as! AddTLCell
-            cell.dataController = dataController
+            cell.delegate = self
             return cell
         }
         
 	}
+    
+    func addTodoList(todoList: TodoList) {
+        todoLists?.append(todoList)
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let todoListId = todoLists![indexPath.row].id else {
