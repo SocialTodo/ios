@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddTLCell: UITableViewCell {
+class AddTLCell: UITableViewCell, UITextFieldDelegate {
     
     let background: UIImageView = {
         let iv = UIImageView()
@@ -20,6 +20,7 @@ class AddTLCell: UITableViewCell {
         let tf = UITextField()
         tf.adjustsFontSizeToFitWidth = true
         tf.attributedPlaceholder = NSAttributedString(string: "Add Todo List", attributes: [NSAttributedStringKey.font: UIFont(name: "AvenirNext-UltraLight", size: 22) ?? UIFont.boldSystemFont(ofSize: 22), NSAttributedStringKey.foregroundColor: UIColor(r: 150, g: 150, b: 150)])
+        tf.returnKeyType = .done
         return tf
     }()
     
@@ -49,7 +50,7 @@ class AddTLCell: UITableViewCell {
         addSubview(addButton)
         
         addButton.addTarget(self, action: #selector(handleAddTodoList), for: .touchUpInside)
-
+        textField.delegate = self
         
         setupLayout()
     }
@@ -66,9 +67,24 @@ class AddTLCell: UITableViewCell {
         guard let isShared = sharedButton.isShared else {
             return
         }
-        let todoList = TodoList(title: title, isShared: isShared)
+        
+        let todoList = TodoList(title: title, id: nil, isShared: isShared)
         dataController?.postTodoList(todoList: todoList)
         
+        textField.text = nil
+        sharedButton.isShared = false
+        
+        textField.resignFirstResponder()
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        textField.typingAttributes = [NSAttributedStringKey.font.rawValue: UIFont(name: "AvenirNext-DemiBold", size: 22) ?? UIFont.boldSystemFont(ofSize: 22)]
+        return true
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        handleAddTodoList()
+        return true
     }
     
     func setupLayout() {

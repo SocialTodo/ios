@@ -23,9 +23,22 @@ class TodoItemsViewController: UIViewController, UITableViewDataSource, UITableV
         return tv
     }()
     
+    let dataController: DataController
     
+    let listId: Int
+    var todoItems: [TodoItem]?
     
     let todoItemCell = "TodoItemCell"
+    
+    init(dataController: DataController, listId: Int) {
+        self.dataController = dataController
+        self.listId = listId
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +92,12 @@ class TodoItemsViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.delegate = self
         
         tableView.register(TICell.self, forCellReuseIdentifier: todoItemCell)
+        
+        dataController.getTodoItems(listId: listId) { (todoItems) in
+            self.todoItems = todoItems
+            self.tableView.reloadData()
+        }
+
     }
     
     @objc func showMyLists() {
@@ -104,7 +123,7 @@ class TodoItemsViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return todoItems?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -112,7 +131,9 @@ class TodoItemsViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: todoItemCell)!
+        let cell = tableView.dequeueReusableCell(withIdentifier: todoItemCell) as! TICell
+        cell.label.text = todoItems![indexPath.row].title
+        cell.todoCheckbox.isChecked = todoItems![indexPath.row].isChecked
         return cell
     }
     

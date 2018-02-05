@@ -121,7 +121,10 @@ class TodoListsViewController: ScrollableViewController, UITableViewDataSource, 
 	}
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let TodoItemVC = TodoItemsViewController()
+        guard let listId = todoLists![indexPath.row].id else {
+            return
+        }
+        let TodoItemVC = TodoItemsViewController(dataController: dataController, listId: listId)
         let navigationVC = UINavigationController(rootViewController: TodoItemVC)
         present(navigationVC, animated: true, completion: nil)
     }

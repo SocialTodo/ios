@@ -10,10 +10,12 @@ import Foundation
 
 struct TodoList: Codable {
     var title: String
+    var id: Int?
     var isShared: Bool
     
     enum CodingKeys: String, CodingKey {
         case title
+        case id
         case isShared = "shared"
     }
 }

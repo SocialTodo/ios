@@ -11,7 +11,15 @@ import UIKit
 
 class TodoCheckbox: UIView {
     var background: UIView!
-    var isChecked: Bool!
+    var isChecked: Bool! {
+        didSet {
+            if isChecked {
+                background.backgroundColor = UIColor(r: 100, g: 191, b: 251)
+            } else {
+                background.backgroundColor = .white
+            }
+        }
+    }
     var button: UIButton!
     
     override init(frame: CGRect) {
@@ -40,12 +48,10 @@ class TodoCheckbox: UIView {
         if isChecked {
             button.isEnabled = false
             isChecked = false
-            background.backgroundColor = .white
             button.isEnabled = true
         } else {
             button.isEnabled = false
             isChecked = true
-            background.backgroundColor = UIColor(r: 100, g: 191, b: 251)
             button.isEnabled = true
         }
     }

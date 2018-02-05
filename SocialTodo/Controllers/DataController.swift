@@ -41,9 +41,7 @@ class DataController {
     func getMyLists(completion: @escaping ([TodoList]) -> Void) {
         
         var todoLists = [TodoList]()
-        let accessToken = AccessToken.current!
-        let headers: HTTPHeaders = ["user_id": accessToken.userId!, "token": accessToken.authenticationToken, "owner_id": accessToken.userId!]
-        
+        let headers = getRequestHeaders()
         var urlRequest: URLRequest
         do {
             urlRequest = try URLRequest(url: "http://localhost:8080/api/list/", method: .get, headers: headers)
@@ -80,33 +78,76 @@ class DataController {
         }
         task.resume()
     }
-    
+
     func postTodoList(todoList: TodoList) {
-        let accessToken = AccessToken.current!
-        let headers = ["user_id": accessToken.userId!, "token": accessToken.authenticationToken, "owner_id": accessToken.userId!, "Content-Type": "application/json"]
+        var headers = getRequestHeaders()
+        headers["Content-Type"] = "application/json"
+        var urlRequest: URLRequest
         do {
-            var urlRequest = try URLRequest(url: "http://localhost:8080/api/list", method: .post, headers: headers)
+            urlRequest = try URLRequest(url: "http://localhost:8080/api/list", method: .post, headers: headers)
             let data = try JSONEncoder().encode(todoList)
             urlRequest.httpBody = data
-            
-            let config = URLSessionConfiguration.default
-            let session = URLSession(configuration: config)
-            
-            let task = session.dataTask(with: urlRequest) { (data, response, error) in
-                
-                print(data)
-                print(response)
-                print(error)
-            }
-            
-            task.resume()
-            
         } catch {
+            return
+        }
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        let task = session.dataTask(with: urlRequest) { (data, response, error) in
+            // TODO: handle error and response
+            print(data)
+            print(response)
             print(error)
         }
         
+        task.resume()
+            
         
+    }
+    
+    func getTodoItems(listId: Int, completion: @escaping ([TodoItem]) -> Void) {
+        var todoItems = [TodoItem]()
+        let headers = getRequestHeaders()
+        var urlRequest: URLRequest
+        do {
+            urlRequest = try URLRequest(url: "http://localhost:8080/api/list/\(listId)", method: .get, headers: headers)
+        } catch {
+            return
+        }
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
         
+        let task = session.dataTask(with: urlRequest) { (data, response, error) in
+            guard error == nil else {
+                return
+            }
+            guard let responseData = data else {
+                return
+            }
+            do {
+                todoItems = try JSONDecoder().decode([TodoItem].self, from: responseData)
+            } catch {
+                print(error)
+            }
+            
+            DispatchQueue.main.async {
+                completion(todoItems)
+            }
+            
+            for todoItem in todoItems {
+                print(todoItem.title)
+                // TODO: create entity and save to db
+            }
+            
+        }
+        
+        task.resume()
+    }
+    
+    func getRequestHeaders() -> HTTPHeaders {
+        let accessToken = AccessToken.current!
+        let headers: HTTPHeaders = ["user_id": accessToken.userId!, "token": accessToken.authenticationToken, "owner_id": accessToken.userId!]
+        return headers
     }
 }
 
