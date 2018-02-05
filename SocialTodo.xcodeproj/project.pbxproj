@@ -43,13 +43,9 @@
 		E9848CA21FEEFEB8007ECCB2 /* FacebookLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D069671FE8A97C0044BDF4 /* FacebookLoginTest.swift */; };
 		E9C91C271FD31D9600ADFEF9 /* SocialTodoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C91C261FD31D9600ADFEF9 /* SocialTodoTests.swift */; };
 		E9C91C351FD31DC700ADFEF9 /* SocialTodoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C91C341FD31DC700ADFEF9 /* SocialTodoUITests.swift */; };
-		E9C91C401FD3274300ADFEF9 /* JSONItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C91C3F1FD3274300ADFEF9 /* JSONItem.swift */; };
-		E9CBCF571FEEDBF800E8D7F7 /* DataControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBCF551FEEDBF800E8D7F7 /* DataControllerInterface.swift */; };
-		E9CBCF581FEEDBF800E8D7F7 /* AuthControllerInterface.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBCF561FEEDBF800E8D7F7 /* AuthControllerInterface.swift */; };
 		E9CBCF5C1FEEDC0100E8D7F7 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBCF591FEEDC0100E8D7F7 /* AuthController.swift */; };
 		E9CBCF5D1FEEDC0100E8D7F7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBCF5A1FEEDC0100E8D7F7 /* DataController.swift */; };
 		E9CBCF5E1FEEDC0100E8D7F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBCF5B1FEEDC0100E8D7F7 /* AppDelegate.swift */; };
-		E9CBCF651FEEE36C00E8D7F7 /* JSONCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C91C411FD327BB00ADFEF9 /* JSONCollection.swift */; };
 		E9CBCF661FEEE37000E8D7F7 /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77EBE8E1FD3D4F4004403B0 /* AddFriendsViewController.swift */; };
 		E9CBCF671FEEE37400E8D7F7 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77EBE961FD3D589004403B0 /* FriendsViewController.swift */; };
 		E9CBCF681FEEE37700E8D7F7 /* TodoListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77EBE9C1FD3D5B7004403B0 /* TodoListsViewController.swift */; };
@@ -125,10 +121,6 @@
 		E9C91C341FD31DC700ADFEF9 /* SocialTodoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialTodoUITests.swift; sourceTree = "<group>"; };
 		E9C91C361FD31DC700ADFEF9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E9C91C3C1FD31E3200ADFEF9 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		E9C91C3F1FD3274300ADFEF9 /* JSONItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONItem.swift; sourceTree = "<group>"; };
-		E9C91C411FD327BB00ADFEF9 /* JSONCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONCollection.swift; sourceTree = "<group>"; };
-		E9CBCF551FEEDBF800E8D7F7 /* DataControllerInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataControllerInterface.swift; sourceTree = "<group>"; };
-		E9CBCF561FEEDBF800E8D7F7 /* AuthControllerInterface.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthControllerInterface.swift; sourceTree = "<group>"; };
 		E9CBCF591FEEDC0100E8D7F7 /* AuthController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AuthController.swift; sourceTree = "<group>"; };
 		E9CBCF5A1FEEDC0100E8D7F7 /* DataController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 		E9CBCF5B1FEEDC0100E8D7F7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -303,9 +295,7 @@
 			children = (
 				C7EB3386200B1C2D004D5E1B /* Main.storyboard */,
 				E9CBCF541FEEDBD700E8D7F7 /* Controllers */,
-				E9CBCF531FEEDBD000E8D7F7 /* ControllerProtocols */,
 				C70FB38E201EDB6E00BBFCF6 /* Models */,
-				E9C91C191FD31C1300ADFEF9 /* ModelProtocols */,
 				E9C91C161FD31BF100ADFEF9 /* ViewControllers */,
 				C767F5D8201924CB00C532D0 /* Helpers */,
 				C7DE93D11FD28907006F73F0 /* Assets.xcassets */,
@@ -337,15 +327,6 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		E9C91C191FD31C1300ADFEF9 /* ModelProtocols */ = {
-			isa = PBXGroup;
-			children = (
-				E9C91C3F1FD3274300ADFEF9 /* JSONItem.swift */,
-				E9C91C411FD327BB00ADFEF9 /* JSONCollection.swift */,
-			);
-			path = ModelProtocols;
-			sourceTree = "<group>";
-		};
 		E9C91C251FD31D9600ADFEF9 /* SocialTodoTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -364,15 +345,6 @@
 				E9C91C361FD31DC700ADFEF9 /* Info.plist */,
 			);
 			path = SocialTodoUITests;
-			sourceTree = "<group>";
-		};
-		E9CBCF531FEEDBD000E8D7F7 /* ControllerProtocols */ = {
-			isa = PBXGroup;
-			children = (
-				E9CBCF561FEEDBF800E8D7F7 /* AuthControllerInterface.swift */,
-				E9CBCF551FEEDBF800E8D7F7 /* DataControllerInterface.swift */,
-			);
-			path = ControllerProtocols;
 			sourceTree = "<group>";
 		};
 		E9CBCF541FEEDBD700E8D7F7 /* Controllers */ = {
@@ -743,19 +715,15 @@
 				C70FB390201EDB8500BBFCF6 /* FacebookUser.swift in Sources */,
 				C7EF931E2023AAC600F9A68D /* TodoCheckbox.swift in Sources */,
 				C7A42A4D201FBC960099F6A2 /* SharedSwitch.swift in Sources */,
-				E9CBCF651FEEE36C00E8D7F7 /* JSONCollection.swift in Sources */,
 				C71C09F9201EE80E00DAF961 /* TodoItemsViewController.swift in Sources */,
 				C7DE93CD1FD28906006F73F0 /* ViewController.swift in Sources */,
 				C70DBC0A20262F05001E647A /* TodoList.swift in Sources */,
 				E9CBCF5D1FEEDC0100E8D7F7 /* DataController.swift in Sources */,
-				E9CBCF571FEEDBF800E8D7F7 /* DataControllerInterface.swift in Sources */,
 				C70DBC0820262EEB001E647A /* TodoItemEntity.swift in Sources */,
 				C767F5DA201924EE00C532D0 /* Extensions.swift in Sources */,
 				E9CBCF5C1FEEDC0100E8D7F7 /* AuthController.swift in Sources */,
 				E9CBCF5E1FEEDC0100E8D7F7 /* AppDelegate.swift in Sources */,
 				C7E1241B2024C5460067D37E /* ScrollableViewController.swift in Sources */,
-				E9C91C401FD3274300ADFEF9 /* JSONItem.swift in Sources */,
-				E9CBCF581FEEDBF800E8D7F7 /* AuthControllerInterface.swift in Sources */,
 				C71C09FB201EE82400DAF961 /* TICell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

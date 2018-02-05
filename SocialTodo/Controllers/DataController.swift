@@ -31,20 +31,13 @@ class DataController {
         }
     }
     
-    func sendFacebookToken(fbAccessToken: AccessToken) {
-        // WARNING: DO NOT RUN IN PRODUCTION UNTIL SSL IS CONFIGURED!
-        // REMOVE EXEMPTION FROM Info.plist TO TEST
-        Alamofire.request("http://ihrca.info:1337/api/login", method: .post, parameters: fbAccessToken.serializableToken(), encoding: URLEncoding.default)
-        // Switch to JSONEncoding.default
-    }
-    
     func getMyLists(completion: @escaping ([TodoList]) -> Void) {
         
         var todoLists = [TodoList]()
         let headers = getRequestHeaders()
         var urlRequest: URLRequest
         do {
-            urlRequest = try URLRequest(url: "http://localhost:8080/api/list/", method: .get, headers: headers)
+            urlRequest = try URLRequest(url: API.list, method: .get, headers: headers)
         } catch {
             return
         }
@@ -84,7 +77,7 @@ class DataController {
         headers["Content-Type"] = "application/json"
         var urlRequest: URLRequest
         do {
-            urlRequest = try URLRequest(url: "http://localhost:8080/api/list", method: .post, headers: headers)
+            urlRequest = try URLRequest(url: API.list, method: .post, headers: headers)
             let data = try JSONEncoder().encode(todoList)
             urlRequest.httpBody = data
         } catch {
@@ -116,7 +109,7 @@ class DataController {
         let headers = getRequestHeaders()
         var urlRequest: URLRequest
         do {
-            urlRequest = try URLRequest(url: "http://localhost:8080/api/list/\(todoListId)", method: .get, headers: headers)
+            urlRequest = try URLRequest(url: "\(API.list)/\(todoListId)", method: .get, headers: headers)
         } catch {
             return
         }
@@ -155,7 +148,7 @@ class DataController {
         headers["Content-Type"] = "application/json"
         var urlRequest: URLRequest
         do {
-            urlRequest = try URLRequest(url: "http://localhost:8080/api/item/", method: .post, headers: headers)
+            urlRequest = try URLRequest(url: API.item, method: .post, headers: headers)
             let data = try JSONEncoder().encode(todoItem)
             urlRequest.httpBody = data
         } catch {
@@ -188,17 +181,5 @@ class DataController {
         let accessToken = AccessToken.current!
         let headers: HTTPHeaders = ["user_id": accessToken.userId!, "token": accessToken.authenticationToken, "owner_id": accessToken.userId!]
         return headers
-    }
-}
-
-extension AccessToken {
-    func serializableToken() -> Parameters {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd"
-        return [
-            "UserID": userId ?? "ERROR: No UserID provided by token",
-            "Token": authenticationToken,
-            "Expiration": dateFormatter.string(from: expirationDate)
-        ]
     }
 }
