@@ -10,7 +10,6 @@ import UIKit
 
 class MasterView: UIViewController {
     let authController = AuthController()
-    let dataController = DataController()
     
 	let scrollView: UIScrollView = {
 		let sv = UIScrollView(frame: UIScreen.main.bounds)
@@ -78,10 +77,10 @@ class MasterView: UIViewController {
 
 	func setupScrollView() {
 
-        setupViewController(viewController: AddFriendsView(dataController: dataController, scrollView: scrollView), navColor: Colors.lightNavColor, index: 0)
-        setupViewController(viewController: FriendsView(dataController: dataController, scrollView: scrollView), navColor: Colors.lightNavColor, index: 1)
-		setupViewController(viewController: TodoListsView(dataController: dataController, scrollView: scrollView), navColor: Colors.darkNavColor, index: 2)
-		setupViewController(viewController: ProfileView(dataController: dataController, scrollView: scrollView), navColor: Colors.lightNavColor, index: 3)
+        setupViewController(viewController: AddFriendsView(scrollView: scrollView), navColor: Colors.lightNavColor, index: 0)
+        setupViewController(viewController: FriendsView(scrollView: scrollView), navColor: Colors.lightNavColor, index: 1)
+		setupViewController(viewController: TodoListsView(scrollView: scrollView), navColor: Colors.darkNavColor, index: 2)
+		setupViewController(viewController: ProfileView(scrollView: scrollView), navColor: Colors.lightNavColor, index: 3)
 	}
 
 }

@@ -135,7 +135,7 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         guard let todoListId = todoLists![indexPath.row].id else {
             return
         }
-        let TodoItemVC = TodoItemsView(dataController: dataController, todoListId: todoListId)
+        let TodoItemVC = TodoItemsView(todoListId: todoListId)
         let navigationVC = UINavigationController(rootViewController: TodoItemVC)
         present(navigationVC, animated: true, completion: nil)
     }

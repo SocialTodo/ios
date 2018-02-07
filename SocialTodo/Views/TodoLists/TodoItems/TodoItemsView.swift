@@ -11,8 +11,6 @@ import UIKit
 class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegate, AddTICellDelegate {
 
     let todoItemsController = TodoItemsController()
-    let dataController: DataController
-
     
     let background: UIImageView = {
         let iv = UIImageView()
@@ -34,8 +32,7 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
     let addTodoItemCell = "AddTodoItemCell"
 
     
-    init(dataController: DataController, todoListId: Int) {
-        self.dataController = dataController
+    init(todoListId: Int) {
         self.todoListId = todoListId
         super.init(nibName: nil, bundle: nil)
     }

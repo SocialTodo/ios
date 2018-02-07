@@ -10,10 +10,8 @@ import UIKit
 
 class ScrollableViewController: UIViewController {
     let scrollView: UIScrollView
-    let dataController: DataController
     
-    init(dataController: DataController, scrollView: UIScrollView) {
-        self.dataController = dataController
+    init(scrollView: UIScrollView) {
         self.scrollView = scrollView
         super.init(nibName: nil, bundle: nil)
     }
