@@ -1,5 +1,5 @@
 //
-//  TodoListsViewController.swift
+//  TodoListsView.swift
 //  SocialTodo
 //
 //  Created by Saatvik Arya on 12/3/17.
@@ -8,7 +8,8 @@
 
 import UIKit
 
-class TodoListsViewController: ScrollableViewController, UITableViewDataSource, UITableViewDelegate, AddTLCellDelegate {
+class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableViewDelegate, AddTLCellDelegate {
+    let todoListsController = TodoListsController()
 
 	let background: UIImageView = {
 		let iv = UIImageView()
@@ -65,13 +66,16 @@ class TodoListsViewController: ScrollableViewController, UITableViewDataSource, 
         
         tableView.register(TLCell.self, forCellReuseIdentifier: todoListCell)
         tableView.register(AddTLCell.self, forCellReuseIdentifier: addTodoListCell)
-
         
-        dataController.getMyLists() { todoLists in
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        todoListsController.getMyLists() { todoLists in
             self.todoLists = todoLists
             self.tableView.reloadData()
         }
-        
     }
 
 	func setupLayout() {
@@ -131,7 +135,7 @@ class TodoListsViewController: ScrollableViewController, UITableViewDataSource, 
         guard let todoListId = todoLists![indexPath.row].id else {
             return
         }
-        let TodoItemVC = TodoItemsViewController(dataController: dataController, todoListId: todoListId)
+        let TodoItemVC = TodoItemsView(dataController: dataController, todoListId: todoListId)
         let navigationVC = UINavigationController(rootViewController: TodoItemVC)
         present(navigationVC, animated: true, completion: nil)
     }

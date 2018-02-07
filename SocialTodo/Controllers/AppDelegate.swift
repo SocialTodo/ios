@@ -11,18 +11,13 @@ import FacebookLogin
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-    //  var dataController: DataController!
-    //  var authController: AuthController!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = ViewController()
+        window?.rootViewController = MasterView()
         window?.makeKeyAndVisible()
         
-        //    dataController = DataController()
-        //    authController = AuthController()
-        //    login()
         return true
     }
     

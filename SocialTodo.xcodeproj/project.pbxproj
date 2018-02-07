@@ -17,7 +17,7 @@
 		C70FB388201EC62400BBFCF6 /* libc.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C70FB38A201EC62400BBFCF6 /* libc.framework */; };
 		C70FB389201EC62400BBFCF6 /* PathIndexable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C70FB38B201EC62400BBFCF6 /* PathIndexable.framework */; };
 		C70FB390201EDB8500BBFCF6 /* FacebookUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70FB38F201EDB8500BBFCF6 /* FacebookUser.swift */; };
-		C71C09F9201EE80E00DAF961 /* TodoItemsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71C09F8201EE80E00DAF961 /* TodoItemsViewController.swift */; };
+		C71C09F9201EE80E00DAF961 /* TodoItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71C09F8201EE80E00DAF961 /* TodoItemsView.swift */; };
 		C71C09FB201EE82400DAF961 /* TICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71C09FA201EE82400DAF961 /* TICell.swift */; };
 		C721C8DA201EB95C00EC7F4C /* Fluent.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C721C8DB201EB95C00EC7F4C /* Fluent.framework */; };
 		C721C8DC201EB97500EC7F4C /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C721C8DD201EB97500EC7F4C /* SQLite.framework */; };
@@ -30,14 +30,17 @@
 		C767F5D7201923D100C532D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767F5D6201923D100C532D0 /* Constants.swift */; };
 		C767F5DA201924EE00C532D0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767F5D9201924EE00C532D0 /* Extensions.swift */; };
 		C7A42A4D201FBC960099F6A2 /* SharedSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A42A4C201FBC960099F6A2 /* SharedSwitch.swift */; };
-		C7DE93CD1FD28906006F73F0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE93CC1FD28906006F73F0 /* ViewController.swift */; };
+		C7DE93CD1FD28906006F73F0 /* MasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE93CC1FD28906006F73F0 /* MasterView.swift */; };
 		C7DE93D21FD28907006F73F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DE93D11FD28907006F73F0 /* Assets.xcassets */; };
 		C7DE93D51FD28907006F73F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DE93D31FD28907006F73F0 /* LaunchScreen.storyboard */; };
 		C7E1241B2024C5460067D37E /* ScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1241A2024C5460067D37E /* ScrollableViewController.swift */; };
+		C7E88F0C202B9D9300527383 /* AddFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E88F0B202B9D9300527383 /* AddFriendsView.swift */; };
+		C7E88F0E202B9E7C00527383 /* TodoListsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E88F0D202B9E7C00527383 /* TodoListsController.swift */; };
+		C7E88F10202BA45500527383 /* TodoItemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E88F0F202BA45500527383 /* TodoItemsController.swift */; };
 		C7EB3385200ACFDD004D5E1B /* TLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EB3384200ACFDC004D5E1B /* TLCell.swift */; };
 		C7EB3387200B1C2D004D5E1B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7EB3386200B1C2D004D5E1B /* Main.storyboard */; };
 		C7EF931E2023AAC600F9A68D /* TodoCheckbox.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EF931D2023AAC600F9A68D /* TodoCheckbox.swift */; };
-		C7F9209320128E0D00EBC6DF /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F9209220128E0D00EBC6DF /* LoginViewController.swift */; };
+		C7F9209320128E0D00EBC6DF /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7F9209220128E0D00EBC6DF /* LoginView.swift */; };
 		C7FFB37E20228BE4009BC242 /* AddTLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7FFB37D20228BE4009BC242 /* AddTLCell.swift */; };
 		CF993520D47F9D90AED1AEC1 /* Pods_SocialTodo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F981D4E3C21844FED7544BC /* Pods_SocialTodo.framework */; };
 		E9848CA21FEEFEB8007ECCB2 /* FacebookLoginTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9D069671FE8A97C0044BDF4 /* FacebookLoginTest.swift */; };
@@ -46,10 +49,9 @@
 		E9CBCF5C1FEEDC0100E8D7F7 /* AuthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBCF591FEEDC0100E8D7F7 /* AuthController.swift */; };
 		E9CBCF5D1FEEDC0100E8D7F7 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBCF5A1FEEDC0100E8D7F7 /* DataController.swift */; };
 		E9CBCF5E1FEEDC0100E8D7F7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9CBCF5B1FEEDC0100E8D7F7 /* AppDelegate.swift */; };
-		E9CBCF661FEEE37000E8D7F7 /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77EBE8E1FD3D4F4004403B0 /* AddFriendsViewController.swift */; };
-		E9CBCF671FEEE37400E8D7F7 /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77EBE961FD3D589004403B0 /* FriendsViewController.swift */; };
-		E9CBCF681FEEE37700E8D7F7 /* TodoListsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77EBE9C1FD3D5B7004403B0 /* TodoListsViewController.swift */; };
-		E9CBCF691FEEE37A00E8D7F7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77EBEA01FD3D5C7004403B0 /* ProfileViewController.swift */; };
+		E9CBCF671FEEE37400E8D7F7 /* FriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77EBE961FD3D589004403B0 /* FriendsView.swift */; };
+		E9CBCF681FEEE37700E8D7F7 /* TodoListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77EBE9C1FD3D5B7004403B0 /* TodoListsView.swift */; };
+		E9CBCF691FEEE37A00E8D7F7 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77EBEA01FD3D5C7004403B0 /* ProfileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,7 +88,7 @@
 		C70FB38A201EC62400BBFCF6 /* libc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = libc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C70FB38B201EC62400BBFCF6 /* PathIndexable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PathIndexable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C70FB38F201EDB8500BBFCF6 /* FacebookUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FacebookUser.swift; sourceTree = "<group>"; };
-		C71C09F8201EE80E00DAF961 /* TodoItemsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemsViewController.swift; sourceTree = "<group>"; };
+		C71C09F8201EE80E00DAF961 /* TodoItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemsView.swift; sourceTree = "<group>"; };
 		C71C09FA201EE82400DAF961 /* TICell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TICell.swift; sourceTree = "<group>"; };
 		C721C8DB201EB95C00EC7F4C /* Fluent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Fluent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C721C8DD201EB97500EC7F4C /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,21 +100,23 @@
 		C758B25C2027F238009DA12C /* AddTICell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTICell.swift; sourceTree = "<group>"; };
 		C767F5D6201923D100C532D0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		C767F5D9201924EE00C532D0 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		C77EBE8E1FD3D4F4004403B0 /* AddFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsViewController.swift; sourceTree = "<group>"; };
-		C77EBE961FD3D589004403B0 /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
-		C77EBE9C1FD3D5B7004403B0 /* TodoListsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListsViewController.swift; sourceTree = "<group>"; };
-		C77EBEA01FD3D5C7004403B0 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		C77EBE961FD3D589004403B0 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
+		C77EBE9C1FD3D5B7004403B0 /* TodoListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListsView.swift; sourceTree = "<group>"; };
+		C77EBEA01FD3D5C7004403B0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		C7A42A4C201FBC960099F6A2 /* SharedSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedSwitch.swift; sourceTree = "<group>"; };
 		C7DE93C71FD28906006F73F0 /* SocialTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		C7DE93CC1FD28906006F73F0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		C7DE93CC1FD28906006F73F0 /* MasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterView.swift; sourceTree = "<group>"; };
 		C7DE93D11FD28907006F73F0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C7DE93D41FD28907006F73F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7DE93D61FD28907006F73F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7E1241A2024C5460067D37E /* ScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableViewController.swift; sourceTree = "<group>"; };
+		C7E88F0B202B9D9300527383 /* AddFriendsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendsView.swift; sourceTree = "<group>"; };
+		C7E88F0D202B9E7C00527383 /* TodoListsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListsController.swift; sourceTree = "<group>"; };
+		C7E88F0F202BA45500527383 /* TodoItemsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemsController.swift; sourceTree = "<group>"; };
 		C7EB3384200ACFDC004D5E1B /* TLCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLCell.swift; sourceTree = "<group>"; };
 		C7EB3386200B1C2D004D5E1B /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C7EF931D2023AAC600F9A68D /* TodoCheckbox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoCheckbox.swift; sourceTree = "<group>"; };
-		C7F9209220128E0D00EBC6DF /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C7F9209220128E0D00EBC6DF /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		C7FFB37D20228BE4009BC242 /* AddTLCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTLCell.swift; sourceTree = "<group>"; };
 		E9C91C241FD31D9600ADFEF9 /* SocialTodoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SocialTodoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C91C261FD31D9600ADFEF9 /* SocialTodoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocialTodoTests.swift; sourceTree = "<group>"; };
@@ -214,7 +218,7 @@
 		C71C09F7201EE7E000DAF961 /* TodoItems */ = {
 			isa = PBXGroup;
 			children = (
-				C71C09F8201EE80E00DAF961 /* TodoItemsViewController.swift */,
+				C71C09F8201EE80E00DAF961 /* TodoItemsView.swift */,
 				C71C09FA201EE82400DAF961 /* TICell.swift */,
 				C7EF931D2023AAC600F9A68D /* TodoCheckbox.swift */,
 				C758B25C2027F238009DA12C /* AddTICell.swift */,
@@ -234,7 +238,7 @@
 		C77EBE8D1FD3D4CF004403B0 /* AddFriends */ = {
 			isa = PBXGroup;
 			children = (
-				C77EBE8E1FD3D4F4004403B0 /* AddFriendsViewController.swift */,
+				C7E88F0B202B9D9300527383 /* AddFriendsView.swift */,
 			);
 			path = AddFriends;
 			sourceTree = "<group>";
@@ -242,7 +246,7 @@
 		C77EBE921FD3D51E004403B0 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
-				C77EBE961FD3D589004403B0 /* FriendsViewController.swift */,
+				C77EBE961FD3D589004403B0 /* FriendsView.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -250,7 +254,7 @@
 		C77EBE941FD3D53A004403B0 /* TodoLists */ = {
 			isa = PBXGroup;
 			children = (
-				C77EBE9C1FD3D5B7004403B0 /* TodoListsViewController.swift */,
+				C77EBE9C1FD3D5B7004403B0 /* TodoListsView.swift */,
 				C7EB3384200ACFDC004D5E1B /* TLCell.swift */,
 				C7FFB37D20228BE4009BC242 /* AddTLCell.swift */,
 				C7A42A4C201FBC960099F6A2 /* SharedSwitch.swift */,
@@ -262,7 +266,7 @@
 		C77EBE951FD3D544004403B0 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				C77EBEA01FD3D5C7004403B0 /* ProfileViewController.swift */,
+				C77EBEA01FD3D5C7004403B0 /* ProfileView.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -296,7 +300,7 @@
 				C7EB3386200B1C2D004D5E1B /* Main.storyboard */,
 				E9CBCF541FEEDBD700E8D7F7 /* Controllers */,
 				C70FB38E201EDB6E00BBFCF6 /* Models */,
-				E9C91C161FD31BF100ADFEF9 /* ViewControllers */,
+				E9C91C161FD31BF100ADFEF9 /* Views */,
 				C767F5D8201924CB00C532D0 /* Helpers */,
 				C7DE93D11FD28907006F73F0 /* Assets.xcassets */,
 				C7DE93D31FD28907006F73F0 /* LaunchScreen.storyboard */,
@@ -305,26 +309,26 @@
 			path = SocialTodo;
 			sourceTree = "<group>";
 		};
-		C7F9209120128DCC00EBC6DF /* Authentication */ = {
+		C7F9209120128DCC00EBC6DF /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				C7F9209220128E0D00EBC6DF /* LoginViewController.swift */,
+				C7F9209220128E0D00EBC6DF /* LoginView.swift */,
 			);
-			path = Authentication;
+			path = Login;
 			sourceTree = "<group>";
 		};
-		E9C91C161FD31BF100ADFEF9 /* ViewControllers */ = {
+		E9C91C161FD31BF100ADFEF9 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				C7DE93CC1FD28906006F73F0 /* ViewController.swift */,
+				C7DE93CC1FD28906006F73F0 /* MasterView.swift */,
 				C7E1241A2024C5460067D37E /* ScrollableViewController.swift */,
-				C7F9209120128DCC00EBC6DF /* Authentication */,
+				C7F9209120128DCC00EBC6DF /* Login */,
 				C77EBE8D1FD3D4CF004403B0 /* AddFriends */,
 				C77EBE921FD3D51E004403B0 /* Friends */,
 				C77EBE941FD3D53A004403B0 /* TodoLists */,
 				C77EBE951FD3D544004403B0 /* Profile */,
 			);
-			path = ViewControllers;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		E9C91C251FD31D9600ADFEF9 /* SocialTodoTests */ = {
@@ -353,6 +357,8 @@
 				E9CBCF5B1FEEDC0100E8D7F7 /* AppDelegate.swift */,
 				E9CBCF591FEEDC0100E8D7F7 /* AuthController.swift */,
 				E9CBCF5A1FEEDC0100E8D7F7 /* DataController.swift */,
+				C7E88F0D202B9E7C00527383 /* TodoListsController.swift */,
+				C7E88F0F202BA45500527383 /* TodoItemsController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -569,7 +575,6 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SocialTodo/Pods-SocialTodo-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
@@ -578,7 +583,6 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
@@ -597,21 +601,21 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SocialTodoTests/Pods-SocialTodoTests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -625,21 +629,21 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SocialTodoUITests/Pods-SocialTodoUITests-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKCoreKit/FBSDKCoreKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FBSDKLoginKit/FBSDKLoginKit.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookCore/FacebookCore.framework",
 				"${BUILT_PRODUCTS_DIR}/FacebookLogin/FacebookLogin.framework",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKCoreKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBSDKLoginKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookCore.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FacebookLogin.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -701,28 +705,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C7F9209320128E0D00EBC6DF /* LoginViewController.swift in Sources */,
+				C7F9209320128E0D00EBC6DF /* LoginView.swift in Sources */,
 				C70DBC0C20262F11001E647A /* TodoItem.swift in Sources */,
 				C7FFB37E20228BE4009BC242 /* AddTLCell.swift in Sources */,
-				E9CBCF691FEEE37A00E8D7F7 /* ProfileViewController.swift in Sources */,
-				E9CBCF681FEEE37700E8D7F7 /* TodoListsViewController.swift in Sources */,
-				E9CBCF671FEEE37400E8D7F7 /* FriendsViewController.swift in Sources */,
+				E9CBCF691FEEE37A00E8D7F7 /* ProfileView.swift in Sources */,
+				E9CBCF681FEEE37700E8D7F7 /* TodoListsView.swift in Sources */,
+				E9CBCF671FEEE37400E8D7F7 /* FriendsView.swift in Sources */,
 				C70DBC0620262E73001E647A /* TodoListEntity.swift in Sources */,
 				C7EB3385200ACFDD004D5E1B /* TLCell.swift in Sources */,
+				C7E88F10202BA45500527383 /* TodoItemsController.swift in Sources */,
 				C758B25D2027F239009DA12C /* AddTICell.swift in Sources */,
 				C767F5D7201923D100C532D0 /* Constants.swift in Sources */,
-				E9CBCF661FEEE37000E8D7F7 /* AddFriendsViewController.swift in Sources */,
 				C70FB390201EDB8500BBFCF6 /* FacebookUser.swift in Sources */,
 				C7EF931E2023AAC600F9A68D /* TodoCheckbox.swift in Sources */,
 				C7A42A4D201FBC960099F6A2 /* SharedSwitch.swift in Sources */,
-				C71C09F9201EE80E00DAF961 /* TodoItemsViewController.swift in Sources */,
-				C7DE93CD1FD28906006F73F0 /* ViewController.swift in Sources */,
+				C71C09F9201EE80E00DAF961 /* TodoItemsView.swift in Sources */,
+				C7DE93CD1FD28906006F73F0 /* MasterView.swift in Sources */,
 				C70DBC0A20262F05001E647A /* TodoList.swift in Sources */,
 				E9CBCF5D1FEEDC0100E8D7F7 /* DataController.swift in Sources */,
 				C70DBC0820262EEB001E647A /* TodoItemEntity.swift in Sources */,
+				C7E88F0E202B9E7C00527383 /* TodoListsController.swift in Sources */,
 				C767F5DA201924EE00C532D0 /* Extensions.swift in Sources */,
 				E9CBCF5C1FEEDC0100E8D7F7 /* AuthController.swift in Sources */,
 				E9CBCF5E1FEEDC0100E8D7F7 /* AppDelegate.swift in Sources */,
+				C7E88F0C202B9D9300527383 /* AddFriendsView.swift in Sources */,
 				C7E1241B2024C5460067D37E /* ScrollableViewController.swift in Sources */,
 				C71C09FB201EE82400DAF961 /* TICell.swift in Sources */,
 			);

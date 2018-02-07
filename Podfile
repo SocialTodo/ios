@@ -6,7 +6,6 @@ project './SocialTodo.xcodeproj'
 target 'SocialTodo' do
   use_frameworks!
 
-  pod 'Alamofire'
   pod 'FacebookCore'
   pod 'FacebookLogin'
 end

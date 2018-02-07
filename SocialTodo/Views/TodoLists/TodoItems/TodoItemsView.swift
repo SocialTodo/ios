@@ -1,5 +1,5 @@
 //
-//  TodoItemsViewController.swift
+//  TodoItemsView.swift
 //  SocialTodo
 //
 //  Created by Saatvik Arya on 1/28/18.
@@ -8,7 +8,11 @@
 
 import UIKit
 
-class TodoItemsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, AddTICellDelegate {
+class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegate, AddTICellDelegate {
+
+    let todoItemsController = TodoItemsController()
+    let dataController: DataController
+
     
     let background: UIImageView = {
         let iv = UIImageView()
@@ -22,8 +26,6 @@ class TodoItemsViewController: UIViewController, UITableViewDataSource, UITableV
         tv.backgroundColor = UIColor.clear
         return tv
     }()
-    
-    let dataController: DataController
     
     let todoListId: Int
     var todoItems: [TodoItem]?
@@ -96,7 +98,7 @@ class TodoItemsViewController: UIViewController, UITableViewDataSource, UITableV
         tableView.register(TICell.self, forCellReuseIdentifier: todoItemCell)
         tableView.register(AddTICell.self, forCellReuseIdentifier: addTodoItemCell)
         
-        dataController.getTodoItems(todoListId: todoListId) { (todoItems) in
+        todoItemsController.getTodoItems(todoListId: todoListId) { (todoItems) in
             self.todoItems = todoItems
             self.tableView.reloadData()
         }

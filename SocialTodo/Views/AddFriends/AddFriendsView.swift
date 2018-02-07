@@ -1,5 +1,5 @@
 //
-//  AddFriendsViewController.swift
+//  AddFriendsView.swift
 //  SocialTodo
 //
 //  Created by Saatvik Arya on 12/3/17.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AddFriendsViewController: ScrollableViewController {
+class AddFriendsView: ScrollableViewController {
 
 	let background: UIImageView = {
 		let iv = UIImageView()

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MasterView.swift
 //  SocialTodo
 //
 //  Created by Saatvik Arya on 12/2/17.
@@ -7,10 +7,11 @@
 //
 
 import UIKit
-import FacebookCore
 
-class ViewController: UIViewController {
-
+class MasterView: UIViewController {
+    let authController = AuthController()
+    let dataController = DataController()
+    
 	let scrollView: UIScrollView = {
 		let sv = UIScrollView(frame: UIScreen.main.bounds)
 		sv.isScrollEnabled = true
@@ -22,36 +23,27 @@ class ViewController: UIViewController {
 		sv.clipsToBounds = true
 		return sv
 	}()
-    
-    let authController = AuthController()
-    let dataController = DataController()
 
 	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
         
-        
-
 		setupLayout()
 		setupScrollView()
         
-        // get token from userdefaults
-        if let facebookAccessToken = UserDefaults.standard.dictionary(forKey: "facebookAccessToken") {
-            let token = authController.createAccessToken(with: facebookAccessToken)
-            AccessToken.current = token
-            AccessToken.refreshCurrentToken()
-        }
-        // if not logged in present LoginVC
-        DispatchQueue.main.async {
-            if AccessToken.current == nil {
-                self.present(LoginViewController(), animated: true, completion: nil)
-            }
-        }
+        authController.fetchStoredToken()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
-        print("auth token: ", AccessToken.current?.authenticationToken)
-
-	}
+        // if not logged in present LoginVC
+        if authController.facebookToken == nil {
+            self.present(LoginView(), animated: true, completion: nil)
+        }
+    }
+        
 
 	func setupLayout() {
 		view.addSubview(scrollView)
@@ -86,10 +78,10 @@ class ViewController: UIViewController {
 
 	func setupScrollView() {
 
-        setupViewController(viewController: AddFriendsViewController(dataController: dataController, scrollView: scrollView), navColor: Colors.lightNavColor, index: 0)
-        setupViewController(viewController: FriendsViewController(dataController: dataController, scrollView: scrollView), navColor: Colors.lightNavColor, index: 1)
-		setupViewController(viewController: TodoListsViewController(dataController: dataController, scrollView: scrollView), navColor: Colors.darkNavColor, index: 2)
-		setupViewController(viewController: ProfileViewController(dataController: dataController, scrollView: scrollView), navColor: Colors.lightNavColor, index: 3)
+        setupViewController(viewController: AddFriendsView(dataController: dataController, scrollView: scrollView), navColor: Colors.lightNavColor, index: 0)
+        setupViewController(viewController: FriendsView(dataController: dataController, scrollView: scrollView), navColor: Colors.lightNavColor, index: 1)
+		setupViewController(viewController: TodoListsView(dataController: dataController, scrollView: scrollView), navColor: Colors.darkNavColor, index: 2)
+		setupViewController(viewController: ProfileView(dataController: dataController, scrollView: scrollView), navColor: Colors.lightNavColor, index: 3)
 	}
 
 }

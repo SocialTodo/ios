@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  LoginView.swift
 //  SocialTodo
 //
 //  Created by Saatvik Arya on 1/19/18.
@@ -7,9 +7,10 @@
 //
 
 import UIKit
-import FacebookCore
 
-class LoginViewController: UIViewController {
+class LoginView: UIViewController {
+    let authController = AuthController()
+
     let background: UIImageView = {
         let iv = UIImageView()
         iv.image = #imageLiteral(resourceName: "login-background")
@@ -36,8 +37,6 @@ class LoginViewController: UIViewController {
         return button
     }()
 
-    let authController = AuthController()
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -53,9 +52,9 @@ class LoginViewController: UIViewController {
     }
 
     @objc func handleLoginButton() {
-			authController.login(success: {
-				self.dismiss(animated: true, completion: nil)
-			})
+        authController.login(success: {
+            self.dismiss(animated: true, completion: nil)
+        })
     }
 
     func setupLayout() {
