@@ -8,12 +8,10 @@
 
 import UIKit
 
-protocol AddTLCellDelegate {
-    var todoListsController: TodoListsController { get }
-    func addTodoList(todoList: TodoList)
-}
+
 
 class AddTLCell: UITableViewCell, UITextFieldDelegate {
+    var delegate: TLCellDelegate!
     
     let background: UIImageView = {
         let iv = UIImageView()
@@ -39,8 +37,6 @@ class AddTLCell: UITableViewCell, UITextFieldDelegate {
         button.setImage(#imageLiteral(resourceName: "add"), for: .normal)
         return button
     }()
-    
-    var delegate: AddTLCellDelegate!
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

@@ -8,6 +8,7 @@ import FacebookCore
 import FacebookLogin
 
 class AuthController {
+    // getter and setter for FacebookCore AccessToken
     var facebookToken: AccessToken? {
         get {
             return AccessToken.current
@@ -26,6 +27,7 @@ class AuthController {
         }
     }
     
+    // Login with FacebookLogin LoginManager
     public func login(success: @escaping () -> Void) {
 		LoginManager().logIn(readPermissions: [.publicProfile, .email, .userFriends]) { (loginResult) in
 			switch loginResult {
@@ -41,6 +43,7 @@ class AuthController {
 		}
 	}
     
+    // Convert Dictionary to AccessToken(struct)
     public func createAccessToken(with facebookAccessToken: [String: Any]) -> AccessToken {
         let appId = facebookAccessToken["appId"] as! String
         let authenticationToken = facebookAccessToken["authToken"] as! String
@@ -60,12 +63,11 @@ class AuthController {
             declinedPermissions.insert(Permission(name: permission))
         }
         
-        
         let token = AccessToken.init(appId: appId, authenticationToken: authenticationToken, userId: userId, refreshDate: refreshDate, expirationDate: expirationDate, grantedPermissions: grantedPermissions, declinedPermissions: declinedPermissions)
-        
         return token
     }
     
+    // Convert AccessToken(struct) to Dictionary
     public func storeAccessToken(grantedPermissions: Set<Permission>, declinedPermissions: Set<Permission>, token: AccessToken) {
         var grantedPermissionsArray = [String]()
         for permission in grantedPermissions {
@@ -84,6 +86,7 @@ class AuthController {
                                                                         "declinedPermissions": declinedPermissionsArray]])
     }
 
+    // Logout with FacebookLogin LoginManager
 	public func logout() {
 		LoginManager().logOut()
 	}

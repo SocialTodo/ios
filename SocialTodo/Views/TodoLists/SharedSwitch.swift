@@ -54,26 +54,11 @@ class SharedSwitch: UIView {
         
         button = UIButton()
         addSubview(button)
-        button.addTarget(self, action: #selector(toggleListShared), for: .touchUpInside)
         
         setupLayout()
         
         isShared = false
         sliderPrivateConstraint.isActive = true
-
-        
-    }
-    
-    @objc func toggleListShared() {
-        if isShared {
-            button.isEnabled = false
-            isShared = false
-            button.isEnabled = true
-        } else {
-            button.isEnabled = false
-            isShared = true
-            button.isEnabled = true
-        }
     }
     
     func setupLayout() {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableViewDelegate, AddTLCellDelegate {
+class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableViewDelegate, TLCellDelegate {
     let todoListsController = TodoListsController()
 
 	let background: UIImageView = {
@@ -111,6 +111,7 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row < todoLists?.count ?? 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: todoListCell, for: indexPath) as! TLCell
+            cell.delegate = self
             let list = todoLists![indexPath.row]
             cell.label.text = list.title
             cell.sharedButton.isShared = list.isShared
@@ -128,6 +129,35 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         todoLists?.append(todoList)
         DispatchQueue.main.async {
             self.tableView.reloadData()
+        }
+    }
+    
+    func removeTodoList(cell: TLCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else {
+            return
+        }
+        
+        todoListsController.removeTodoList(todoList: todoLists![indexPath.row] ) {
+            self.todoLists!.remove(at: indexPath.row)
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
+    func updateTodoList(cell: TLCell) {
+        guard let indexPath = tableView.indexPath(for: cell) else {
+            return
+        }
+        
+        let oldTodoList = todoLists![indexPath.row]
+        let todoList = TodoList(title: cell.label.text!, id: oldTodoList.id!, isShared: cell.sharedButton.isShared)
+        
+        todoListsController.updateTodoList(todoList: todoList) { todoList in
+            self.todoLists![indexPath.row] = todoList
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     

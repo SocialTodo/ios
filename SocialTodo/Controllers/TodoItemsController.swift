@@ -9,23 +9,12 @@
 import FacebookCore
 
 class TodoItemsController {
-    func requestHeaders() -> [String: String] {
-    // TODO: better error handling
-    guard let accessToken = AccessToken.current else {
-        return [:]
-    }
-    let headers = ["user_id": accessToken.userId!, "token": accessToken.authenticationToken, "owner_id": accessToken.userId!]
-    return headers
-    }
-    
     func getTodoItems(todoListId: Int, completion: @escaping ([TodoItem]) -> Void) {
         var todoItems = [TodoItem]()
-        let headers = requestHeaders()
-        var urlRequest: URLRequest
-        let url = URL(string: "\(API.list)/\(todoListId)")!
-        urlRequest = URLRequest(url: url)
-        urlRequest.allHTTPHeaderFields = headers
-        urlRequest.httpMethod = "GET"
+        guard let headers = API.requestHeaders() else {
+            return
+        }
+        let urlRequest = URLRequest(url: "\(API.list)/\(todoListId)", method: "GET", headers: headers)
         
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
@@ -42,28 +31,21 @@ class TodoItemsController {
             } catch {
                 print(error)
             }
-            
             DispatchQueue.main.async {
                 completion(todoItems)
             }
-            
-            for todoItem in todoItems {
-                print(todoItem.title)
-                // TODO: create entity and save to db
-            }
-            
         }
         
         task.resume()
     }
     
     func postTodoItem(todoItem: TodoItem, completion: @escaping (TodoItem) -> Void) {
-        var headers = requestHeaders()
-        let url = URL(string: API.item)!
-        var urlRequest = URLRequest(url: url)
-        urlRequest.allHTTPHeaderFields = headers
+        guard let headers = API.requestHeaders() else {
+            return
+        }
+        var urlRequest = URLRequest(url: API.item, method: "POST", headers: headers)
         urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        urlRequest.httpMethod = "POST"
+        
         do {
             let data = try JSONEncoder().encode(todoItem)
             urlRequest.httpBody = data
