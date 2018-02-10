@@ -73,4 +73,38 @@ class TodoItemsController {
         }
         task.resume()
     }
+    
+    func updateTodoItem(todoItem: TodoItem, completion: @escaping (TodoItem) -> Void) {
+        guard let headers = API.requestHeaders() else {
+            return
+        }
+        var urlRequest = URLRequest(url: "\(API.item)/\(todoItem.id!)", method: "PATCH", headers: headers)
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        do {
+            let data = try JSONEncoder().encode(todoItem)
+            urlRequest.httpBody = data
+        } catch {
+            print(error)
+            return
+        }
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        let task = session.dataTask(with: urlRequest) { (data, response, error) in
+            guard error == nil else {
+                return
+            }
+            guard let responseData = data else {
+                return
+            }
+            do {
+                let todoItemResponse = try JSONDecoder().decode(TodoItem.self, from: responseData)
+                completion(todoItemResponse)
+            } catch {
+                print(error)
+            }
+        }
+        task.resume()
+    }
 }

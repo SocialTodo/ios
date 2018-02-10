@@ -35,29 +35,11 @@ class TodoCheckbox: UIView {
         
         button = UIButton()
         addSubview(button)
-        button.addTarget(self, action: #selector(toggleCheckTodo), for: .touchUpInside)
         
         setupLayout()
-        
-        isChecked = false
-        
-        
-    }
-    
-    @objc func toggleCheckTodo() {
-        if isChecked {
-            button.isEnabled = false
-            isChecked = false
-            button.isEnabled = true
-        } else {
-            button.isEnabled = false
-            isChecked = true
-            button.isEnabled = true
-        }
     }
     
     func setupLayout() {
-        
         background.translatesAutoresizingMaskIntoConstraints = false
         background.anchorX(left: leftAnchor, leftConstant: 0, right: rightAnchor, rightConstant: 0)
         background.anchorY(top: topAnchor, topConstant: 0, bottom: bottomAnchor, bottomConstant: 0)
@@ -65,7 +47,6 @@ class TodoCheckbox: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.anchorX(left: background.leftAnchor, right: background.rightAnchor)
         button.anchorY(top: background.topAnchor, bottom: background.bottomAnchor)
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

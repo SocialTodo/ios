@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegate, AddTICellDelegate {
+class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegate, TICellDelegate {
 
     let todoItemsController = TodoItemsController()
     
@@ -135,6 +135,7 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row < todoItems?.count ?? 0 {
             let cell = tableView.dequeueReusableCell(withIdentifier: todoItemCell) as! TICell
+            cell.delegate = self
             cell.label.text = todoItems![indexPath.row].title
             cell.todoCheckbox.isChecked = todoItems![indexPath.row].isChecked
             return cell
@@ -152,4 +153,19 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
         }
     }
     
+    func updateTodoItem(cell: TICell){
+        guard let indexPath = tableView.indexPath(for: cell) else {
+            return
+        }
+        
+        let oldTodoItem = todoItems![indexPath.row]
+        let todoItem = TodoItem(id: oldTodoItem.id!, title: cell.label.text!, isChecked: cell.todoCheckbox.isChecked, todoListId: oldTodoItem.todoListId)
+        
+        todoItemsController.updateTodoItem(todoItem: todoItem) { todoItem in
+            self.todoItems![indexPath.row] = todoItem
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
 }

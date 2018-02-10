@@ -69,7 +69,7 @@ class AddTLCell: UITableViewCell, UITextFieldDelegate {
             return
         }
         
-        let todoList = TodoList(title: title, id: nil, isShared: isShared)
+        let todoList = TodoList(id: nil, title: title, isShared: isShared)
         delegate.todoListsController.postTodoList(todoList: todoList) { todoList in
             self.delegate.addTodoList(todoList: todoList)
         }

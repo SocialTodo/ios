@@ -9,7 +9,16 @@
 import Foundation
 import UIKit
 
+protocol TICellDelegate {
+    var todoItemsController: TodoItemsController { get }
+    var todoListId: Int { get }
+    func addTodoItem(todoItem: TodoItem)
+    func updateTodoItem(cell: TICell)
+}
+
 class TICell: UITableViewCell {
+    var delegate: TICellDelegate!
+    
     let background: UIImageView = {
         let iv = UIImageView()
         iv.image = #imageLiteral(resourceName: "TLCell")
@@ -41,12 +50,26 @@ class TICell: UITableViewCell {
         
         setupLayout()
         
+        todoCheckbox.button.addTarget(self, action: #selector(toggleCheckTodo), for: .touchUpInside)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    @objc func toggleCheckTodo() {
+        if todoCheckbox.isChecked {
+            todoCheckbox.button.isEnabled = false
+            todoCheckbox.isChecked = false
+            delegate.updateTodoItem(cell: self)
+            todoCheckbox.button.isEnabled = true
+        } else {
+            todoCheckbox.button.isEnabled = false
+            todoCheckbox.isChecked = true
+            delegate.updateTodoItem(cell: self)
+            todoCheckbox.button.isEnabled = true
+        }
+    }
     
     func setupLayout() {
         background.translatesAutoresizingMaskIntoConstraints = false

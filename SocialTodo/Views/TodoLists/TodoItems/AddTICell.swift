@@ -9,13 +9,11 @@
 import Foundation
 import UIKit
 
-protocol AddTICellDelegate {
-    var todoItemsController: TodoItemsController { get }
-    var todoListId: Int { get }
-    func addTodoItem(todoItem: TodoItem)
-}
+
 
 class AddTICell: UITableViewCell, UITextFieldDelegate {
+    var delegate: TICellDelegate!
+
     let background: UIImageView = {
         let iv = UIImageView()
         iv.image = #imageLiteral(resourceName: "TLCell")
@@ -35,9 +33,6 @@ class AddTICell: UITableViewCell, UITextFieldDelegate {
         button.setImage(#imageLiteral(resourceName: "add"), for: .normal)
         return button
     }()
-
-    var delegate: AddTICellDelegate!
-    
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -68,7 +63,7 @@ class AddTICell: UITableViewCell, UITextFieldDelegate {
         }
         let todoListId = delegate.todoListId
         
-        let todoItem = TodoItem(title: title, isChecked: false, todoListId: todoListId)
+        let todoItem = TodoItem(id: nil, title: title, isChecked: false, todoListId: todoListId)
         
         delegate.todoItemsController.postTodoItem(todoItem: todoItem) { todoItem in
             self.delegate.addTodoItem(todoItem: todoItem)

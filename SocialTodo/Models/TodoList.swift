@@ -9,13 +9,13 @@
 import Foundation
 
 struct TodoList: Codable {
-    var title: String
     var id: Int?
+    var title: String
     var isShared: Bool
     
     enum CodingKeys: String, CodingKey {
-        case title
         case id
+        case title
         case isShared = "shared"
     }
 }

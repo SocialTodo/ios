@@ -153,7 +153,7 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         }
         
         let oldTodoList = todoLists![indexPath.row]
-        let todoList = TodoList(title: cell.label.text!, id: oldTodoList.id!, isShared: cell.sharedButton.isShared)
+        let todoList = TodoList(id: oldTodoList.id!, title: cell.label.text!, isShared: cell.sharedButton.isShared)
         
         todoListsController.updateTodoList(todoList: todoList) { todoList in
             self.todoLists![indexPath.row] = todoList
