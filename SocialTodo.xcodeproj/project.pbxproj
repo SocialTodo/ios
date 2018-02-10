@@ -17,6 +17,8 @@
 		C758B25D2027F239009DA12C /* AddTICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C758B25C2027F238009DA12C /* AddTICell.swift */; };
 		C767F5D7201923D100C532D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767F5D6201923D100C532D0 /* Constants.swift */; };
 		C767F5DA201924EE00C532D0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767F5D9201924EE00C532D0 /* Extensions.swift */; };
+		C78F79D8202E89D2004E7F56 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78F79D7202E89D2004E7F56 /* FriendCell.swift */; };
+		C78F79DA202E9770004E7F56 /* AddFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78F79D9202E9770004E7F56 /* AddFriendCell.swift */; };
 		C7A42A4D201FBC960099F6A2 /* SharedSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A42A4C201FBC960099F6A2 /* SharedSwitch.swift */; };
 		C7DE93CD1FD28906006F73F0 /* MasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE93CC1FD28906006F73F0 /* MasterView.swift */; };
 		C7DE93D21FD28907006F73F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DE93D11FD28907006F73F0 /* Assets.xcassets */; };
@@ -87,6 +89,8 @@
 		C77EBE961FD3D589004403B0 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
 		C77EBE9C1FD3D5B7004403B0 /* TodoListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListsView.swift; sourceTree = "<group>"; };
 		C77EBEA01FD3D5C7004403B0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		C78F79D7202E89D2004E7F56 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
+		C78F79D9202E9770004E7F56 /* AddFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendCell.swift; sourceTree = "<group>"; };
 		C7A42A4C201FBC960099F6A2 /* SharedSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedSwitch.swift; sourceTree = "<group>"; };
 		C7DE93C71FD28906006F73F0 /* SocialTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DE93CC1FD28906006F73F0 /* MasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterView.swift; sourceTree = "<group>"; };
@@ -209,6 +213,7 @@
 			isa = PBXGroup;
 			children = (
 				C7E88F0B202B9D9300527383 /* AddFriendsView.swift */,
+				C78F79D9202E9770004E7F56 /* AddFriendCell.swift */,
 			);
 			path = AddFriends;
 			sourceTree = "<group>";
@@ -217,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				C77EBE961FD3D589004403B0 /* FriendsView.swift */,
+				C78F79D7202E89D2004E7F56 /* FriendCell.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -673,6 +679,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7F9209320128E0D00EBC6DF /* LoginView.swift in Sources */,
+				C78F79DA202E9770004E7F56 /* AddFriendCell.swift in Sources */,
 				C70DBC0C20262F11001E647A /* TodoItem.swift in Sources */,
 				C7FFB37E20228BE4009BC242 /* AddTLCell.swift in Sources */,
 				E9CBCF691FEEE37A00E8D7F7 /* ProfileView.swift in Sources */,
@@ -691,6 +698,7 @@
 				C7E88F0E202B9E7C00527383 /* TodoListsController.swift in Sources */,
 				C767F5DA201924EE00C532D0 /* Extensions.swift in Sources */,
 				E9CBCF5C1FEEDC0100E8D7F7 /* AuthController.swift in Sources */,
+				C78F79D8202E89D2004E7F56 /* FriendCell.swift in Sources */,
 				E9CBCF5E1FEEDC0100E8D7F7 /* AppDelegate.swift in Sources */,
 				C7E88F0C202B9D9300527383 /* AddFriendsView.swift in Sources */,
 				C7E1241B2024C5460067D37E /* ScrollableViewController.swift in Sources */,

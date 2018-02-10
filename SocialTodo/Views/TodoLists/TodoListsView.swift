@@ -17,13 +17,6 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
 		return iv
 	}()
 
-	let tableView: UITableView = {
-		let tv = UITableView()
-		tv.separatorStyle = .none
-		tv.backgroundColor = UIColor.clear
-		return tv
-	}()
-
 	let friendsButton: UIBarButtonItem = {
 		let button = UIButton(type: .system)
 		button.setTitle("Friends", for: .normal)
@@ -41,6 +34,13 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
 	let barButton = UIBarButtonItem(customView: button)
 	return barButton
 	}()
+    
+    let tableView: UITableView = {
+        let tv = UITableView()
+        tv.separatorStyle = .none
+        tv.backgroundColor = UIColor.clear
+        return tv
+    }()
     
     var todoLists: [TodoList]?
     let todoListCell = "TLCell"
@@ -79,13 +79,15 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
     }
 
 	func setupLayout() {
+        let margins = view.layoutMarginsGuide
+
 		background.translatesAutoresizingMaskIntoConstraints = false
         background.anchorX(left: view.leftAnchor, right: view.rightAnchor)
         background.anchorY(top: view.topAnchor, bottom: view.bottomAnchor)
 
 		tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.anchorX(left: view.leftAnchor, right: view.rightAnchor)
-        tableView.anchorY(top: view.topAnchor, bottom: view.bottomAnchor)
+        tableView.anchorY(top: margins.topAnchor, bottom: margins.bottomAnchor)
 	}
 
 	@objc func showFriends() {

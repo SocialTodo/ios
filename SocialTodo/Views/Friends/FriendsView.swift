@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FriendsView: ScrollableViewController {
+class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewDelegate {
 
 	let background: UIImageView = {
 		let iv = UIImageView()
@@ -34,6 +34,15 @@ class FriendsView: ScrollableViewController {
 		return barButton
 	}()
     
+    let tableView: UITableView = {
+        let tv = UITableView()
+        tv.separatorStyle = .none
+        tv.backgroundColor = UIColor.clear
+        return tv
+    }()
+
+    let friendCell = "FriendCell"
+    
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -45,14 +54,27 @@ class FriendsView: ScrollableViewController {
 		myListsButton.customView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showMyLists)))
 
 		view.addSubview(background)
+        view.addSubview(tableView)
+        
 		setupLayout()
 
+        tableView.dataSource = self
+        tableView.delegate = self
+        
+        tableView.register(FriendCell.self, forCellReuseIdentifier: friendCell)
 	}
 
 	func setupLayout() {
+        let margins = view.layoutMarginsGuide
+
 		background.translatesAutoresizingMaskIntoConstraints = false
         background.anchorX(left: view.leftAnchor, right: view.rightAnchor)
         background.anchorY(top: view.topAnchor, bottom: view.bottomAnchor)
+        
+        tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.anchorX(left: view.leftAnchor, right: view.rightAnchor)
+        tableView.anchorY(top: margins.topAnchor, bottom: margins.bottomAnchor)
+
 	}
 
 	@objc func showAdd() {
@@ -64,5 +86,23 @@ class FriendsView: ScrollableViewController {
 		print("show my lists")
         scrollView.setContentOffset(CGPoint(x: self.view.frame.width * 2, y: 0.0), animated: true)
 	}
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: friendCell, for: indexPath) as! FriendCell
+        return cell
+    }
+
 
 }
