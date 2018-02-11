@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import UIKit
 
 class FriendsController {
-    func getFriends(completion: @escaping ([Friend]) -> Void) {
+    func getFriends(completion: @escaping ([Friend], [Int: UIImage]) -> Void) {
         var friends = [Friend]()
         guard let headers = API.requestHeaders() else {
             return
@@ -31,11 +32,38 @@ class FriendsController {
             } catch {
                 print(error)
             }
+            var friendsImages = [Int: UIImage]()
+            for friend in friends {
+                self.getFriendImage(facebookId: friend.facebookUserId) { (profileImage) in
+                    friendsImages[friend.facebookUserId] = profileImage
+                }
+            }
             DispatchQueue.main.async {
-                completion(friends)
+                completion(friends, friendsImages)
             }
         }
         
+        task.resume()
+    }
+    func getFriendImage(facebookId: Int, completion: @escaping (UIImage) -> Void) {
+        // https://graph.facebook.com/userid/picture?type=large
+        let url = URL(string: "https://graph.facebook.com/\(facebookId)/picture?type=large")!
+        let urlRequest = URLRequest(url: url)
+        
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        let task = session.dataTask(with: urlRequest) { (data, response, error) in
+            guard error == nil else {
+                return
+            }
+            if let data = data {
+                if let profileImage = UIImage(data: data) {
+                    completion(profileImage)
+                }
+                
+            }
+        }
         task.resume()
     }
 }

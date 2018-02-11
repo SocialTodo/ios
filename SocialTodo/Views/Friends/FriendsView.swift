@@ -11,6 +11,7 @@ import UIKit
 class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewDelegate {
     let friendsController = FriendsController()
     var friends = [Friend]()
+    var friendsImages = [Int: UIImage]()
     
 	let background: UIImageView = {
 		let iv = UIImageView()
@@ -69,8 +70,9 @@ class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewD
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        friendsController.getFriends { friends in
-            self.friends.append(contentsOf: friends)
+        friendsController.getFriends { (friends, friendsImages) in
+            self.friends = friends
+            self.friendsImages = friendsImages
             self.tableView.reloadData()
         }
     }
@@ -112,7 +114,9 @@ class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: friendCell, for: indexPath) as! FriendCell
-        cell.label.text = friends[indexPath.row].name
+        let friend = friends[indexPath.row]
+        cell.label.text = friend.name
+        cell.thumbnail.image = friendsImages[friend.facebookUserId]
         return cell
     }
 

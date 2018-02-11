@@ -10,11 +10,13 @@ import Foundation
 
 struct Friend: Codable {
     var id: Int
+    var facebookUserId: Int
     var name: String
     var todoLists: [TodoList]
     
     enum CodingKeys: String, CodingKey {
         case id
+        case facebookUserId
         case name
         case todoLists = "lists"
     }
