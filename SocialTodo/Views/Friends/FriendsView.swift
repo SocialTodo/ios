@@ -9,7 +9,9 @@
 import UIKit
 
 class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewDelegate {
-
+    let friendsController = FriendsController()
+    var friends = [Friend]()
+    
 	let background: UIImageView = {
 		let iv = UIImageView()
 		iv.image = #imageLiteral(resourceName: "background")
@@ -63,6 +65,15 @@ class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewD
         
         tableView.register(FriendCell.self, forCellReuseIdentifier: friendCell)
 	}
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        friendsController.getFriends { friends in
+            self.friends.append(contentsOf: friends)
+            self.tableView.reloadData()
+        }
+    }
 
 	func setupLayout() {
         let margins = view.layoutMarginsGuide
@@ -92,7 +103,7 @@ class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return friends.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -101,6 +112,7 @@ class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewD
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: friendCell, for: indexPath) as! FriendCell
+        cell.label.text = friends[indexPath.row].name
         return cell
     }
 

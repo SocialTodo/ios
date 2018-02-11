@@ -6,7 +6,7 @@
 //  Copyright © 2018 Saatvik Arya. All rights reserved.
 //
 
-import FacebookCore
+import Foundation
 
 class TodoItemsController {
     func getTodoItems(todoListId: Int, completion: @escaping ([TodoItem]) -> Void) {

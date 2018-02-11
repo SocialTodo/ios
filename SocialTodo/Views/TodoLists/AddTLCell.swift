@@ -54,10 +54,24 @@ class AddTLCell: UITableViewCell, UITextFieldDelegate {
         textField.delegate = self
         
         setupLayout()
+        
+        sharedButton.button.addTarget(self, action: #selector(toggleListShared), for: .touchUpInside)
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    @objc func toggleListShared() {
+        if sharedButton.isShared {
+            sharedButton.button.isEnabled = false
+            sharedButton.isShared = false
+            sharedButton.button.isEnabled = true
+        } else {
+            sharedButton.button.isEnabled = false
+            sharedButton.isShared = true
+            sharedButton.button.isEnabled = true
+        }
     }
     
     @objc func handleAddTodoList() {

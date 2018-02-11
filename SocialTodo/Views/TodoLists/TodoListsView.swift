@@ -164,7 +164,13 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let todoListId = todoLists![indexPath.row].id else {
+        guard let todoLists = todoLists else {
+            return
+        }
+        if indexPath.row > todoLists.count {
+            return
+        }
+        guard let todoListId = todoLists[indexPath.row].id else {
             return
         }
         let TodoItemVC = TodoItemsView(todoListId: todoListId)

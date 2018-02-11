@@ -11,6 +11,8 @@
 		C3F555C32976F5814ABDEF44 /* Pods_SocialTodoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F619CA36187BD76A29B6BB28 /* Pods_SocialTodoTests.framework */; };
 		C70DBC0A20262F05001E647A /* TodoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70DBC0920262F05001E647A /* TodoList.swift */; };
 		C70DBC0C20262F11001E647A /* TodoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C70DBC0B20262F11001E647A /* TodoItem.swift */; };
+		C714D86F2030DEAA006F07D2 /* FriendsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C714D86E2030DEAA006F07D2 /* FriendsController.swift */; };
+		C714D8712030DF14006F07D2 /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = C714D8702030DF14006F07D2 /* Friend.swift */; };
 		C71C09F9201EE80E00DAF961 /* TodoItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71C09F8201EE80E00DAF961 /* TodoItemsView.swift */; };
 		C71C09FB201EE82400DAF961 /* TICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C71C09FA201EE82400DAF961 /* TICell.swift */; };
 		C756A06C202BC55D0035CE76 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = C756A06B202BC55D0035CE76 /* API.swift */; };
@@ -79,6 +81,8 @@
 		C70FB387201EC2FF00BBFCF6 /* CSQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = CSQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C70FB38A201EC62400BBFCF6 /* libc.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = libc.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C70FB38B201EC62400BBFCF6 /* PathIndexable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = PathIndexable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C714D86E2030DEAA006F07D2 /* FriendsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsController.swift; sourceTree = "<group>"; };
+		C714D8702030DF14006F07D2 /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		C71C09F8201EE80E00DAF961 /* TodoItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemsView.swift; sourceTree = "<group>"; };
 		C71C09FA201EE82400DAF961 /* TICell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TICell.swift; sourceTree = "<group>"; };
 		C721C8DB201EB95C00EC7F4C /* Fluent.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Fluent.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -196,6 +200,7 @@
 			children = (
 				C70DBC0920262F05001E647A /* TodoList.swift */,
 				C70DBC0B20262F11001E647A /* TodoItem.swift */,
+				C714D8702030DF14006F07D2 /* Friend.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -233,9 +238,9 @@
 		C77EBE921FD3D51E004403B0 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
-				C78F79DB202EA2CF004E7F56 /* FriendsTodoLists */,
 				C77EBE961FD3D589004403B0 /* FriendsView.swift */,
 				C78F79D7202E89D2004E7F56 /* FriendCell.swift */,
+				C78F79DB202EA2CF004E7F56 /* FriendsTodoLists */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -366,6 +371,7 @@
 				E9CBCF591FEEDC0100E8D7F7 /* AuthController.swift */,
 				C7E88F0D202B9E7C00527383 /* TodoListsController.swift */,
 				C7E88F0F202BA45500527383 /* TodoItemsController.swift */,
+				C714D86E2030DEAA006F07D2 /* FriendsController.swift */,
 				C78F79E7202FDF1A004E7F56 /* ProfileController.swift */,
 			);
 			path = Controllers;
@@ -713,6 +719,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7F9209320128E0D00EBC6DF /* LoginView.swift in Sources */,
+				C714D86F2030DEAA006F07D2 /* FriendsController.swift in Sources */,
 				C78F79DA202E9770004E7F56 /* AddFriendCell.swift in Sources */,
 				C78F79E0202EA355004E7F56 /* FTLCell.swift in Sources */,
 				C70DBC0C20262F11001E647A /* TodoItem.swift in Sources */,
@@ -732,6 +739,7 @@
 				C71C09F9201EE80E00DAF961 /* TodoItemsView.swift in Sources */,
 				C7DE93CD1FD28906006F73F0 /* MasterView.swift in Sources */,
 				C70DBC0A20262F05001E647A /* TodoList.swift in Sources */,
+				C714D8712030DF14006F07D2 /* Friend.swift in Sources */,
 				C756A06C202BC55D0035CE76 /* API.swift in Sources */,
 				C7E88F0E202B9E7C00527383 /* TodoListsController.swift in Sources */,
 				C78F79E2202EA383004E7F56 /* FriendsTodoItemsView.swift in Sources */,
