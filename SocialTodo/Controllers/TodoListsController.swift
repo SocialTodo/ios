@@ -115,16 +115,8 @@ class TodoListsController {
         guard let headers = API.requestHeaders() else {
             return
         }
-        var urlRequest = URLRequest(url: API.list, method: "DELETE", headers: headers)
-        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        let urlRequest = URLRequest(url: "\(API.list)/\(todoList.id!)", method: "DELETE", headers: headers)
         
-        do {
-            let data = try JSONEncoder().encode(todoList)
-            urlRequest.httpBody = data
-        } catch {
-            print(error)
-            return
-        }
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         
