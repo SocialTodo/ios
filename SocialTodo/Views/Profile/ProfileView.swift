@@ -9,6 +9,7 @@
 import UIKit
 
 class ProfileView: ScrollableViewController {
+    let profileController = ProfileController()
 
 	let background: UIImageView = {
 		let iv = UIImageView()
@@ -68,8 +69,15 @@ class ProfileView: ScrollableViewController {
         view.addSubview(userName)
 
 		setupLayout()
-
 	}
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        profileController.getUserProfile() { image in
+            self.profileImage.image = image
+        }
+    }
 
 	func setupLayout() {
 		background.translatesAutoresizingMaskIntoConstraints = false

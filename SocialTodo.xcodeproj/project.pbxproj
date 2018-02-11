@@ -24,6 +24,7 @@
 		C78F79E2202EA383004E7F56 /* FriendsTodoItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78F79E1202EA383004E7F56 /* FriendsTodoItemsView.swift */; };
 		C78F79E4202EA3A5004E7F56 /* FTICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78F79E3202EA3A5004E7F56 /* FTICell.swift */; };
 		C78F79E6202EA43A004E7F56 /* AddFTICell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78F79E5202EA43A004E7F56 /* AddFTICell.swift */; };
+		C78F79E8202FDF1A004E7F56 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78F79E7202FDF1A004E7F56 /* ProfileController.swift */; };
 		C7A42A4D201FBC960099F6A2 /* SharedSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A42A4C201FBC960099F6A2 /* SharedSwitch.swift */; };
 		C7DE93CD1FD28906006F73F0 /* MasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DE93CC1FD28906006F73F0 /* MasterView.swift */; };
 		C7DE93D21FD28907006F73F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DE93D11FD28907006F73F0 /* Assets.xcassets */; };
@@ -101,6 +102,7 @@
 		C78F79E1202EA383004E7F56 /* FriendsTodoItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTodoItemsView.swift; sourceTree = "<group>"; };
 		C78F79E3202EA3A5004E7F56 /* FTICell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTICell.swift; sourceTree = "<group>"; };
 		C78F79E5202EA43A004E7F56 /* AddFTICell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFTICell.swift; sourceTree = "<group>"; };
+		C78F79E7202FDF1A004E7F56 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		C7A42A4C201FBC960099F6A2 /* SharedSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedSwitch.swift; sourceTree = "<group>"; };
 		C7DE93C71FD28906006F73F0 /* SocialTodo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SocialTodo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7DE93CC1FD28906006F73F0 /* MasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterView.swift; sourceTree = "<group>"; };
@@ -364,6 +366,7 @@
 				E9CBCF591FEEDC0100E8D7F7 /* AuthController.swift */,
 				C7E88F0D202B9E7C00527383 /* TodoListsController.swift */,
 				C7E88F0F202BA45500527383 /* TodoItemsController.swift */,
+				C78F79E7202FDF1A004E7F56 /* ProfileController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -715,6 +718,7 @@
 				C70DBC0C20262F11001E647A /* TodoItem.swift in Sources */,
 				C7FFB37E20228BE4009BC242 /* AddTLCell.swift in Sources */,
 				E9CBCF691FEEE37A00E8D7F7 /* ProfileView.swift in Sources */,
+				C78F79E8202FDF1A004E7F56 /* ProfileController.swift in Sources */,
 				E9CBCF681FEEE37700E8D7F7 /* TodoListsView.swift in Sources */,
 				E9CBCF671FEEE37400E8D7F7 /* FriendsView.swift in Sources */,
 				C78F79E4202EA3A5004E7F56 /* FTICell.swift in Sources */,
