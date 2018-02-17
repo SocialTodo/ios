@@ -67,6 +67,9 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         tableView.register(TLCell.self, forCellReuseIdentifier: todoListCell)
         tableView.register(AddTLCell.self, forCellReuseIdentifier: addTodoListCell)
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -76,6 +79,12 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
             self.todoLists = todoLists
             self.tableView.reloadData()
         }
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: self.view.window)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
     }
 
 	func setupLayout() {
@@ -89,6 +98,24 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         tableView.anchorX(left: view.leftAnchor, right: view.rightAnchor)
         tableView.anchorY(top: margins.topAnchor, bottom: margins.bottomAnchor)
 	}
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let contentInsets = UIEdgeInsets(top: self.tableView.contentInset.top, left: self.tableView.contentInset.left, bottom: self.tableView.contentInset.bottom + keyboardSize.height, right: self.tableView.contentInset.right)
+            self.tableView.contentInset = contentInsets
+            let indexPath = IndexPath(row: todoLists?.count ?? 0, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+
+            let contentInsets = UIEdgeInsets(top: self.tableView.contentInset.top, left: self.tableView.contentInset.left, bottom: self.tableView.contentInset.bottom - keyboardSize.height, right: self.tableView.contentInset.right)
+            self.tableView.contentInset = contentInsets
+            self.tableView.scrollIndicatorInsets = contentInsets
+        }
+    }
 
 	@objc func showFriends() {
         scrollView.setContentOffset(CGPoint(x: self.view.frame.width, y: 0.0), animated: true)
@@ -130,7 +157,12 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
     func addTodoList(todoList: TodoList) {
         todoLists?.append(todoList)
         DispatchQueue.main.async {
-            self.tableView.reloadData()
+            self.tableView.beginUpdates()
+            var indexPath = IndexPath(row: self.todoLists!.count - 1, section: 0)
+            self.tableView.insertRows(at: [indexPath], with: .left)
+            self.tableView.endUpdates()
+            indexPath = IndexPath(row: self.todoLists!.count, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
         }
     }
     
@@ -142,7 +174,9 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         todoListsController.removeTodoList(todoList: todoLists![indexPath.row] ) {
             self.todoLists!.remove(at: indexPath.row)
             DispatchQueue.main.async {
-                self.tableView.reloadData()
+                self.tableView.beginUpdates()
+                self.tableView.deleteRows(at: [indexPath], with: .right)
+                self.tableView.endUpdates()
             }
         }
     }
@@ -167,7 +201,7 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         guard let todoLists = todoLists else {
             return
         }
-        if indexPath.row > todoLists.count {
+        guard indexPath.row < todoLists.count else {
             return
         }
         guard let todoListId = todoLists[indexPath.row].id else {
