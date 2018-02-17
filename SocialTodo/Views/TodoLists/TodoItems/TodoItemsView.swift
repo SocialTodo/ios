@@ -99,8 +99,18 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
             self.todoItems = todoItems
             self.tableView.reloadData()
         }
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
 
     }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: self.view.window)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
+    }
+
     
     @objc func showMyLists() {
         dismiss(animated: true, completion: nil)
@@ -118,6 +128,24 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.anchorX(left: view.leftAnchor, right: view.rightAnchor)
         tableView.anchorY(top: view.topAnchor, bottom: view.bottomAnchor)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+            let contentInsets = UIEdgeInsets(top: self.tableView.contentInset.top, left: self.tableView.contentInset.left, bottom: self.tableView.contentInset.bottom + keyboardSize.height, right: self.tableView.contentInset.right)
+            self.tableView.contentInset = contentInsets
+            let indexPath = IndexPath(row: todoItems?.count ?? 0, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
+        }
+    }
+    
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            
+            let contentInsets = UIEdgeInsets(top: self.tableView.contentInset.top, left: self.tableView.contentInset.left, bottom: self.tableView.contentInset.bottom - keyboardSize.height, right: self.tableView.contentInset.right)
+            self.tableView.contentInset = contentInsets
+            self.tableView.scrollIndicatorInsets = contentInsets
+        }
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -149,7 +177,12 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
     func addTodoItem(todoItem: TodoItem) {
         todoItems?.append(todoItem)
         DispatchQueue.main.async {
-            self.tableView.reloadData()
+            self.tableView.beginUpdates()
+            var indexPath = IndexPath(row: self.todoItems!.count - 1, section: 0)
+            self.tableView.insertRows(at: [indexPath], with: .left)
+            self.tableView.endUpdates()
+            indexPath = IndexPath(row: self.todoItems!.count, section: 0)
+            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
         }
     }
     
