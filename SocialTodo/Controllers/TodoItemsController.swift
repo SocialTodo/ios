@@ -107,4 +107,27 @@ class TodoItemsController {
         }
         task.resume()
     }
+    
+    func removeTodoItem(todoItem: TodoItem, completion: @escaping () -> Void) {
+        guard let headers = API.requestHeaders() else {
+            return
+        }
+        let urlRequest = URLRequest(url: "\(API.item)/\(todoItem.id!)", method: "DELETE", headers: headers)
+        
+        let config = URLSessionConfiguration.default
+        let session = URLSession(configuration: config)
+        
+        let task = session.dataTask(with: urlRequest) { (data, response, error) in
+            guard error == nil else {
+                return
+            }
+            completion()
+        }
+        task.resume()
+    }
 }
+
+
+
+
+

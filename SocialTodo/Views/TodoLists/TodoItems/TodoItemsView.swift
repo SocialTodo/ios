@@ -201,4 +201,19 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
             }
         }
     }
+    
+    func removeTodoItem(cell: TICell) {
+        guard let indexPath = tableView.indexPath(for: cell) else {
+            return
+        }
+        
+        todoItemsController.removeTodoItem(todoItem: todoItems![indexPath.row]) {
+            self.todoItems!.remove(at: indexPath.row)
+            DispatchQueue.main.async {
+                self.tableView.beginUpdates()
+                self.tableView.deleteRows(at: [indexPath], with: .right)
+                self.tableView.endUpdates()
+            }
+        }
+    }
 }

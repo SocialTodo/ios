@@ -14,6 +14,7 @@ protocol TICellDelegate {
     var todoListId: Int { get }
     func addTodoItem(todoItem: TodoItem)
     func updateTodoItem(cell: TICell)
+    func removeTodoItem(cell: TICell)
 }
 
 class TICell: UITableViewCell {
@@ -37,6 +38,12 @@ class TICell: UITableViewCell {
         return todoCheckbox
     }()
     
+    let trashButton: UIButton = {
+        let button = UIButton()
+        button.setImage(#imageLiteral(resourceName: "trash"), for: .normal)
+        return button
+    }()
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -47,10 +54,13 @@ class TICell: UITableViewCell {
         addSubview(background)
         addSubview(label)
         addSubview(todoCheckbox)
+        addSubview(trashButton)
         
         setupLayout()
         
         todoCheckbox.button.addTarget(self, action: #selector(toggleCheckTodo), for: .touchUpInside)
+        trashButton.addTarget(self, action: #selector(handleDeleteTodoList), for: .touchUpInside)
+
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -71,6 +81,11 @@ class TICell: UITableViewCell {
         }
     }
     
+    @objc func handleDeleteTodoList() {
+        self.delegate.removeTodoItem(cell: self)
+    }
+
+    
     func setupLayout() {
         background.translatesAutoresizingMaskIntoConstraints = false
         background.anchorX(left: leftAnchor, leftConstant: 12, right: rightAnchor, rightConstant: -12)
@@ -84,8 +99,15 @@ class TICell: UITableViewCell {
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.centerYAnchor.constraint(equalTo: background.centerYAnchor).isActive = true
-        label.anchorX(left: todoCheckbox.rightAnchor, leftConstant: 12, right: background.rightAnchor, rightConstant: -12)
+        label.anchorX(left: todoCheckbox.rightAnchor, leftConstant: 12, right: trashButton.leftAnchor, rightConstant: -8)
         label.size(height: 50)
+        
+        trashButton.translatesAutoresizingMaskIntoConstraints = false
+        trashButton.centerYAnchor.constraint(equalTo: background.centerYAnchor).isActive = true
+        trashButton.anchorX(left: label.rightAnchor, leftConstant: 8, right: background.rightAnchor, rightConstant: -12)
+        trashButton.size(height: 30, width: 21)
+        
+        
     }
     
 }
