@@ -69,7 +69,6 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -204,10 +203,8 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         guard indexPath.row < todoLists.count else {
             return
         }
-        guard let todoListId = todoLists[indexPath.row].id else {
-            return
-        }
-        let TodoItemVC = TodoItemsView(todoListId: todoListId)
+        let todoList = todoLists[indexPath.row]
+        let TodoItemVC = TodoItemsView(todoList: todoList, todoListsController: todoListsController)
         let navigationVC = UINavigationController(rootViewController: TodoItemVC)
         present(navigationVC, animated: true, completion: nil)
     }

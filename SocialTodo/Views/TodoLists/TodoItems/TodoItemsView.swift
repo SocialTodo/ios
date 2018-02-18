@@ -9,13 +9,43 @@
 import UIKit
 
 class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegate, TICellDelegate {
-
+    let todoListsController: TodoListsController
     let todoItemsController = TodoItemsController()
+    
+    var todoList: TodoList
+    var todoItems: [TodoItem]?
     
     let background: UIImageView = {
         let iv = UIImageView()
         iv.image = UIImage(named: "TLBackground")
         return iv
+    }()
+    
+    let backBarButton: UIBarButtonItem = {
+        let button = UIButton(type: .system)
+        button.setTitle(" My Lists", for: .normal)
+        button.setImage(#imageLiteral(resourceName: "back-chevron"), for: .normal)
+        button.titleLabel?.font = UIFont(name: "AvenirNext-Regular", size: 18)
+        button.tintColor = UIColor(r: 199, g: 244, b: 250)
+        button.sizeToFit()
+        let barButton = UIBarButtonItem(customView: button)
+        return barButton
+    }()
+    
+    let sharedSwitch: UIBarButtonItem = {
+        let sharedSwitch = SharedSwitch()
+        sharedSwitch.translatesAutoresizingMaskIntoConstraints = false
+        sharedSwitch.size(height: 30, width: 100)
+        return UIBarButtonItem(customView: sharedSwitch)
+    }()
+    
+    let editButton: UIBarButtonItem = {
+        let button = UIButton(type: .system)
+        button.setTitle("Edit", for: .normal)
+        button.titleLabel?.font = UIFont(name: "AvenirNext-Regular", size: 16)
+        button.tintColor = UIColor(r: 199, g: 244, b: 250)
+        button.sizeToFit()
+        return UIBarButtonItem(customView: button)
     }()
     
     let tableView: UITableView = {
@@ -25,15 +55,13 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
         return tv
     }()
     
-    let todoListId: Int
-    var todoItems: [TodoItem]?
-    
     let todoItemCell = "TodoItemCell"
     let addTodoItemCell = "AddTodoItemCell"
 
     
-    init(todoListId: Int) {
-        self.todoListId = todoListId
+    init(todoList: TodoList, todoListsController: TodoListsController) {
+        self.todoList = todoList
+        self.todoListsController = todoListsController
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -50,43 +78,14 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
             navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 32) ?? UIFont.boldSystemFont(ofSize: 28), NSAttributedStringKey.foregroundColor: UIColor.white]
         }
         
-        navigationItem.title = "Todo List"
+        navigationItem.title = todoList.title
         
         view.addSubview(background)
         view.addSubview(tableView)
         
         setupLayout()
-
-        let leftBarButton: UIBarButtonItem = {
-            let button = UIButton(type: .system)
-            button.setTitle(" My Lists", for: .normal)
-            button.setImage(#imageLiteral(resourceName: "back-chevron"), for: .normal)
-            button.titleLabel?.font = UIFont(name: "AvenirNext-Regular", size: 18)
-            button.tintColor = UIColor(r: 199, g: 244, b: 250)
-            button.addTarget(self, action: #selector(showMyLists), for: .touchUpInside)
-            button.sizeToFit()
-            let barButton = UIBarButtonItem(customView: button)
-            return barButton
-        }()
         
-        let sharedSwitch: UIBarButtonItem = {
-            let sharedSwitch = SharedSwitch()
-            sharedSwitch.translatesAutoresizingMaskIntoConstraints = false
-            sharedSwitch.size(height: 30, width: 100)
-            return UIBarButtonItem(customView: sharedSwitch)
-        }()
-        
-        let editButton: UIBarButtonItem = {
-            let button = UIButton(type: .system)
-            button.setTitle("Edit", for: .normal)
-            button.titleLabel?.font = UIFont(name: "AvenirNext-Regular", size: 16)
-            button.tintColor = UIColor(r: 199, g: 244, b: 250)
-            button.addTarget(self, action: #selector(editTodoList), for: .touchUpInside)
-            button.sizeToFit()
-            return UIBarButtonItem(customView: button)
-        }()
-        
-        navigationItem.leftBarButtonItem = leftBarButton
+        navigationItem.leftBarButtonItem = backBarButton
         navigationItem.rightBarButtonItems = [editButton, sharedSwitch]
 
         tableView.dataSource = self
@@ -95,14 +94,23 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
         tableView.register(TICell.self, forCellReuseIdentifier: todoItemCell)
         tableView.register(AddTICell.self, forCellReuseIdentifier: addTodoItemCell)
         
-        todoItemsController.getTodoItems(todoListId: todoListId) { (todoItems) in
+        todoItemsController.getTodoItems(todoListId: todoList.id!) { (todoItems) in
             self.todoItems = todoItems
             self.tableView.reloadData()
         }
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-
+        
+        let backBarButtonCV = backBarButton.customView as! UIButton
+        backBarButtonCV.addTarget(self, action: #selector(showMyLists), for: .touchUpInside)
+        
+        let sharedSwitchCV = sharedSwitch.customView as! SharedSwitch
+        sharedSwitchCV.isShared = todoList.isShared
+        sharedSwitchCV.button.addTarget(self, action: #selector(toggleListShared), for: .touchUpInside)
+        
+        let editButtonCV = editButton.customView as! UIButton
+        editButtonCV.addTarget(self, action: #selector(editTodoList), for: .touchUpInside)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -110,7 +118,6 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: self.view.window)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
     }
-
     
     @objc func showMyLists() {
         dismiss(animated: true, completion: nil)
@@ -145,6 +152,27 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
             let contentInsets = UIEdgeInsets(top: self.tableView.contentInset.top, left: self.tableView.contentInset.left, bottom: self.tableView.contentInset.bottom - keyboardSize.height, right: self.tableView.contentInset.right)
             self.tableView.contentInset = contentInsets
             self.tableView.scrollIndicatorInsets = contentInsets
+        }
+    }
+    
+    @objc func toggleListShared() {
+        let sharedSwitch = self.sharedSwitch.customView as! SharedSwitch
+        if sharedSwitch.isShared {
+            sharedSwitch.button.isEnabled = false
+            sharedSwitch.isShared = false
+            todoList.isShared = false
+            todoListsController.updateTodoList(todoList: todoList, completion: { (todoList) in
+                print(todoList)
+            })
+            sharedSwitch.button.isEnabled = true
+        } else {
+            sharedSwitch.button.isEnabled = false
+            sharedSwitch.isShared = true
+            todoList.isShared = true
+            todoListsController.updateTodoList(todoList: todoList, completion: { (todoList) in
+                print(todoList)
+            })
+            sharedSwitch.button.isEnabled = true
         }
     }
     

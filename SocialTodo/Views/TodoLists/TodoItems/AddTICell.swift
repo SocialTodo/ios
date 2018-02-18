@@ -61,7 +61,9 @@ class AddTICell: UITableViewCell, UITextFieldDelegate {
         guard let title = textField.text else {
             return
         }
-        let todoListId = delegate.todoListId
+        guard let todoListId = delegate.todoList.id else {
+            return
+        }
         
         let todoItem = TodoItem(id: nil, title: title, isChecked: false, todoListId: todoListId)
         

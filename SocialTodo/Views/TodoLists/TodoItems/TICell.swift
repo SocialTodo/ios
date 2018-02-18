@@ -11,7 +11,7 @@ import UIKit
 
 protocol TICellDelegate {
     var todoItemsController: TodoItemsController { get }
-    var todoListId: Int { get }
+    var todoList: TodoList { get }
     func addTodoItem(todoItem: TodoItem)
     func updateTodoItem(cell: TICell)
     func removeTodoItem(cell: TICell)
