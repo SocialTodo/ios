@@ -108,7 +108,7 @@ class ProfileView: ScrollableViewController {
 
 	@objc func showMyLists() {
 		print("show my lists")
-        scrollView.setContentOffset(CGPoint(x: self.view.frame.width * 2, y: 0.0), animated: true)
+        scrollView.setContentOffset(CGPoint(x: self.view.frame.width * 1, y: 0.0), animated: true)
 	}
 
 }

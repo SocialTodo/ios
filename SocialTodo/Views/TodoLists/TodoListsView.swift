@@ -117,11 +117,11 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
     }
 
 	@objc func showFriends() {
-        scrollView.setContentOffset(CGPoint(x: self.view.frame.width, y: 0.0), animated: true)
+        scrollView.setContentOffset(CGPoint(x: self.view.frame.width * 0, y: 0.0), animated: true)
 	}
 
 	@objc func showProfile() {
-        scrollView.setContentOffset(CGPoint(x: self.view.frame.width * 3, y: 0.0), animated: true)
+        scrollView.setContentOffset(CGPoint(x: self.view.frame.width * 2, y: 0.0), animated: true)
 	}
 
 	func numberOfSections(in tableView: UITableView) -> Int {

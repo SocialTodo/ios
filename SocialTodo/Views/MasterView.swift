@@ -49,7 +49,7 @@ class MasterView: UIViewController {
 		scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.anchorX(left: view.leftAnchor, right: view.rightAnchor)
         scrollView.anchorY(top: view.topAnchor, bottom: view.bottomAnchor)
-		self.scrollView.contentSize = CGSize(width: self.view.frame.width * 4, height: self.view.frame.size.height)
+		self.scrollView.contentSize = CGSize(width: self.view.frame.width * 3, height: self.view.frame.size.height)
 	}
 
 	func setupViewController(viewController: UIViewController, navColor: UIColor, index: CGFloat) {
@@ -70,17 +70,16 @@ class MasterView: UIViewController {
         print(frame.origin.x)
 		viewController.view.frame = frame
 
-		if index == 2 {
+		if index == 1 {
 			self.scrollView.setContentOffset(CGPoint(x: viewController.view.frame.origin.x, y: viewController.view.frame.origin.y), animated: true)
 		}
 	}
 
 	func setupScrollView() {
 
-        setupViewController(viewController: AddFriendsView(scrollView: scrollView), navColor: Colors.lightNavColor, index: 0)
-        setupViewController(viewController: FriendsView(scrollView: scrollView), navColor: Colors.lightNavColor, index: 1)
-		setupViewController(viewController: TodoListsView(scrollView: scrollView), navColor: Colors.darkNavColor, index: 2)
-		setupViewController(viewController: ProfileView(scrollView: scrollView), navColor: Colors.lightNavColor, index: 3)
+        setupViewController(viewController: FriendsView(scrollView: scrollView), navColor: Colors.lightNavColor, index: 0)
+		setupViewController(viewController: TodoListsView(scrollView: scrollView), navColor: Colors.darkNavColor, index: 1)
+		setupViewController(viewController: ProfileView(scrollView: scrollView), navColor: Colors.lightNavColor, index: 2)
 	}
 
 }

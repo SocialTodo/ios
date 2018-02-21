@@ -20,7 +20,6 @@
 		C767F5D7201923D100C532D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767F5D6201923D100C532D0 /* Constants.swift */; };
 		C767F5DA201924EE00C532D0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767F5D9201924EE00C532D0 /* Extensions.swift */; };
 		C78F79D8202E89D2004E7F56 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78F79D7202E89D2004E7F56 /* FriendCell.swift */; };
-		C78F79DA202E9770004E7F56 /* AddFriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78F79D9202E9770004E7F56 /* AddFriendCell.swift */; };
 		C78F79DE202EA32D004E7F56 /* FriendsTodoListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78F79DD202EA32D004E7F56 /* FriendsTodoListsView.swift */; };
 		C78F79E0202EA355004E7F56 /* FTLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78F79DF202EA355004E7F56 /* FTLCell.swift */; };
 		C78F79E2202EA383004E7F56 /* FriendsTodoItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78F79E1202EA383004E7F56 /* FriendsTodoItemsView.swift */; };
@@ -32,7 +31,6 @@
 		C7DE93D21FD28907006F73F0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7DE93D11FD28907006F73F0 /* Assets.xcassets */; };
 		C7DE93D51FD28907006F73F0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7DE93D31FD28907006F73F0 /* LaunchScreen.storyboard */; };
 		C7E1241B2024C5460067D37E /* ScrollableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E1241A2024C5460067D37E /* ScrollableViewController.swift */; };
-		C7E88F0C202B9D9300527383 /* AddFriendsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E88F0B202B9D9300527383 /* AddFriendsView.swift */; };
 		C7E88F0E202B9E7C00527383 /* TodoListsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E88F0D202B9E7C00527383 /* TodoListsController.swift */; };
 		C7E88F10202BA45500527383 /* TodoItemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E88F0F202BA45500527383 /* TodoItemsController.swift */; };
 		C7EB3385200ACFDD004D5E1B /* TLCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EB3384200ACFDC004D5E1B /* TLCell.swift */; };
@@ -100,7 +98,6 @@
 		C77EBE9C1FD3D5B7004403B0 /* TodoListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListsView.swift; sourceTree = "<group>"; };
 		C77EBEA01FD3D5C7004403B0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		C78F79D7202E89D2004E7F56 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
-		C78F79D9202E9770004E7F56 /* AddFriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendCell.swift; sourceTree = "<group>"; };
 		C78F79DD202EA32D004E7F56 /* FriendsTodoListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTodoListsView.swift; sourceTree = "<group>"; };
 		C78F79DF202EA355004E7F56 /* FTLCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FTLCell.swift; sourceTree = "<group>"; };
 		C78F79E1202EA383004E7F56 /* FriendsTodoItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTodoItemsView.swift; sourceTree = "<group>"; };
@@ -114,7 +111,6 @@
 		C7DE93D41FD28907006F73F0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C7DE93D61FD28907006F73F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C7E1241A2024C5460067D37E /* ScrollableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableViewController.swift; sourceTree = "<group>"; };
-		C7E88F0B202B9D9300527383 /* AddFriendsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFriendsView.swift; sourceTree = "<group>"; };
 		C7E88F0D202B9E7C00527383 /* TodoListsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListsController.swift; sourceTree = "<group>"; };
 		C7E88F0F202BA45500527383 /* TodoItemsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemsController.swift; sourceTree = "<group>"; };
 		C7EB3384200ACFDC004D5E1B /* TLCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TLCell.swift; sourceTree = "<group>"; };
@@ -226,15 +222,6 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
-		C77EBE8D1FD3D4CF004403B0 /* AddFriends */ = {
-			isa = PBXGroup;
-			children = (
-				C7E88F0B202B9D9300527383 /* AddFriendsView.swift */,
-				C78F79D9202E9770004E7F56 /* AddFriendCell.swift */,
-			);
-			path = AddFriends;
-			sourceTree = "<group>";
-		};
 		C77EBE921FD3D51E004403B0 /* Friends */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,7 +323,6 @@
 				C7DE93CC1FD28906006F73F0 /* MasterView.swift */,
 				C7E1241A2024C5460067D37E /* ScrollableViewController.swift */,
 				C7F9209120128DCC00EBC6DF /* Login */,
-				C77EBE8D1FD3D4CF004403B0 /* AddFriends */,
 				C77EBE921FD3D51E004403B0 /* Friends */,
 				C77EBE941FD3D53A004403B0 /* TodoLists */,
 				C77EBE951FD3D544004403B0 /* Profile */,
@@ -720,7 +706,6 @@
 			files = (
 				C7F9209320128E0D00EBC6DF /* LoginView.swift in Sources */,
 				C714D86F2030DEAA006F07D2 /* FriendsController.swift in Sources */,
-				C78F79DA202E9770004E7F56 /* AddFriendCell.swift in Sources */,
 				C78F79E0202EA355004E7F56 /* FTLCell.swift in Sources */,
 				C70DBC0C20262F11001E647A /* TodoItem.swift in Sources */,
 				C7FFB37E20228BE4009BC242 /* AddTLCell.swift in Sources */,
@@ -748,7 +733,6 @@
 				E9CBCF5C1FEEDC0100E8D7F7 /* AuthController.swift in Sources */,
 				C78F79D8202E89D2004E7F56 /* FriendCell.swift in Sources */,
 				E9CBCF5E1FEEDC0100E8D7F7 /* AppDelegate.swift in Sources */,
-				C7E88F0C202B9D9300527383 /* AddFriendsView.swift in Sources */,
 				C7E1241B2024C5460067D37E /* ScrollableViewController.swift in Sources */,
 				C71C09FB201EE82400DAF961 /* TICell.swift in Sources */,
 			);

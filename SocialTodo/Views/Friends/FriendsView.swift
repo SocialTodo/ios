@@ -19,15 +19,6 @@ class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewD
 		return iv
 	}()
 
-	let addButton: UIBarButtonItem = {
-		let button = UIButton(type: .system)
-		button.setTitle("Add+", for: .normal)
-		button.titleLabel?.font = UIFont(name: "AvenirNext-Bold", size: 18)
-		button.tintColor = UIColor(red: 221/255, green: 242/255, blue: 255/255, alpha: 1)
-		let barButton = UIBarButtonItem(customView: button)
-		return barButton
-	}()
-
 	let myListsButton: UIBarButtonItem = {
 		let button = UIButton(type: .system)
 		button.setTitle("My Lists", for: .normal)
@@ -51,8 +42,6 @@ class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewD
 
 		navigationItem.title = "Friends"
 
-		navigationItem.leftBarButtonItem = addButton
-		addButton.customView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showAdd)))
 		navigationItem.rightBarButtonItem = myListsButton
 		myListsButton.customView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showMyLists)))
 
@@ -90,14 +79,9 @@ class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewD
 
 	}
 
-	@objc func showAdd() {
-		print("show add+")
-        scrollView.setContentOffset(CGPoint(x: self.view.frame.width * 0, y: 0.0), animated: true)
-	}
-
 	@objc func showMyLists() {
 		print("show my lists")
-        scrollView.setContentOffset(CGPoint(x: self.view.frame.width * 2, y: 0.0), animated: true)
+        scrollView.setContentOffset(CGPoint(x: self.view.frame.width * 1, y: 0.0), animated: true)
 	}
     
     func numberOfSections(in tableView: UITableView) -> Int {
