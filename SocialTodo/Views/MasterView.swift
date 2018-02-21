@@ -31,7 +31,7 @@ class MasterView: UIViewController {
 		setupLayout()
 		setupScrollView()
         
-        authController.fetchStoredToken()
+//        authController.fetchStoredToken()
     }
     
     override func viewDidAppear(_ animated: Bool) {

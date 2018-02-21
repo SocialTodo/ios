@@ -39,7 +39,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func applicationDidBecomeActive(_ application: UIApplication) {
-        
+        AppEventsLogger.activate()
     }
     
     func applicationWillTerminate(_ application: UIApplication) {
