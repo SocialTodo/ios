@@ -57,9 +57,7 @@ class CreateTodoList: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     let friendCell = "friendCell"
     let addFriendCell = "addFriendCell"
-    
-    override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
-    
+        
     init(delegate: TodoListDelegate) {
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)

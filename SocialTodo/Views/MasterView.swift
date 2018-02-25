@@ -23,8 +23,6 @@ class MasterView: UIViewController {
 		return sv
 	}()
 
-	override var preferredStatusBarStyle: UIStatusBarStyle { return .lightContent }
-
 	override func viewDidLoad() {
 		super.viewDidLoad()
         

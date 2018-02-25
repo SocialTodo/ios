@@ -16,6 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initial View Setup
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = MasterView()
+        UIApplication.shared.statusBarStyle = .lightContent
         window?.makeKeyAndVisible()
         
         return true
