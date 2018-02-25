@@ -21,7 +21,7 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
 		let button = UIButton(type: .system)
 		button.setTitle("Friends", for: .normal)
 		button.titleLabel?.font = UIFont(name: "AvenirNext-Bold", size: 18)
-		button.tintColor = UIColor(red: 100/255, green: 191/255, blue: 251/255, alpha: 1)
+		button.tintColor = UIColor(r: 100, g: 191, b: 251)
 		let barButton = UIBarButtonItem(customView: button)
 		return barButton
 	}()
@@ -30,7 +30,7 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         let button = UIButton(type: .system)
         button.setTitle("Profile", for: .normal)
         button.titleLabel?.font = UIFont(name: "AvenirNext-Bold", size: 18)
-        button.tintColor = UIColor(red: 100/255, green: 191/255, blue: 251/255, alpha: 1)
+        button.tintColor = UIColor(r: 100, g: 191, b: 251)
         let barButton = UIBarButtonItem(customView: button)
         return barButton
 	}()

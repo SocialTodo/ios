@@ -30,7 +30,7 @@ class LoginView: UIViewController {
     let loginButton: UIButton = {
         let button = UIButton()
         button.layer.cornerRadius = 12
-        button.backgroundColor = UIColor(red: 59/255, green: 89/255, blue: 152/255, alpha: 1)
+        button.backgroundColor = UIColor(r: 59, g: 89, b: 152)
         button.setTitle("SIGN IN WITH FACEBOOK", for: .normal)
         button.titleLabel?.font = UIFont(name: "AvenirNext-DemiBold", size: 14)
         button.addTarget(self, action: #selector(handleLoginButton), for: .touchUpInside)

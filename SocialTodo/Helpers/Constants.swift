@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum Colors {
-	static let lightNavColor = UIColor(red: 0/255, green: 217/255, blue: 250/255, alpha: 1)
-	static let darkNavColor = UIColor(red: 3/255, green: 144/255, blue: 231/255, alpha: 1)
+extension UIColor {
+    public static let lightNavColor = UIColor(r: 0, g: 217, b: 250)
+    public static let darkNavColor = UIColor(r: 3, g: 144, b: 231)
 }

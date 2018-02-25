@@ -23,7 +23,7 @@ class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewD
 		let button = UIButton(type: .system)
 		button.setTitle("My Lists", for: .normal)
 		button.titleLabel?.font = UIFont(name: "AvenirNext-Bold", size: 18)
-		button.tintColor = UIColor(red: 221/255, green: 242/255, blue: 255/255, alpha: 1)
+		button.tintColor = UIColor(r: 221, g: 242, b: 255)
 		let barButton = UIBarButtonItem(customView: button)
 		return barButton
 	}()

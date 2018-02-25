@@ -73,10 +73,9 @@ class MasterView: UIViewController {
 	}
 
 	func setupScrollView() {
-
-        setupViewController(viewController: FriendsView(scrollView: scrollView), navColor: Colors.lightNavColor, index: 0)
-		setupViewController(viewController: TodoListsView(scrollView: scrollView), navColor: Colors.darkNavColor, index: 1)
-		setupViewController(viewController: ProfileView(scrollView: scrollView), navColor: Colors.lightNavColor, index: 2)
+        setupViewController(viewController: FriendsView(scrollView: scrollView), navColor: UIColor.lightNavColor, index: 0)
+		setupViewController(viewController: TodoListsView(scrollView: scrollView), navColor: UIColor.darkNavColor, index: 1)
+		setupViewController(viewController: ProfileView(scrollView: scrollView), navColor: UIColor.lightNavColor, index: 2)
 	}
 
 }
