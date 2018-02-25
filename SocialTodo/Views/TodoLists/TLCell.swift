@@ -79,7 +79,6 @@ class TLCell: UITableViewCell {
         background.translatesAutoresizingMaskIntoConstraints = false
         background.anchorX(left: leftAnchor, right: rightAnchor)
         background.anchorY(top: topAnchor, topConstant: 5, bottom: bottomAnchor, bottomConstant: -5)
-        background.size(height: 60)
 
 		label.translatesAutoresizingMaskIntoConstraints = false
 		label.centerYAnchor.constraint(equalTo: background.centerYAnchor).isActive = true
