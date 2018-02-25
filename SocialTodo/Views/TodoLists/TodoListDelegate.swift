@@ -9,7 +9,7 @@
 protocol TodoListDelegate {
     var todoListsController: TodoListsController { get }
     func didAddTodoList(todoList: TodoList)
-    func didRemoveTodoList(cell: TLCell)
+    func didRemoveTodoList(cell: TodoListCell)
     func didUpdateTodoList(todoListIndex: Int, todoList: TodoList)
-    func didUpdateTodoListSharing(cell: TLCell)
+    func didUpdateTodoListSharing(cell: TodoListCell)
 }

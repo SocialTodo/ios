@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TLCell: UITableViewCell {
+class TodoListCell: UITableViewCell {
     var delegate: TodoListDelegate!
 
 	let background: UIImageView = {

@@ -1,5 +1,5 @@
 //
-//  TICell.swift
+//  TodoItemCell.swift
 //  SocialTodo
 //
 //  Created by Saatvik Arya on 1/28/18.
@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class TICell: UITableViewCell {
+class TodoItemCell: UITableViewCell {
     var delegate: TodoItemDelegate!
     
     let background: UIImageView = {

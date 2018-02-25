@@ -1,5 +1,5 @@
 //
-//  AddTICell.swift
+//  AddTodoItemCell.swift
 //  SocialTodo
 //
 //  Created by Saatvik Arya on 2/4/18.
@@ -9,9 +9,7 @@
 import Foundation
 import UIKit
 
-
-
-class AddTICell: UITableViewCell, UITextFieldDelegate {
+class AddTodoItemCell: UITableViewCell, UITextFieldDelegate {
     var delegate: TodoItemDelegate!
 
     let background: UIImageView = {

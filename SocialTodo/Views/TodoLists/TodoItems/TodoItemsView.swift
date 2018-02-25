@@ -92,8 +92,8 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
         tableView.dataSource = self
         tableView.delegate = self
         
-        tableView.register(TICell.self, forCellReuseIdentifier: todoItemCell)
-        tableView.register(AddTICell.self, forCellReuseIdentifier: addTodoItemCell)
+        tableView.register(TodoItemCell.self, forCellReuseIdentifier: todoItemCell)
+        tableView.register(AddTodoItemCell.self, forCellReuseIdentifier: addTodoItemCell)
         
         todoItemsController.getTodoItems(todoListId: todoList.id!) { (todoItems) in
             self.todoItems = todoItems
@@ -175,13 +175,13 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.row < todoItems?.count ?? 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: todoItemCell) as! TICell
+            let cell = tableView.dequeueReusableCell(withIdentifier: todoItemCell) as! TodoItemCell
             cell.delegate = self
             cell.label.text = todoItems![indexPath.row].title
             cell.todoCheckbox.isChecked = todoItems![indexPath.row].isChecked
             return cell
         } else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: addTodoItemCell) as! AddTICell
+            let cell = tableView.dequeueReusableCell(withIdentifier: addTodoItemCell) as! AddTodoItemCell
             cell.delegate = self
             return cell
         }
@@ -199,7 +199,7 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
         }
     }
     
-    func updateTodoItem(cell: TICell){
+    func updateTodoItem(cell: TodoItemCell){
         guard let indexPath = tableView.indexPath(for: cell) else {
             return
         }
@@ -215,7 +215,7 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
         }
     }
     
-    func removeTodoItem(cell: TICell) {
+    func removeTodoItem(cell: TodoItemCell) {
         guard let indexPath = tableView.indexPath(for: cell) else {
             return
         }

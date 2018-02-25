@@ -43,7 +43,7 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
     }()
     
     var todoLists: [TodoList]?
-    let todoListCell = "TLCell"
+    let todoListCell = "TodoListCell"
     
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,7 +63,7 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
 		tableView.dataSource = self
 		tableView.delegate = self
         
-        tableView.register(TLCell.self, forCellReuseIdentifier: todoListCell)
+        tableView.register(TodoListCell.self, forCellReuseIdentifier: todoListCell)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -114,7 +114,7 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: todoListCell, for: indexPath) as! TLCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: todoListCell, for: indexPath) as! TodoListCell
         cell.delegate = self
         let list = todoLists![indexPath.row]
         cell.label.text = list.title
@@ -172,7 +172,7 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    func didRemoveTodoList(cell: TLCell) {
+    func didRemoveTodoList(cell: TodoListCell) {
         guard let indexPath = tableView.indexPath(for: cell) else {
             return
         }
@@ -194,7 +194,7 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    func didUpdateTodoListSharing(cell: TLCell) {
+    func didUpdateTodoListSharing(cell: TodoListCell) {
         guard let indexPath = tableView.indexPath(for: cell) else {
             return
         }

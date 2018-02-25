@@ -12,6 +12,6 @@ protocol TodoItemDelegate {
     var todoItemsController: TodoItemsController { get }
     var todoList: TodoList { get set }
     func addTodoItem(todoItem: TodoItem)
-    func updateTodoItem(cell: TICell)
-    func removeTodoItem(cell: TICell)
+    func updateTodoItem(cell: TodoItemCell)
+    func removeTodoItem(cell: TodoItemCell)
 }
