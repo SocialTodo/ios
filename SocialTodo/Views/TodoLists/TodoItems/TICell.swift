@@ -9,16 +9,8 @@
 import Foundation
 import UIKit
 
-protocol TICellDelegate {
-    var todoItemsController: TodoItemsController { get }
-    var todoList: TodoList { get }
-    func addTodoItem(todoItem: TodoItem)
-    func updateTodoItem(cell: TICell)
-    func removeTodoItem(cell: TICell)
-}
-
 class TICell: UITableViewCell {
-    var delegate: TICellDelegate!
+    var delegate: TodoItemDelegate!
     
     let background: UIImageView = {
         let iv = UIImageView()

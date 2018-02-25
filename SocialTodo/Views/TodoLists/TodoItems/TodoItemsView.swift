@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegate, TICellDelegate {
+class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegate, TodoItemDelegate {
     let todoListsController: TodoListsController
     let todoItemsController = TodoItemsController()
     

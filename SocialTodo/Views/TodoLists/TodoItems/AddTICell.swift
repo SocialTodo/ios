@@ -12,7 +12,7 @@ import UIKit
 
 
 class AddTICell: UITableViewCell, UITextFieldDelegate {
-    var delegate: TICellDelegate!
+    var delegate: TodoItemDelegate!
 
     let background: UIImageView = {
         let iv = UIImageView()
