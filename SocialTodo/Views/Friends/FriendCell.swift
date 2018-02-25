@@ -48,7 +48,7 @@ class FriendCell: UITableViewCell {
     
     func setupLayout() {
         background.translatesAutoresizingMaskIntoConstraints = false
-        background.anchorX(left: leftAnchor, leftConstant: 12, right: rightAnchor, rightConstant: -12)
+        background.anchorX(left: leftAnchor, right: rightAnchor)
         background.anchorY(top: topAnchor, topConstant: 5, bottom: bottomAnchor, bottomConstant: -5)
         background.size(height: 60)
         

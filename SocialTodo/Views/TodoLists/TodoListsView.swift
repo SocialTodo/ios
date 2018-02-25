@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableViewDelegate, TLCellDelegate {
+class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableViewDelegate, TodoListDelegate {
     let todoListsController = TodoListsController()
 
 	let background: UIImageView = {
@@ -44,7 +44,6 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
     
     var todoLists: [TodoList]?
     let todoListCell = "TLCell"
-    let addTodoListCell = "AddTLCell"
     
 	override func viewDidLoad() {
         super.viewDidLoad()
@@ -65,10 +64,6 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
 		tableView.delegate = self
         
         tableView.register(TLCell.self, forCellReuseIdentifier: todoListCell)
-        tableView.register(AddTLCell.self, forCellReuseIdentifier: addTodoListCell)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -94,27 +89,9 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         background.anchorY(top: view.topAnchor, bottom: view.bottomAnchor)
 
 		tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.anchorX(left: view.leftAnchor, right: view.rightAnchor)
+        tableView.anchorX(left: view.leftAnchor, leftConstant: 8, right: view.rightAnchor, rightConstant: -8)
         tableView.anchorY(top: margins.topAnchor, bottom: margins.bottomAnchor)
 	}
-    
-    @objc func keyboardWillShow(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
-            let contentInsets = UIEdgeInsets(top: self.tableView.contentInset.top, left: self.tableView.contentInset.left, bottom: self.tableView.contentInset.bottom + keyboardSize.height, right: self.tableView.contentInset.right)
-            self.tableView.contentInset = contentInsets
-            let indexPath = IndexPath(row: todoLists?.count ?? 0, section: 0)
-            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
-        }
-    }
-    
-    @objc func keyboardWillHide(notification: NSNotification) {
-        if let keyboardSize = (notification.userInfo?[UIKeyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
-
-            let contentInsets = UIEdgeInsets(top: self.tableView.contentInset.top, left: self.tableView.contentInset.left, bottom: self.tableView.contentInset.bottom - keyboardSize.height, right: self.tableView.contentInset.right)
-            self.tableView.contentInset = contentInsets
-            self.tableView.scrollIndicatorInsets = contentInsets
-        }
-    }
 
 	@objc func showFriends() {
         scrollView.setContentOffset(CGPoint(x: self.view.frame.width * 0, y: 0.0), animated: true)
@@ -129,7 +106,7 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
 	}
 
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return (todoLists?.count ?? 0) + 1
+		return todoLists?.count ?? 0
 	}
 
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -137,31 +114,61 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
 	}
 
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row < todoLists?.count ?? 0 {
-            let cell = tableView.dequeueReusableCell(withIdentifier: todoListCell, for: indexPath) as! TLCell
-            cell.delegate = self
-            let list = todoLists![indexPath.row]
-            cell.label.text = list.title
-            cell.sharedButton.isShared = list.isShared
-            return cell
-        }
-        else {
-            let cell = tableView.dequeueReusableCell(withIdentifier: addTodoListCell, for: indexPath) as! AddTLCell
-            cell.delegate = self
-            return cell
-        }
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: todoListCell, for: indexPath) as! TLCell
+        cell.delegate = self
+        let list = todoLists![indexPath.row]
+        cell.label.text = list.title
+        cell.sharedButton.isShared = list.isShared
+        return cell
 	}
+    
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        let footerView = UIView()
+        footerView.backgroundColor = .clear
+        
+        let addView = UIView()
+        addView.translatesAutoresizingMaskIntoConstraints = false
+        addView.size(height: 45, width: 45)
+        addView.layer.cornerRadius = 45/2
+        addView.layer.borderColor = UIColor(r: 0, g: 144, b: 231).cgColor
+        addView.layer.borderWidth = 2
+        addView.backgroundColor = .white
+        
+        footerView.addSubview(addView)
+        addView.anchorX(right: footerView.rightAnchor, rightConstant: -8)
+        addView.anchorY(bottom: footerView.bottomAnchor)
+        
+        let addButton = UIButton()
+        addButton.setImage(#imageLiteral(resourceName: "add"), for: .normal)
+        addButton.addTarget(self, action: #selector(handleCreateTodoList), for: .touchUpInside)
+        addButton.translatesAutoresizingMaskIntoConstraints = false
+        addButton.size(height: 45, width: 45)
+        addView.addSubview(addButton)
+        addButton.anchorX(right: addView.rightAnchor)
+        addButton.anchorY(bottom: addView.bottomAnchor)
+
+        return footerView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 50
+    }
+    
+    @objc func handleCreateTodoList() {
+        let createTodoListView = CreateTodoList(delegate: self)
+        let navController = UINavigationController(rootViewController: createTodoListView)
+        navController.navigationBar.barTintColor = UIColor(r: 0, g: 154, b: 233)
+        navController.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 28) ?? UIFont.boldSystemFont(ofSize: 28), NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.present(navController, animated: true, completion: nil)
+    }
     
     func addTodoList(todoList: TodoList) {
         todoLists?.append(todoList)
         DispatchQueue.main.async {
             self.tableView.beginUpdates()
-            var indexPath = IndexPath(row: self.todoLists!.count - 1, section: 0)
+            let indexPath = IndexPath(row: self.todoLists!.count - 1, section: 0)
             self.tableView.insertRows(at: [indexPath], with: .left)
             self.tableView.endUpdates()
-            indexPath = IndexPath(row: self.todoLists!.count, section: 0)
-            self.tableView.scrollToRow(at: indexPath, at: .bottom, animated: true)
         }
     }
     
@@ -198,9 +205,6 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         guard let todoLists = todoLists else {
-            return
-        }
-        guard indexPath.row < todoLists.count else {
             return
         }
         let todoList = todoLists[indexPath.row]

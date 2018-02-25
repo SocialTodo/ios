@@ -31,7 +31,7 @@ class MasterView: UIViewController {
 		setupLayout()
 		setupScrollView()
         
-//        authController.fetchStoredToken()
+        authController.fetchStoredToken()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -67,7 +67,6 @@ class MasterView: UIViewController {
 
 		var frame: CGRect = viewController.view.frame
 		frame.origin.x = index * self.view.frame.width
-        print(frame.origin.x)
 		viewController.view.frame = frame
 
 		if index == 1 {

@@ -8,15 +8,8 @@
 
 import UIKit
 
-protocol TLCellDelegate {
-    var todoListsController: TodoListsController { get }
-    func addTodoList(todoList: TodoList)
-    func updateTodoList(cell: TLCell)
-    func removeTodoList(cell: TLCell)
-}
-
 class TLCell: UITableViewCell {
-    var delegate: TLCellDelegate!
+    var delegate: TodoListDelegate!
 
 	let background: UIImageView = {
 		let iv = UIImageView()
@@ -84,7 +77,7 @@ class TLCell: UITableViewCell {
 
 	func setupLayout() {
         background.translatesAutoresizingMaskIntoConstraints = false
-        background.anchorX(left: leftAnchor, leftConstant: 12, right: rightAnchor, rightConstant: -12)
+        background.anchorX(left: leftAnchor, right: rightAnchor)
         background.anchorY(top: topAnchor, topConstant: 5, bottom: bottomAnchor, bottomConstant: -5)
         background.size(height: 60)
 

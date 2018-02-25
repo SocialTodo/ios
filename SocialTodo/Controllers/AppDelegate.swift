@@ -1,5 +1,5 @@
 /**
- # App Delegat
+ # App Delegate
  
  */
 

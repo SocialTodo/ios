@@ -74,7 +74,7 @@ class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewD
         background.anchorY(top: view.topAnchor, bottom: view.bottomAnchor)
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.anchorX(left: view.leftAnchor, right: view.rightAnchor)
+        tableView.anchorX(left: view.leftAnchor, leftConstant: 8, right: view.rightAnchor, rightConstant: -8)
         tableView.anchorY(top: margins.topAnchor, bottom: margins.bottomAnchor)
 
 	}
