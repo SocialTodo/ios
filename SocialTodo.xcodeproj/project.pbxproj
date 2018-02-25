@@ -212,11 +212,11 @@
 		C71C09F7201EE7E000DAF961 /* TodoItems */ = {
 			isa = PBXGroup;
 			children = (
+				C756E33A204278DC001AC717 /* TodoItemDelegate.swift */,
 				C71C09F8201EE80E00DAF961 /* TodoItemsView.swift */,
 				C71C09FA201EE82400DAF961 /* TodoItemCell.swift */,
 				C7DD7A6020435F9800863E61 /* AddTodoItemCell.swift */,
 				C7EF931D2023AAC600F9A68D /* TodoCheckbox.swift */,
-				C756E33A204278DC001AC717 /* TodoItemDelegate.swift */,
 			);
 			path = TodoItems;
 			sourceTree = "<group>";
