@@ -61,12 +61,12 @@ class TLCell: UITableViewCell {
         if sharedButton.isShared {
             sharedButton.button.isEnabled = false
             sharedButton.isShared = false
-            delegate.didUpdateTodoList(cell: self)
+            delegate.didUpdateTodoListSharing(cell: self)
             sharedButton.button.isEnabled = true
         } else {
             sharedButton.button.isEnabled = false
             sharedButton.isShared = true
-            delegate.didUpdateTodoList(cell: self)
+            delegate.didUpdateTodoListSharing(cell: self)
             sharedButton.button.isEnabled = true
         }
     }

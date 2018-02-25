@@ -9,9 +9,16 @@
 import UIKit
 
 class CreateTodoList: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    let delegate: TodoListDelegate
+    let todoListDelegate: TodoListDelegate
+    var todoItemDelegate: TodoItemDelegate?
     
-    var todoList: TodoList?
+    var todoList: TodoList? {
+        didSet {
+            titleField.textField.text = todoList?.title
+            sharingSwitch.isShared = todoList?.isShared
+        }
+    }
+    var todoListIndex: Int?
     var friends: [Friend]?
     
     let background: UIImageView = {
@@ -58,8 +65,8 @@ class CreateTodoList: UIViewController, UITableViewDelegate, UITableViewDataSour
     let friendCell = "friendCell"
     let addFriendCell = "addFriendCell"
         
-    init(delegate: TodoListDelegate) {
-        self.delegate = delegate
+    init(todoListDelegate: TodoListDelegate) {
+        self.todoListDelegate = todoListDelegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -69,7 +76,6 @@ class CreateTodoList: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationItem.title = todoList?.title ?? "Create Todo List"
         
         let cancelButton = UIBarButtonItem(title: "Cancel", style: .plain, target: self, action: #selector(handleCancel))
@@ -117,10 +123,22 @@ class CreateTodoList: UIViewController, UITableViewDelegate, UITableViewDataSour
         guard let isShared = sharingSwitch.isShared else {
             return
         }
-        let todoList = TodoList(id: nil, title: title, isShared: isShared)
-        delegate.todoListsController.postTodoList(todoList: todoList) { (todoList) in
-            self.delegate.didAddTodoList(todoList: todoList)
-            self.dismiss(animated: true, completion: nil)
+        if var todoList = self.todoList {
+            guard let id = todoList.id else {
+                return
+            }
+            todoList = TodoList(id: id, title: title, isShared: isShared)
+            todoListDelegate.todoListsController.updateTodoList(todoList: todoList, completion: { (todoList) in
+                self.todoListDelegate.didUpdateTodoList(todoListIndex: self.todoListIndex!, todoList: todoList)
+                self.todoItemDelegate?.todoList = todoList
+                self.dismiss(animated: true, completion: nil)
+            })
+        } else {
+            let todoList = TodoList(id: nil, title: title, isShared: isShared)
+            todoListDelegate.todoListsController.postTodoList(todoList: todoList) { (todoList) in
+                self.todoListDelegate.didAddTodoList(todoList: todoList)
+                self.dismiss(animated: true, completion: nil)
+            }
         }
     }
     

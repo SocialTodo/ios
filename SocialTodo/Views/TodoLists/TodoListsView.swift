@@ -155,7 +155,7 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
     }
     
     @objc func handleCreateTodoList() {
-        let createTodoListView = CreateTodoList(delegate: self)
+        let createTodoListView = CreateTodoList(todoListDelegate: self)
         let navController = UINavigationController(rootViewController: createTodoListView)
         navController.navigationBar.barTintColor = UIColor(r: 0, g: 154, b: 233)
         navController.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 28) ?? UIFont.boldSystemFont(ofSize: 28), NSAttributedStringKey.foregroundColor: UIColor.white]
@@ -187,7 +187,14 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    func didUpdateTodoList(cell: TLCell) {
+    func didUpdateTodoList(todoListIndex: Int, todoList: TodoList) {
+        self.todoLists![todoListIndex] = todoList
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
+    }
+    
+    func didUpdateTodoListSharing(cell: TLCell) {
         guard let indexPath = tableView.indexPath(for: cell) else {
             return
         }
@@ -208,7 +215,7 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
             return
         }
         let todoList = todoLists[indexPath.row]
-        let TodoItemVC = TodoItemsView(todoList: todoList, todoListsController: todoListsController)
+        let TodoItemVC = TodoItemsView(todoList: todoList, todoListIndex: indexPath.row, todoListDelegate: self)
         let navigationVC = UINavigationController(rootViewController: TodoItemVC)
         present(navigationVC, animated: true, completion: nil)
     }

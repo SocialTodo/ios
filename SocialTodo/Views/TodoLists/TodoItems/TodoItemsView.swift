@@ -9,10 +9,17 @@
 import UIKit
 
 class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegate, TodoItemDelegate {
-    let todoListsController: TodoListsController
+    let todoListDelegate: TodoListDelegate
     let todoItemsController = TodoItemsController()
     
-    var todoList: TodoList
+    var todoList: TodoList {
+        didSet {
+            DispatchQueue.main.async {
+                self.navigationItem.title = self.todoList.title
+            }
+        }
+    }
+    let todoListIndex: Int
     var todoItems: [TodoItem]?
     
     let background: UIImageView = {
@@ -30,13 +37,6 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
         button.sizeToFit()
         let barButton = UIBarButtonItem(customView: button)
         return barButton
-    }()
-    
-    let sharedSwitch: UIBarButtonItem = {
-        let sharedSwitch = SharedSwitch()
-        sharedSwitch.translatesAutoresizingMaskIntoConstraints = false
-        sharedSwitch.size(height: 30, width: 100)
-        return UIBarButtonItem(customView: sharedSwitch)
     }()
     
     let editButton: UIBarButtonItem = {
@@ -59,9 +59,10 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
     let addTodoItemCell = "AddTodoItemCell"
 
     
-    init(todoList: TodoList, todoListsController: TodoListsController) {
+    init(todoList: TodoList, todoListIndex: Int, todoListDelegate: TodoListDelegate) {
         self.todoList = todoList
-        self.todoListsController = todoListsController
+        self.todoListIndex = todoListIndex
+        self.todoListDelegate = todoListDelegate
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -72,21 +73,21 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = todoList.title
+        
         if let navigationController = navigationController {
             navigationController.navigationBar.prefersLargeTitles = true
             navigationController.navigationBar.barTintColor = UIColor(r: 0, g: 154, b: 233)
             navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 32) ?? UIFont.boldSystemFont(ofSize: 28), NSAttributedStringKey.foregroundColor: UIColor.white]
         }
-        
-        navigationItem.title = todoList.title
-        
+                
         view.addSubview(background)
         view.addSubview(tableView)
         
         setupLayout()
         
         navigationItem.leftBarButtonItem = backBarButton
-        navigationItem.rightBarButtonItems = [editButton, sharedSwitch]
+        navigationItem.rightBarButtonItem = editButton
 
         tableView.dataSource = self
         tableView.delegate = self
@@ -105,10 +106,6 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
         let backBarButtonCV = backBarButton.customView as! UIButton
         backBarButtonCV.addTarget(self, action: #selector(showMyLists), for: .touchUpInside)
         
-        let sharedSwitchCV = sharedSwitch.customView as! SharedSwitch
-        sharedSwitchCV.isShared = todoList.isShared
-        sharedSwitchCV.button.addTarget(self, action: #selector(toggleListShared), for: .touchUpInside)
-        
         let editButtonCV = editButton.customView as! UIButton
         editButtonCV.addTarget(self, action: #selector(editTodoList), for: .touchUpInside)
     }
@@ -125,6 +122,15 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
     
     @objc func editTodoList() {
         print("edit todo list")
+        let createTodoListView = CreateTodoList(todoListDelegate: todoListDelegate)
+        createTodoListView.todoList = todoList
+        createTodoListView.todoListIndex = todoListIndex
+        createTodoListView.todoItemDelegate = self
+        let navController = UINavigationController(rootViewController: createTodoListView)
+        navController.navigationBar.barTintColor = UIColor(r: 0, g: 154, b: 233)
+        navController.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 28) ?? UIFont.boldSystemFont(ofSize: 28), NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.present(navController, animated: true, completion: nil)
+
     }
     
     func setupLayout() {
@@ -152,27 +158,6 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
             let contentInsets = UIEdgeInsets(top: self.tableView.contentInset.top, left: self.tableView.contentInset.left, bottom: self.tableView.contentInset.bottom - keyboardSize.height, right: self.tableView.contentInset.right)
             self.tableView.contentInset = contentInsets
             self.tableView.scrollIndicatorInsets = contentInsets
-        }
-    }
-    
-    @objc func toggleListShared() {
-        let sharedSwitch = self.sharedSwitch.customView as! SharedSwitch
-        if sharedSwitch.isShared {
-            sharedSwitch.button.isEnabled = false
-            sharedSwitch.isShared = false
-            todoList.isShared = false
-            todoListsController.updateTodoList(todoList: todoList, completion: { (todoList) in
-                print(todoList)
-            })
-            sharedSwitch.button.isEnabled = true
-        } else {
-            sharedSwitch.button.isEnabled = false
-            sharedSwitch.isShared = true
-            todoList.isShared = true
-            todoListsController.updateTodoList(todoList: todoList, completion: { (todoList) in
-                print(todoList)
-            })
-            sharedSwitch.button.isEnabled = true
         }
     }
     

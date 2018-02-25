@@ -10,7 +10,7 @@ import Foundation
 
 protocol TodoItemDelegate {
     var todoItemsController: TodoItemsController { get }
-    var todoList: TodoList { get }
+    var todoList: TodoList { get set }
     func addTodoItem(todoItem: TodoItem)
     func updateTodoItem(cell: TICell)
     func removeTodoItem(cell: TICell)
