@@ -119,7 +119,7 @@ class CreateTodoList: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
         let todoList = TodoList(id: nil, title: title, isShared: isShared)
         delegate.todoListsController.postTodoList(todoList: todoList) { (todoList) in
-            self.delegate.addTodoList(todoList: todoList)
+            self.delegate.didAddTodoList(todoList: todoList)
             self.dismiss(animated: true, completion: nil)
         }
     }

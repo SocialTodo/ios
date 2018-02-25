@@ -61,18 +61,18 @@ class TLCell: UITableViewCell {
         if sharedButton.isShared {
             sharedButton.button.isEnabled = false
             sharedButton.isShared = false
-            delegate.updateTodoList(cell: self)
+            delegate.didUpdateTodoList(cell: self)
             sharedButton.button.isEnabled = true
         } else {
             sharedButton.button.isEnabled = false
             sharedButton.isShared = true
-            delegate.updateTodoList(cell: self)
+            delegate.didUpdateTodoList(cell: self)
             sharedButton.button.isEnabled = true
         }
     }
     
     @objc func handleDeleteTodoList() {
-        self.delegate.removeTodoList(cell: self)
+        self.delegate.didRemoveTodoList(cell: self)
     }
 
 	func setupLayout() {

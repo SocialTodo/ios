@@ -162,7 +162,7 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         self.present(navController, animated: true, completion: nil)
     }
     
-    func addTodoList(todoList: TodoList) {
+    func didAddTodoList(todoList: TodoList) {
         todoLists?.append(todoList)
         DispatchQueue.main.async {
             self.tableView.beginUpdates()
@@ -172,7 +172,7 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    func removeTodoList(cell: TLCell) {
+    func didRemoveTodoList(cell: TLCell) {
         guard let indexPath = tableView.indexPath(for: cell) else {
             return
         }
@@ -187,7 +187,7 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    func updateTodoList(cell: TLCell) {
+    func didUpdateTodoList(cell: TLCell) {
         guard let indexPath = tableView.indexPath(for: cell) else {
             return
         }
