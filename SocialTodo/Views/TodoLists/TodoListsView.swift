@@ -55,9 +55,6 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
 		navigationItem.rightBarButtonItem = profileButton
 		profileButton.customView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showProfile)))
 
-		view.addSubview(background)
-		view.addSubview(tableView)
-
 		setupLayout()
 
 		tableView.dataSource = self
@@ -82,6 +79,9 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
     }
 
 	func setupLayout() {
+        view.addSubview(background)
+        view.addSubview(tableView)
+
         let margins = view.layoutMarginsGuide
 
 		background.translatesAutoresizingMaskIntoConstraints = false

@@ -36,9 +36,6 @@ class FriendCell: UITableViewCell {
         contentView.backgroundColor = UIColor.clear
         self.selectionStyle = .none
         
-        addSubview(background)
-        addSubview(thumbnail)
-        addSubview(label)
         setupLayout()
     }
     
@@ -47,6 +44,10 @@ class FriendCell: UITableViewCell {
     }
     
     func setupLayout() {
+        addSubview(background)
+        addSubview(thumbnail)
+        addSubview(label)
+        
         background.translatesAutoresizingMaskIntoConstraints = false
         background.anchorX(left: leftAnchor, right: rightAnchor)
         background.anchorY(top: topAnchor, topConstant: 5, bottom: bottomAnchor, bottomConstant: -5)

@@ -80,9 +80,6 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
             navigationController.navigationBar.barTintColor = UIColor(r: 0, g: 154, b: 233)
             navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 32) ?? UIFont.boldSystemFont(ofSize: 28), NSAttributedStringKey.foregroundColor: UIColor.white]
         }
-                
-        view.addSubview(background)
-        view.addSubview(tableView)
         
         setupLayout()
         
@@ -134,6 +131,9 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
     }
     
     func setupLayout() {
+        view.addSubview(background)
+        view.addSubview(tableView)
+        
         background.translatesAutoresizingMaskIntoConstraints = false
         background.anchorX(left: view.leftAnchor, right: view.rightAnchor)
         background.anchorY(top: view.topAnchor, bottom: view.bottomAnchor)

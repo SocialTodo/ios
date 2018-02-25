@@ -64,10 +64,6 @@ class ProfileView: ScrollableViewController {
 		navigationItem.leftBarButtonItem = myListsButton
 		myListsButton.customView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showMyLists)))
 
-		view.addSubview(background)
-        view.addSubview(profileImage)
-        view.addSubview(userName)
-
 		setupLayout()
 	}
     
@@ -80,6 +76,10 @@ class ProfileView: ScrollableViewController {
     }
 
 	func setupLayout() {
+        view.addSubview(background)
+        view.addSubview(profileImage)
+        view.addSubview(userName)
+        
 		background.translatesAutoresizingMaskIntoConstraints = false
         background.anchorX(left: view.leftAnchor, right: view.rightAnchor)
         background.anchorY(top: view.topAnchor, bottom: view.bottomAnchor)

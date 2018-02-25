@@ -62,7 +62,6 @@ class SharedSwitch: UIView {
     }
     
     func setupLayout() {
-        
         background.translatesAutoresizingMaskIntoConstraints = false
         background.anchorX(left: leftAnchor, leftConstant: 0, right: rightAnchor, rightConstant: 0)
         background.anchorY(top: topAnchor, topConstant: 0, bottom: bottomAnchor, bottomConstant: 0)
@@ -86,7 +85,6 @@ class SharedSwitch: UIView {
         privateImage.anchorX(left: leftAnchor, leftConstant: 8)
         privateImage.size(height: 25, width: 25)
         privateImage.centerYAnchor.constraint(equalTo: background.centerYAnchor).isActive = true
-        
     }
     
     required init?(coder aDecoder: NSCoder) {

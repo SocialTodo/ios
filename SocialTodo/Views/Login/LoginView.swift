@@ -40,10 +40,6 @@ class LoginView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        view.addSubview(background)
-        view.addSubview(label)
-        view.addSubview(loginButton)
-
         setupLayout()
     }
 
@@ -58,6 +54,10 @@ class LoginView: UIViewController {
     }
 
     func setupLayout() {
+        view.addSubview(background)
+        view.addSubview(label)
+        view.addSubview(loginButton)
+        
         background.translatesAutoresizingMaskIntoConstraints = false
         background.anchorX(left: view.leftAnchor, right: view.rightAnchor)
         background.anchorY(top: view.topAnchor, bottom: view.bottomAnchor)

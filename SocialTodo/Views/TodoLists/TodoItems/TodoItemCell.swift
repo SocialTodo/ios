@@ -43,11 +43,6 @@ class TodoItemCell: UITableViewCell {
         contentView.backgroundColor = UIColor.clear
         self.selectionStyle = .none
         
-        addSubview(background)
-        addSubview(label)
-        addSubview(todoCheckbox)
-        addSubview(trashButton)
-        
         setupLayout()
         
         todoCheckbox.button.addTarget(self, action: #selector(toggleCheckTodo), for: .touchUpInside)
@@ -79,6 +74,11 @@ class TodoItemCell: UITableViewCell {
 
     
     func setupLayout() {
+        addSubview(background)
+        addSubview(label)
+        addSubview(todoCheckbox)
+        addSubview(trashButton)
+        
         background.translatesAutoresizingMaskIntoConstraints = false
         background.anchorX(left: leftAnchor, leftConstant: 12, right: rightAnchor, rightConstant: -12)
         background.anchorY(top: topAnchor, topConstant: 5, bottom: bottomAnchor, bottomConstant: -5)

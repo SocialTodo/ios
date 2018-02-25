@@ -41,12 +41,7 @@ class TodoListCell: UITableViewCell {
 		self.backgroundColor = UIColor.clear
 		contentView.backgroundColor = UIColor.clear
 		self.selectionStyle = .none
-
-		addSubview(background)
-		addSubview(label)
-        addSubview(sharedButton)
-        addSubview(trashButton)
-    
+        
 		setupLayout()
         
         sharedButton.button.addTarget(self, action: #selector(toggleListShared), for: .touchUpInside)
@@ -76,6 +71,11 @@ class TodoListCell: UITableViewCell {
     }
 
 	func setupLayout() {
+        addSubview(background)
+        addSubview(label)
+        addSubview(sharedButton)
+        addSubview(trashButton)
+        
         background.translatesAutoresizingMaskIntoConstraints = false
         background.anchorX(left: leftAnchor, right: rightAnchor)
         background.anchorY(top: topAnchor, topConstant: 5, bottom: bottomAnchor, bottomConstant: -5)

@@ -36,10 +36,6 @@ class AddFriendCell: UITableViewCell, UITextFieldDelegate {
         contentView.backgroundColor = UIColor.clear
         self.selectionStyle = .none
         
-        addSubview(background)
-        addSubview(textField)
-        addSubview(addButton)
-        
         addButton.addTarget(self, action: #selector(handleAddFriend), for: .touchUpInside)
         textField.delegate = self
         
@@ -72,6 +68,10 @@ class AddFriendCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func setupLayout() {
+        addSubview(background)
+        addSubview(textField)
+        addSubview(addButton)
+        
         background.translatesAutoresizingMaskIntoConstraints = false
         background.anchorX(left: leftAnchor, right: rightAnchor)
         background.anchorY(top: topAnchor, topConstant: 5, bottom: bottomAnchor, bottomConstant: -5)

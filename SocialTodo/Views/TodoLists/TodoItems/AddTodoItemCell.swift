@@ -39,10 +39,6 @@ class AddTodoItemCell: UITableViewCell, UITextFieldDelegate {
         contentView.backgroundColor = UIColor.clear
         self.selectionStyle = .none
         
-        addSubview(background)
-        addSubview(textField)
-        addSubview(addButton)
-    
         setupLayout()
         
         addButton.addTarget(self, action: #selector(handleAddTodoItem), for: .touchUpInside)
@@ -84,6 +80,10 @@ class AddTodoItemCell: UITableViewCell, UITextFieldDelegate {
     }
     
     func setupLayout() {
+        addSubview(background)
+        addSubview(textField)
+        addSubview(addButton)
+        
         background.translatesAutoresizingMaskIntoConstraints = false
         background.anchorX(left: leftAnchor, leftConstant: 12, right: rightAnchor, rightConstant: -12)
         background.anchorY(top: topAnchor, topConstant: 5, bottom: bottomAnchor, bottomConstant: -5)

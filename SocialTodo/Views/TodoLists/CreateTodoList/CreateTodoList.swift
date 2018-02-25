@@ -86,12 +86,6 @@ class CreateTodoList: UIViewController, UITableViewDelegate, UITableViewDataSour
         navigationItem.leftBarButtonItem = cancelButton
         navigationItem.rightBarButtonItem = doneButton
         
-        view.addSubview(background)
-        view.addSubview(titleField)
-        view.addSubview(sharingLabel)
-        view.addSubview(sharingSwitch)
-        view.addSubview(sharingInfo)
-        view.addSubview(friendsTableView)
         setupLayout()
         
         friendsTableView.delegate = self
@@ -193,6 +187,13 @@ class CreateTodoList: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func setupLayout() {
+        view.addSubview(background)
+        view.addSubview(titleField)
+        view.addSubview(sharingLabel)
+        view.addSubview(sharingSwitch)
+        view.addSubview(sharingInfo)
+        view.addSubview(friendsTableView)
+        
         let margins = view.layoutMarginsGuide
         
         background.translatesAutoresizingMaskIntoConstraints = false

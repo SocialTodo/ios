@@ -44,9 +44,6 @@ class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewD
 
 		navigationItem.rightBarButtonItem = myListsButton
 		myListsButton.customView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showMyLists)))
-
-		view.addSubview(background)
-        view.addSubview(tableView)
         
 		setupLayout()
 
@@ -67,6 +64,9 @@ class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewD
     }
 
 	func setupLayout() {
+        view.addSubview(background)
+        view.addSubview(tableView)
+        
         let margins = view.layoutMarginsGuide
 
 		background.translatesAutoresizingMaskIntoConstraints = false

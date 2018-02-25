@@ -35,10 +35,6 @@ class TitleField: UIView, UITextFieldDelegate {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        addSubview(background)
-        addSubview(label)
-        addSubview(textField)
-        
         setupLayout()
         
         textField.delegate = self
@@ -49,6 +45,10 @@ class TitleField: UIView, UITextFieldDelegate {
     }
     
     func setupLayout() {
+        addSubview(background)
+        addSubview(label)
+        addSubview(textField)
+        
         background.translatesAutoresizingMaskIntoConstraints = false
         background.anchorX(left: leftAnchor, right: rightAnchor)
         background.anchorY(top: topAnchor, bottom: bottomAnchor)
