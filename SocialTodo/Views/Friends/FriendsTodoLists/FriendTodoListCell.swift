@@ -1,5 +1,5 @@
 //
-//  FTICell.swift
+//  FriendTodoListCell.swift
 //  SocialTodo
 //
 //  Created by Saatvik Arya on 2/9/18.
