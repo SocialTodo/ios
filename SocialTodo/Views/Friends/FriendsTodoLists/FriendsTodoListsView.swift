@@ -17,23 +17,15 @@ class FriendsTodoListsView: UIViewController, UITableViewDelegate, UITableViewDa
         return iv
     }()
     
-    let backBarButton: UIBarButtonItem = {
-        let button = UIButton(type: .system)
-        button.setTitle(" My Lists", for: .normal)
-        button.setImage(#imageLiteral(resourceName: "back-chevron"), for: .normal)
-        button.titleLabel?.font = UIFont(name: "AvenirNext-Regular", size: 18)
-        button.tintColor = UIColor(r: 199, g: 244, b: 250)
-        button.sizeToFit()
-        let barButton = UIBarButtonItem(customView: button)
-        return barButton
-    }()
-    
     let tableView: UITableView = {
         let tv = UITableView()
         tv.separatorStyle = .none
         tv.backgroundColor = UIColor.clear
         return tv
     }()
+    
+    var todoLists: [TodoList]?
+    let friendTodoListCell = "FriendTodoListCell"
     
     init(friend: Friend) {
         self.friend = friend
@@ -57,14 +49,10 @@ class FriendsTodoListsView: UIViewController, UITableViewDelegate, UITableViewDa
         
         setupLayout()
         
-        navigationItem.leftBarButtonItem = backBarButton
-        
         tableView.dataSource = self
         tableView.delegate = self
-        
-        let backBarButtonCV = backBarButton.customView as! UIButton
-        backBarButtonCV.addTarget(self, action: #selector(showFriends), for: .touchUpInside)
-
+                
+        tableView.register(FriendTodoListCell.self, forCellReuseIdentifier: friendTodoListCell)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -101,7 +89,8 @@ class FriendsTodoListsView: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: friendTodoListCell, for: indexPath) as! FriendTodoListCell
+        return cell
     }
     
 }

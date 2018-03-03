@@ -6,4 +6,21 @@
 //  Copyright © 2018 Saatvik Arya. All rights reserved.
 //
 
-import Foundation
+import UIKit
+
+class FriendsTodoItemsView: UIViewController {
+    let background: UIImageView = {
+        let iv = UIImageView()
+        iv.image = UIImage(named: "TLBackground")
+        return iv
+    }()
+    
+    let tableView: UITableView = {
+        let tv = UITableView()
+        tv.separatorStyle = .none
+        tv.backgroundColor = UIColor.clear
+        return tv
+    }()
+    
+    
+}

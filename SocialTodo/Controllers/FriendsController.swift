@@ -6,7 +6,6 @@
 //  Copyright © 2018 Saatvik Arya. All rights reserved.
 //
 
-import Foundation
 import UIKit
 
 class FriendsController {
@@ -15,7 +14,7 @@ class FriendsController {
         guard let headers = API.requestHeaders() else {
             return
         }
-        let urlRequest = URLRequest(url: API.users, method: "GET", headers: headers)
+        let urlRequest = URLRequest(url: API.friends, method: "GET", headers: headers)
         
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
@@ -45,6 +44,7 @@ class FriendsController {
         
         task.resume()
     }
+    
     func getFriendImage(facebookId: Int, completion: @escaping (UIImage) -> Void) {
         // https://graph.facebook.com/userid/picture?type=large
         let url = URL(string: "https://graph.facebook.com/\(facebookId)/picture?type=large")!

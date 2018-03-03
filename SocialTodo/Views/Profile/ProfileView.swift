@@ -48,6 +48,13 @@ class ProfileView: ScrollableViewController {
        return label
     }()
     
+    func createUserClapsText(clapCount: Int) -> NSAttributedString {
+        let text = NSMutableAttributedString(string: "\(clapCount) ", attributes: [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 20) ?? UIFont.boldSystemFont(ofSize: 20)])
+        text.append(NSAttributedString(string: "Claps", attributes: [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 20) ?? UIFont.systemFont(ofSize: 20)]))
+        return text
+
+    }
+    
     let userFriends: UILabel = {
         let label = UILabel()
         let text = NSMutableAttributedString(string: "4 ", attributes: [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 20) ?? UIFont.boldSystemFont(ofSize: 20)])
@@ -55,6 +62,12 @@ class ProfileView: ScrollableViewController {
         label.attributedText = text
         return label
     }()
+    
+    func createUserFriendsText(friendsCount: Int) -> NSAttributedString {
+        let text = NSMutableAttributedString(string: "\(friendsCount) ", attributes: [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 20) ?? UIFont.boldSystemFont(ofSize: 20)])
+        text.append(NSAttributedString(string: "Friends", attributes: [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 20) ?? UIFont.systemFont(ofSize: 20)]))
+        return text
+    }
     
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -70,8 +83,11 @@ class ProfileView: ScrollableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        profileController.getUserProfile() { image in
-            self.profileImage.image = image
+        profileController.getUserProfile() { (user, userImage) in
+            self.profileImage.image = userImage
+            self.userName.text = user.name
+            self.userClaps.attributedText = self.createUserClapsText(clapCount: user.claps)
+            self.userFriends.attributedText = self.createUserFriendsText(friendsCount: user.friends)
         }
     }
 
