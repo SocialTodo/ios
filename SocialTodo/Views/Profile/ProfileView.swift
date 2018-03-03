@@ -27,7 +27,8 @@ class ProfileView: ScrollableViewController {
 	}()
     
     let profileImage: UIImageView = {
-        let iv = UIImageView(image: #imageLiteral(resourceName: "profile"))
+//        let iv = UIImageView(image: #imageLiteral(resourceName: "profile"))
+        let iv = UIImageView()
         iv.clipsToBounds = true
         iv.layer.cornerRadius = 150/2
         return iv

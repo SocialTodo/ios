@@ -9,11 +9,11 @@
 import FacebookCore
 
 class API {
-    static let url = "https://api.socialtodo.net/api"
+    static let url = "https://socialtodo.net/api"
     static let me = "\(API.url)/me"
     static let list = "\(API.url)/list"
     static let item = "\(API.url)/item"
-    static let friends = "\(API.url)/friends"
+    static let friends = "\(API.url)/users"
     
     static func requestHeaders() -> [String: String]? {
         guard let accessToken = AccessToken.current else {

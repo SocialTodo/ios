@@ -25,14 +25,16 @@ class ProfileController {
             guard let responseData = data else {
                 return
             }
+            print(responseData)
             do {
                 let user = try JSONDecoder().decode(User.self, from: responseData)
-                self.getUserImage(facebookId: user.facebookUserId) { (profileImage) in
-                    let userImage = profileImage
+                print(user)
+                self.getUserImage(facebookUserId: user.facebookUserId) { (profileImage) in
                     DispatchQueue.main.async {
-                        completion(user, userImage)
+                        completion(user, profileImage)
                     }
                 }
+                
             } catch {
                 print(error)
             }
@@ -41,11 +43,11 @@ class ProfileController {
         task.resume()
     }
     
-    func getUserImage(facebookId: Int, completion: @escaping (UIImage) -> Void) {
+    func getUserImage(facebookUserId: Int, completion: @escaping (UIImage) -> Void) {
         // https://graph.facebook.com/userid/picture?type=large
-        let url = URL(string: "https://graph.facebook.com/\(facebookId)/picture?type=large")!
+        let url = URL(string: "https://graph.facebook.com/\(facebookUserId)/picture?type=large")!
         let urlRequest = URLRequest(url: url)
-        
+
         let config = URLSessionConfiguration.default
         let session = URLSession(configuration: config)
         
@@ -57,7 +59,6 @@ class ProfileController {
                 if let profileImage = UIImage(data: data) {
                     completion(profileImage)
                 }
-                
             }
         }
         task.resume()
