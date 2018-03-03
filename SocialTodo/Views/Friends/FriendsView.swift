@@ -103,6 +103,13 @@ class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewD
         cell.thumbnail.image = friendsImages[friend.facebookUserId]
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let friend = friends[indexPath.row]
+        let friendsTodoListsView = FriendsTodoListsView(friend: friend)
+        let navigationVC = UINavigationController(rootViewController: friendsTodoListsView)
+        present(navigationVC, animated: true, completion: nil)
+    }
 
 
 }

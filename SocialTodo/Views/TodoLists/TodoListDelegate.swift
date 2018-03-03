@@ -12,4 +12,5 @@ protocol TodoListDelegate {
     func didRemoveTodoList(cell: TodoListCell)
     func didUpdateTodoList(todoListIndex: Int, todoList: TodoList)
     func didUpdateTodoListSharing(cell: TodoListCell)
+    func didPopTodoItemsView()
 }

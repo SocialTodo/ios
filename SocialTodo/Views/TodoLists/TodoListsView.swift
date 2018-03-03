@@ -48,13 +48,7 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
 	override func viewDidLoad() {
         super.viewDidLoad()
 
-		navigationItem.title = "My Lists"
-
-		navigationItem.leftBarButtonItem = friendsButton
-		friendsButton.customView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showFriends)))
-		navigationItem.rightBarButtonItem = profileButton
-		profileButton.customView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showProfile)))
-
+        setupNavBar()
 		setupLayout()
 
 		tableView.dataSource = self
@@ -65,7 +59,7 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        setupNavBar()
         todoListsController.getMyLists() { todoLists in
             self.todoLists = todoLists
             self.tableView.reloadData()
@@ -76,6 +70,16 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillShow, object: self.view.window)
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
+    }
+    
+    func setupNavBar() {
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationItem.title = "My Lists"
+        
+        navigationItem.leftBarButtonItem = friendsButton
+        friendsButton.customView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showFriends)))
+        navigationItem.rightBarButtonItem = profileButton
+        profileButton.customView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showProfile)))
     }
 
 	func setupLayout() {
@@ -162,6 +166,10 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         self.present(navController, animated: true, completion: nil)
     }
     
+    func didPopTodoItemsView() {
+        scrollView.isScrollEnabled = true
+    }
+    
     func didAddTodoList(todoList: TodoList) {
         todoLists?.append(todoList)
         DispatchQueue.main.async {
@@ -216,8 +224,8 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         }
         let todoList = todoLists[indexPath.row]
         let TodoItemVC = TodoItemsView(todoList: todoList, todoListIndex: indexPath.row, todoListDelegate: self)
-        let navigationVC = UINavigationController(rootViewController: TodoItemVC)
-        present(navigationVC, animated: true, completion: nil)
+        scrollView.isScrollEnabled = false
+        navigationController?.pushViewController(TodoItemVC, animated: true)
     }
 
 }

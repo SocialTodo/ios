@@ -28,17 +28,6 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
         return iv
     }()
     
-    let backBarButton: UIBarButtonItem = {
-        let button = UIButton(type: .system)
-        button.setTitle(" My Lists", for: .normal)
-        button.setImage(#imageLiteral(resourceName: "back-chevron"), for: .normal)
-        button.titleLabel?.font = UIFont(name: "AvenirNext-Regular", size: 18)
-        button.tintColor = UIColor(r: 199, g: 244, b: 250)
-        button.sizeToFit()
-        let barButton = UIBarButtonItem(customView: button)
-        return barButton
-    }()
-    
     let editButton: UIBarButtonItem = {
         let button = UIButton(type: .system)
         button.setTitle("Edit", for: .normal)
@@ -73,18 +62,8 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = todoList.title
-        
-        if let navigationController = navigationController {
-            navigationController.navigationBar.prefersLargeTitles = true
-            navigationController.navigationBar.barTintColor = UIColor(r: 0, g: 154, b: 233)
-            navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 32) ?? UIFont.boldSystemFont(ofSize: 28), NSAttributedStringKey.foregroundColor: UIColor.white]
-        }
-        
+        setupNavBar()
         setupLayout()
-        
-        navigationItem.leftBarButtonItem = backBarButton
-        navigationItem.rightBarButtonItem = editButton
 
         tableView.dataSource = self
         tableView.delegate = self
@@ -100,11 +79,13 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
         
-        let backBarButtonCV = backBarButton.customView as! UIButton
-        backBarButtonCV.addTarget(self, action: #selector(showMyLists), for: .touchUpInside)
-        
         let editButtonCV = editButton.customView as! UIButton
         editButtonCV.addTarget(self, action: #selector(editTodoList), for: .touchUpInside)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setupNavBar()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -113,8 +94,9 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
     }
     
-    @objc func showMyLists() {
-        dismiss(animated: true, completion: nil)
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        todoListDelegate.didPopTodoItemsView()
     }
     
     @objc func editTodoList() {
@@ -128,6 +110,19 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
         navController.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 28) ?? UIFont.boldSystemFont(ofSize: 28), NSAttributedStringKey.foregroundColor: UIColor.white]
         self.present(navController, animated: true, completion: nil)
 
+    }
+    
+    func setupNavBar() {
+        navigationItem.title = todoList.title
+        
+        if let navigationController = navigationController {
+            navigationController.navigationBar.prefersLargeTitles = true
+            navigationController.navigationBar.barTintColor = UIColor(r: 0, g: 154, b: 233)
+            navigationController.navigationBar.tintColor = UIColor(r: 199, g: 244, b: 250)
+            navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 32) ?? UIFont.boldSystemFont(ofSize: 28), NSAttributedStringKey.foregroundColor: UIColor.white]
+        }
+        
+        navigationItem.rightBarButtonItem = editButton
     }
     
     func setupLayout() {
