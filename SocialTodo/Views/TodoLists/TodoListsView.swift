@@ -176,6 +176,7 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
             return
         }
         let todoList = todoLists[indexPath.row]
+        print(todoList)
         let TodoItemVC = TodoItemsView(todoList: todoList, todoListIndex: indexPath.row, todoListDelegate: self)
         scrollView.isScrollEnabled = false
         navigationController?.pushViewController(TodoItemVC, animated: true)

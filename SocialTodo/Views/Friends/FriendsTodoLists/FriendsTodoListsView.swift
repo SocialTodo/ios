@@ -103,5 +103,14 @@ class FriendsTodoListsView: UIViewController, UITableViewDelegate, UITableViewDa
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let todoLists = todoLists else {
+            return
+        }
+        let todoList = todoLists[indexPath.row]
+        let friendsTodoItemsView = FriendsTodoItemsView(todoList: todoList)
+        navigationController?.pushViewController(friendsTodoItemsView, animated: true)
+    }
+    
 }
 
