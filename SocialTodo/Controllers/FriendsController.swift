@@ -11,6 +11,7 @@ import UIKit
 class FriendsController {
     func getFriends(completion: @escaping ([Friend], [Int: UIImage]) -> Void) {
         var friends = [Friend]()
+        var friendsImages = [Int: UIImage]()
         guard let headers = API.requestHeaders() else {
             return
         }
@@ -28,17 +29,25 @@ class FriendsController {
             }
             do {
                 friends = try JSONDecoder().decode([Friend].self, from: responseData)
+                let dispatchGroup = DispatchGroup()
+                let backgroundThread = DispatchQueue.global()
+                for friend in friends {
+                    dispatchGroup.enter()
+                    backgroundThread.async {
+                        self.getFriendImage(facebookId: friend.facebookUserId) { (profileImage) in
+                            friendsImages[friend.facebookUserId] = profileImage
+                            print("friendsImages set")
+                            dispatchGroup.leave()
+                        }
+                    }
+                }
+                dispatchGroup.notify(queue: backgroundThread, execute: {
+                    print(friends.count, friendsImages.count)
+                    completion(friends, friendsImages)
+                    print("completion called")
+                })
             } catch {
                 print(error)
-            }
-            var friendsImages = [Int: UIImage]()
-            for friend in friends {
-                self.getFriendImage(facebookId: friend.facebookUserId) { (profileImage) in
-                    friendsImages[friend.facebookUserId] = profileImage
-                }
-            }
-            DispatchQueue.main.async {
-                completion(friends, friendsImages)
             }
         }
         
@@ -47,7 +56,7 @@ class FriendsController {
     
     func getFriendImage(facebookId: Int, completion: @escaping (UIImage) -> Void) {
         // https://graph.facebook.com/userid/picture?type=large
-        let url = URL(string: "https://graph.facebook.com/\(facebookId)/picture?type=large")!
+        let url = URL(string: "https://graph.facebook.com/\(facebookId)/picture?type=small")!
         let urlRequest = URLRequest(url: url)
         
         let config = URLSessionConfiguration.default
@@ -59,7 +68,9 @@ class FriendsController {
             }
             if let data = data {
                 if let profileImage = UIImage(data: data) {
-                    completion(profileImage)
+                    DispatchQueue.main.async {
+                        completion(profileImage)
+                    }
                 }
                 
             }

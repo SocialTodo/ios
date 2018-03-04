@@ -57,9 +57,11 @@ class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewD
         setupNavBar()
         
         friendsController.getFriends { (friends, friendsImages) in
-            self.friends = friends
-            self.friendsImages = friendsImages
-            self.tableView.reloadData()
+            DispatchQueue.main.async {
+                self.friends = friends
+                self.friendsImages = friendsImages
+                self.tableView.reloadData()
+            }
         }
     }
 
