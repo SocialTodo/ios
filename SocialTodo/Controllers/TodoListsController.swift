@@ -9,7 +9,6 @@
 import Foundation
 
 class TodoListsController {
-    
     func getMyLists(completion: @escaping ([TodoList]) -> Void) {
         var todoLists = [TodoList]()
         guard let headers = API.requestHeaders() else {

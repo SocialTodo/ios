@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class TodoCheckbox: UIView {
-    var background: UIView!
+    //MARK:- Properties
     var isChecked: Bool! {
         didSet {
             if isChecked {
@@ -20,8 +20,12 @@ class TodoCheckbox: UIView {
             }
         }
     }
+    
+    //MARK:- UI Elements
+    var background: UIView!
     var button: UIButton!
     
+    //MARK:- Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -39,6 +43,12 @@ class TodoCheckbox: UIView {
         setupLayout()
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK:- UI Layout
     func setupLayout() {
         background.translatesAutoresizingMaskIntoConstraints = false
         background.anchorX(left: leftAnchor, leftConstant: 0, right: rightAnchor, rightConstant: 0)
@@ -47,10 +57,5 @@ class TodoCheckbox: UIView {
         button.translatesAutoresizingMaskIntoConstraints = false
         button.anchorX(left: background.leftAnchor, right: background.rightAnchor)
         button.anchorY(top: background.topAnchor, bottom: background.bottomAnchor)
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        fatalError("init(coder:) has not been implemented")
     }
 }

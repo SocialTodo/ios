@@ -9,8 +9,10 @@
 import UIKit
 
 class ProfileView: ScrollableViewController {
+    //MARK:- Properties
     let profileController = ProfileController()
 
+    //MARK:- UI Elements
 	let background: UIImageView = {
 		let iv = UIImageView()
 		iv.image = #imageLiteral(resourceName: "background")
@@ -27,8 +29,7 @@ class ProfileView: ScrollableViewController {
 	}()
     
     let profileImage: UIImageView = {
-//        let iv = UIImageView(image: #imageLiteral(resourceName: "profile"))
-        let iv = UIImageView()
+        let iv = UIImageView(image: #imageLiteral(resourceName: "profile"))
         iv.clipsToBounds = true
         iv.layer.cornerRadius = 150/2
         return iv
@@ -49,12 +50,7 @@ class ProfileView: ScrollableViewController {
        return label
     }()
     
-    func createUserClapsText(clapCount: Int) -> NSAttributedString {
-        let text = NSMutableAttributedString(string: "\(clapCount) ", attributes: [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 20) ?? UIFont.boldSystemFont(ofSize: 20)])
-        text.append(NSAttributedString(string: "Claps", attributes: [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 20) ?? UIFont.systemFont(ofSize: 20)]))
-        return text
 
-    }
     
     let userFriends: UILabel = {
         let label = UILabel()
@@ -64,12 +60,20 @@ class ProfileView: ScrollableViewController {
         return label
     }()
     
+    //MARK:- UI Methods
+    func createUserClapsText(clapCount: Int) -> NSAttributedString {
+        let text = NSMutableAttributedString(string: "\(clapCount) ", attributes: [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 20) ?? UIFont.boldSystemFont(ofSize: 20)])
+        text.append(NSAttributedString(string: "Claps", attributes: [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 20) ?? UIFont.systemFont(ofSize: 20)]))
+        return text
+    }
+    
     func createUserFriendsText(friendsCount: Int) -> NSAttributedString {
         let text = NSMutableAttributedString(string: "\(friendsCount) ", attributes: [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 20) ?? UIFont.boldSystemFont(ofSize: 20)])
         text.append(NSAttributedString(string: "Friends", attributes: [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Regular", size: 20) ?? UIFont.systemFont(ofSize: 20)]))
         return text
     }
     
+    //MARK:- Lifecycle Methods
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -92,6 +96,7 @@ class ProfileView: ScrollableViewController {
         }
     }
 
+    //MARK:- UI Layout
 	func setupLayout() {
         view.addSubview(background)
         view.addSubview(profileImage)
@@ -123,6 +128,7 @@ class ProfileView: ScrollableViewController {
         
 	}
 
+    //MARK:- UI Button Handlers
 	@objc func showMyLists() {
 		print("show my lists")
         scrollView.setContentOffset(CGPoint(x: self.view.frame.width * 1, y: 0.0), animated: true)

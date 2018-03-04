@@ -9,8 +9,10 @@
 import UIKit
 
 class LoginView: UIViewController {
+    //MARK:- Properties
     let authController = AuthController()
 
+    //MARK:- UI Elements
     let background: UIImageView = {
         let iv = UIImageView()
         iv.image = #imageLiteral(resourceName: "login-background")
@@ -37,22 +39,21 @@ class LoginView: UIViewController {
         return button
     }()
 
+    //MARK:- Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupLayout()
     }
 
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
-    }
-
+    //MARK:- UI Button Handlers
     @objc func handleLoginButton() {
         authController.login(success: {
             self.dismiss(animated: true, completion: nil)
         })
     }
 
+    //MARK:- UI Layout
     func setupLayout() {
         view.addSubview(background)
         view.addSubview(label)

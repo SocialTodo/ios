@@ -9,8 +9,10 @@
 import UIKit
 
 class ScrollableViewController: UIViewController {
+    //MARK:- Properties
     let scrollView: UIScrollView
     
+    //MARK:- Init
     init(scrollView: UIScrollView) {
         self.scrollView = scrollView
         super.init(nibName: nil, bundle: nil)

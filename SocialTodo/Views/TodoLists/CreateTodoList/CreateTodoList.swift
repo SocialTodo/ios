@@ -9,6 +9,7 @@
 import UIKit
 
 class CreateTodoList: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    //MARK:- Properties
     let todoListDelegate: TodoListDelegate
     var todoItemDelegate: TodoItemDelegate?
     
@@ -20,7 +21,10 @@ class CreateTodoList: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     var todoListIndex: Int?
     var friends: [Friend]?
+    let friendCell = "friendCell"
+    let addFriendCell = "addFriendCell"
     
+    //MARK:- UI Elements
     let background: UIImageView = {
         let iv = UIImageView()
         iv.image = UIImage(named: "TLBackground")
@@ -62,9 +66,7 @@ class CreateTodoList: UIViewController, UITableViewDelegate, UITableViewDataSour
         return tv
     }()
     
-    let friendCell = "friendCell"
-    let addFriendCell = "addFriendCell"
-        
+    //MARK:- Init
     init(todoListDelegate: TodoListDelegate) {
         self.todoListDelegate = todoListDelegate
         super.init(nibName: nil, bundle: nil)
@@ -74,6 +76,7 @@ class CreateTodoList: UIViewController, UITableViewDelegate, UITableViewDataSour
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK:- Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = todoList?.title ?? "Create Todo List"
@@ -105,6 +108,7 @@ class CreateTodoList: UIViewController, UITableViewDelegate, UITableViewDataSour
 
     }
     
+    //MARK:- UI Button Handlers
     @objc func handleCancel() {
         dismiss(animated: true, completion: nil)
         print("handle cancel")
@@ -148,6 +152,7 @@ class CreateTodoList: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    //MARK:- Keyboard Event Handlers
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             let contentInsets = UIEdgeInsets(top: self.friendsTableView.contentInset.top, left: self.friendsTableView.contentInset.left, bottom: self.friendsTableView.contentInset.bottom + keyboardSize.height, right: self.friendsTableView.contentInset.right)
@@ -163,6 +168,7 @@ class CreateTodoList: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    //MARK:- Table View Methods
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -186,6 +192,7 @@ class CreateTodoList: UIViewController, UITableViewDelegate, UITableViewDataSour
         }
     }
     
+    //MARK:- UI Layout
     func setupLayout() {
         view.addSubview(background)
         view.addSubview(titleField)

@@ -9,10 +9,13 @@
 import UIKit
 
 class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewDelegate {
+    //MARK:- Properties
     let friendsController = FriendsController()
     var friends = [Friend]()
     var friendsImages = [Int: UIImage]()
+    let friendCell = "FriendCell"
     
+    //MARK:- UI Elements
 	let background: UIImageView = {
 		let iv = UIImageView()
 		iv.image = #imageLiteral(resourceName: "background")
@@ -34,9 +37,8 @@ class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewD
         tv.backgroundColor = UIColor.clear
         return tv
     }()
-
-    let friendCell = "FriendCell"
     
+    //MARK:- Lifecycle Methods
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
@@ -63,6 +65,7 @@ class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewD
         }
     }
 
+    //MARK:- UI Layout
 	func setupLayout() {
         view.addSubview(background)
         view.addSubview(tableView)
@@ -78,12 +81,14 @@ class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewD
         tableView.anchorY(top: margins.topAnchor, bottom: margins.bottomAnchor)
 
 	}
-
+    
+    //MARK:- UI Button Handlers
 	@objc func showMyLists() {
 		print("show my lists")
         scrollView.setContentOffset(CGPoint(x: self.view.frame.width * 1, y: 0.0), animated: true)
 	}
     
+    //MARK:- Table View Methods
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

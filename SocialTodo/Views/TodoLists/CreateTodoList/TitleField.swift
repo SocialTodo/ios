@@ -9,6 +9,7 @@
 import UIKit
 
 class TitleField: UIView, UITextFieldDelegate {
+    //MARK:- UI Elements
     let background: UIImageView = {
         let iv = UIImageView()
         iv.image = #imageLiteral(resourceName: "TLCell")
@@ -32,6 +33,7 @@ class TitleField: UIView, UITextFieldDelegate {
         return tf
     }()
     
+    //MARK:- Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -44,6 +46,7 @@ class TitleField: UIView, UITextFieldDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK:- UI Layout
     func setupLayout() {
         addSubview(background)
         addSubview(label)
@@ -63,6 +66,7 @@ class TitleField: UIView, UITextFieldDelegate {
         textField.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
     }
     
+    //MARK:- Text Field Methods
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         return true

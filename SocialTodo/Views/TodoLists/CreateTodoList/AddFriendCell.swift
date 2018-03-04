@@ -9,6 +9,7 @@
 import UIKit
 
 class AddFriendCell: UITableViewCell, UITextFieldDelegate {
+    //MARK:- UI Elements
     let background: UIImageView = {
         let iv = UIImageView()
         iv.image = #imageLiteral(resourceName: "TLCell")
@@ -29,6 +30,7 @@ class AddFriendCell: UITableViewCell, UITextFieldDelegate {
         return button
     }()
     
+    //MARK:- Init
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -46,6 +48,7 @@ class AddFriendCell: UITableViewCell, UITextFieldDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK:- UI Button Handlers
     @objc func handleAddFriend() {
         print("handle add todo list")
         guard let friendName = textField.text else {
@@ -57,6 +60,7 @@ class AddFriendCell: UITableViewCell, UITextFieldDelegate {
         textField.resignFirstResponder()
     }
     
+    //MARK:- Text Field Methods
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         textField.typingAttributes = [NSAttributedStringKey.font.rawValue: UIFont(name: "AvenirNext-DemiBold", size: 22) ?? UIFont.boldSystemFont(ofSize: 22)]
         return true
@@ -67,6 +71,7 @@ class AddFriendCell: UITableViewCell, UITextFieldDelegate {
         return true
     }
     
+    //MARK:- UI Layout
     func setupLayout() {
         addSubview(background)
         addSubview(textField)

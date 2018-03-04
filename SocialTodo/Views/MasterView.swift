@@ -9,8 +9,10 @@
 import UIKit
 
 class MasterView: UIViewController {
+    //MARK:- Properties
     let authController = AuthController()
     
+    //MARK:- UI Elements
 	let scrollView: UIScrollView = {
 		let sv = UIScrollView(frame: UIScreen.main.bounds)
 		sv.isScrollEnabled = true
@@ -23,6 +25,7 @@ class MasterView: UIViewController {
 		return sv
 	}()
 
+    //MARK:- Lifecycle Methods
 	override func viewDidLoad() {
 		super.viewDidLoad()
         
@@ -41,7 +44,7 @@ class MasterView: UIViewController {
         }
     }
         
-
+    //MARK:- UI Layout
 	func setupLayout() {
 		view.addSubview(scrollView)
 		scrollView.translatesAutoresizingMaskIntoConstraints = false

@@ -10,12 +10,7 @@ import Foundation
 import UIKit
 
 class SharedSwitch: UIView {
-    var background: UIView!
-    var slider: UIView!
-    var sliderSharedConstraint: NSLayoutConstraint!
-    var sliderPrivateConstraint: NSLayoutConstraint!
-    var privateImage: UIImageView!
-    var sharedImage: UIImageView!
+    //MARK:- Properties
     var isShared: Bool! {
         didSet {
             if isShared {
@@ -27,8 +22,17 @@ class SharedSwitch: UIView {
             }
         }
     }
+
+    //MARK:- UI Elements
+    var background: UIView!
+    var slider: UIView!
+    var sliderSharedConstraint: NSLayoutConstraint!
+    var sliderPrivateConstraint: NSLayoutConstraint!
+    var privateImage: UIImageView!
+    var sharedImage: UIImageView!
     var button: UIButton!
     
+    //MARK:- Init
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -61,6 +65,12 @@ class SharedSwitch: UIView {
         sliderPrivateConstraint.isActive = true
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    //MARK:- UI Layout
     func setupLayout() {
         background.translatesAutoresizingMaskIntoConstraints = false
         background.anchorX(left: leftAnchor, leftConstant: 0, right: rightAnchor, rightConstant: 0)
@@ -85,10 +95,5 @@ class SharedSwitch: UIView {
         privateImage.anchorX(left: leftAnchor, leftConstant: 8)
         privateImage.size(height: 25, width: 25)
         privateImage.centerYAnchor.constraint(equalTo: background.centerYAnchor).isActive = true
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        fatalError("init(coder:) has not been implemented")
     }
 }

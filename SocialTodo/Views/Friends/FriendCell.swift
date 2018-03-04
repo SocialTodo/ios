@@ -9,6 +9,7 @@
 import UIKit
 
 class FriendCell: UITableViewCell {
+    //MARK:- UI Elements
     let background: UIImageView = {
         let iv = UIImageView()
         iv.image = #imageLiteral(resourceName: "TLCell")
@@ -29,6 +30,7 @@ class FriendCell: UITableViewCell {
         return label
     }()
     
+    //MARK:- Init
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -43,6 +45,7 @@ class FriendCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK:- UI Layout
     func setupLayout() {
         addSubview(background)
         addSubview(thumbnail)

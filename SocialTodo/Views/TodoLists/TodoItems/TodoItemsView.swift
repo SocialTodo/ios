@@ -9,6 +9,7 @@
 import UIKit
 
 class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegate, TodoItemDelegate {
+    //MARK:- Properties
     let todoListDelegate: TodoListDelegate
     let todoItemsController = TodoItemsController()
     
@@ -21,7 +22,10 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
     }
     let todoListIndex: Int
     var todoItems: [TodoItem]?
+    let todoItemCell = "TodoItemCell"
+    let addTodoItemCell = "AddTodoItemCell"
     
+    //MARK:- UI Elements
     let background: UIImageView = {
         let iv = UIImageView()
         iv.image = UIImage(named: "TLBackground")
@@ -44,10 +48,7 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
         return tv
     }()
     
-    let todoItemCell = "TodoItemCell"
-    let addTodoItemCell = "AddTodoItemCell"
-
-    
+    //MARK:- Init
     init(todoList: TodoList, todoListIndex: Int, todoListDelegate: TodoListDelegate) {
         self.todoList = todoList
         self.todoListIndex = todoListIndex
@@ -59,6 +60,7 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK:- Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -99,6 +101,7 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
         todoListDelegate.didPopTodoItemsView()
     }
     
+    //MARK:- UI Button Handlers
     @objc func editTodoList() {
         print("edit todo list")
         let createTodoListView = CreateTodoList(todoListDelegate: todoListDelegate)
@@ -112,6 +115,7 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
 
     }
     
+    //MARK:- UI Layout
     func setupNavBar() {
         navigationItem.title = todoList.title
         
@@ -138,6 +142,7 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
         tableView.anchorY(top: view.topAnchor, bottom: view.bottomAnchor)
     }
     
+    //MARK:- Keyboard Event Handlers
     @objc func keyboardWillShow(notification: NSNotification) {
         if let keyboardSize = (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
             let contentInsets = UIEdgeInsets(top: self.tableView.contentInset.top, left: self.tableView.contentInset.left, bottom: self.tableView.contentInset.bottom + keyboardSize.height, right: self.tableView.contentInset.right)
@@ -156,6 +161,7 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
         }
     }
     
+    //MARK:- Table View Methods
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -182,6 +188,7 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
         }
     }
     
+    //MARK:- Todo Item Methods
     func addTodoItem(todoItem: TodoItem) {
         todoItems?.append(todoItem)
         DispatchQueue.main.async {

@@ -9,8 +9,12 @@
 import UIKit
 
 class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableViewDelegate, TodoListDelegate {
+    //MARK:- Properties
     let todoListsController = TodoListsController()
+    var todoLists: [TodoList]?
+    let todoListCell = "TodoListCell"
 
+    //MARK:- UI Elements
 	let background: UIImageView = {
 		let iv = UIImageView()
 		iv.image = UIImage(named: "TLBackground")
@@ -42,9 +46,7 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         return tv
     }()
     
-    var todoLists: [TodoList]?
-    let todoListCell = "TodoListCell"
-    
+    //MARK:- Lifecycle Methods
 	override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -72,6 +74,7 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIKeyboardWillHide, object: self.view.window)
     }
     
+    //MARK:- UI Layout
     func setupNavBar() {
         navigationController?.navigationBar.prefersLargeTitles = false
         navigationItem.title = "My Lists"
@@ -97,6 +100,7 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         tableView.anchorY(top: margins.topAnchor, bottom: margins.bottomAnchor)
 	}
 
+    //MARK:- UI Button Handlers
 	@objc func showFriends() {
         scrollView.setContentOffset(CGPoint(x: self.view.frame.width * 0, y: 0.0), animated: true)
 	}
@@ -104,7 +108,16 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
 	@objc func showProfile() {
         scrollView.setContentOffset(CGPoint(x: self.view.frame.width * 2, y: 0.0), animated: true)
 	}
+    
+    @objc func handleCreateTodoList() {
+        let createTodoListView = CreateTodoList(todoListDelegate: self)
+        let navController = UINavigationController(rootViewController: createTodoListView)
+        navController.navigationBar.barTintColor = UIColor(r: 0, g: 154, b: 233)
+        navController.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 28) ?? UIFont.boldSystemFont(ofSize: 28), NSAttributedStringKey.foregroundColor: UIColor.white]
+        self.present(navController, animated: true, completion: nil)
+    }
 
+    //MARK:- Table View Methods
 	func numberOfSections(in tableView: UITableView) -> Int {
 		return 1
 	}
@@ -158,14 +171,17 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         return 50
     }
     
-    @objc func handleCreateTodoList() {
-        let createTodoListView = CreateTodoList(todoListDelegate: self)
-        let navController = UINavigationController(rootViewController: createTodoListView)
-        navController.navigationBar.barTintColor = UIColor(r: 0, g: 154, b: 233)
-        navController.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 28) ?? UIFont.boldSystemFont(ofSize: 28), NSAttributedStringKey.foregroundColor: UIColor.white]
-        self.present(navController, animated: true, completion: nil)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let todoLists = todoLists else {
+            return
+        }
+        let todoList = todoLists[indexPath.row]
+        let TodoItemVC = TodoItemsView(todoList: todoList, todoListIndex: indexPath.row, todoListDelegate: self)
+        scrollView.isScrollEnabled = false
+        navigationController?.pushViewController(TodoItemVC, animated: true)
     }
     
+    //MARK:- Todo List Methods
     func didPopTodoItemsView() {
         scrollView.isScrollEnabled = true
     }
@@ -218,14 +234,6 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         }
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        guard let todoLists = todoLists else {
-            return
-        }
-        let todoList = todoLists[indexPath.row]
-        let TodoItemVC = TodoItemsView(todoList: todoList, todoListIndex: indexPath.row, todoListDelegate: self)
-        scrollView.isScrollEnabled = false
-        navigationController?.pushViewController(TodoItemVC, animated: true)
-    }
+
 
 }

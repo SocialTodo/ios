@@ -9,8 +9,10 @@
 import UIKit
 
 class TodoListCell: UITableViewCell {
+    //MARK:- Properties
     var delegate: TodoListDelegate!
 
+    //MARK:- UI Elements
 	let background: UIImageView = {
 		let iv = UIImageView()
 		iv.image = #imageLiteral(resourceName: "TLCell")
@@ -35,6 +37,7 @@ class TodoListCell: UITableViewCell {
         return button
     }()
 
+    //MARK:- Init
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -52,6 +55,7 @@ class TodoListCell: UITableViewCell {
 		fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK:- UI Button Handlers
     @objc func toggleListShared() {
         if sharedButton.isShared {
             sharedButton.button.isEnabled = false
@@ -70,6 +74,7 @@ class TodoListCell: UITableViewCell {
         self.delegate.didRemoveTodoList(cell: self)
     }
 
+    //MARK:- UI Layout
 	func setupLayout() {
         addSubview(background)
         addSubview(label)

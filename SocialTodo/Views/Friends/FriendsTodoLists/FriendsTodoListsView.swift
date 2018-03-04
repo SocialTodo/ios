@@ -9,8 +9,12 @@
 import UIKit
 
 class FriendsTodoListsView: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    //MARK:- Properties
     let friend: Friend
+    var todoLists: [TodoList]?
+    let friendTodoListCell = "FriendTodoListCell"
     
+    //MARK:- UI Elements
     let background: UIImageView = {
         let iv = UIImageView()
         iv.image = UIImage(named: "TLBackground")
@@ -24,9 +28,7 @@ class FriendsTodoListsView: UIViewController, UITableViewDelegate, UITableViewDa
         return tv
     }()
     
-    var todoLists: [TodoList]?
-    let friendTodoListCell = "FriendTodoListCell"
-    
+    //MARK:- Init
     init(friend: Friend) {
         self.friend = friend
         super.init(nibName: nil, bundle: nil)
@@ -36,6 +38,7 @@ class FriendsTodoListsView: UIViewController, UITableViewDelegate, UITableViewDa
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK:- Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -59,6 +62,7 @@ class FriendsTodoListsView: UIViewController, UITableViewDelegate, UITableViewDa
         super.viewWillAppear(animated)
     }
     
+    //MARK:- UI Layout
     func setupLayout() {
         view.addSubview(background)
         view.addSubview(tableView)
@@ -72,10 +76,12 @@ class FriendsTodoListsView: UIViewController, UITableViewDelegate, UITableViewDa
         tableView.anchorY(top: view.topAnchor, bottom: view.bottomAnchor)
     }
     
+    //MARK:- UI Button Handlers
     @objc func showFriends() {
         dismiss(animated: true, completion: nil)
     }
     
+    //MARK:- Table View Methods
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }

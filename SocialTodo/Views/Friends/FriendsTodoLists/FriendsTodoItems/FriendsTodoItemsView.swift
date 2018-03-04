@@ -9,6 +9,7 @@
 import UIKit
 
 class FriendsTodoItemsView: UIViewController {
+    //MARK:- UI Elements
     let background: UIImageView = {
         let iv = UIImageView()
         iv.image = UIImage(named: "TLBackground")

@@ -10,8 +10,10 @@ import Foundation
 import UIKit
 
 class AddTodoItemCell: UITableViewCell, UITextFieldDelegate {
+    //MARK:- Properties
     var delegate: TodoItemDelegate!
 
+    //MARK:- UI Elements
     let background: UIImageView = {
         let iv = UIImageView()
         iv.image = #imageLiteral(resourceName: "TLCell")
@@ -32,6 +34,7 @@ class AddTodoItemCell: UITableViewCell, UITextFieldDelegate {
         return button
     }()
     
+    //MARK:- Init
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -50,6 +53,7 @@ class AddTodoItemCell: UITableViewCell, UITextFieldDelegate {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK:- UI Button Handlers
     @objc func handleAddTodoItem() {
         print("handle add todo item")
         guard let title = textField.text else {
@@ -69,6 +73,7 @@ class AddTodoItemCell: UITableViewCell, UITextFieldDelegate {
         textField.resignFirstResponder()
     }
     
+    //MARK:- Text Field Methods
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         textField.typingAttributes = [NSAttributedStringKey.font.rawValue: UIFont(name: "AvenirNext-Regular", size: 22) ?? UIFont.boldSystemFont(ofSize: 22)]
         return true
@@ -79,6 +84,7 @@ class AddTodoItemCell: UITableViewCell, UITextFieldDelegate {
         return true
     }
     
+    //MARK:- UI Layout
     func setupLayout() {
         addSubview(background)
         addSubview(textField)
