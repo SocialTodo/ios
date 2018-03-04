@@ -11,7 +11,7 @@ import UIKit
 
 class SharedSwitch: UIView {
     //MARK:- Properties
-    var isShared: Bool! {
+    var isShared: Bool {
         didSet {
             if isShared {
                 sliderPrivateConstraint.isActive = false
@@ -24,17 +24,16 @@ class SharedSwitch: UIView {
     }
 
     //MARK:- UI Elements
-    var background: UIView!
-    var slider: UIView!
+    var background: UIView
+    var slider: UIView
     var sliderSharedConstraint: NSLayoutConstraint!
     var sliderPrivateConstraint: NSLayoutConstraint!
-    var privateImage: UIImageView!
-    var sharedImage: UIImageView!
-    var button: UIButton!
+    var privateImage: UIImageView
+    var sharedImage: UIImageView
+    var button: UIButton
     
     //MARK:- Init
     override init(frame: CGRect) {
-        super.init(frame: frame)
         
         background = UIView()
         background.backgroundColor = .white
@@ -42,36 +41,37 @@ class SharedSwitch: UIView {
         background.layer.borderWidth = 2
         background.layer.borderColor = UIColor(r: 20, g: 130, b: 192).cgColor
         background.clipsToBounds = true
-        addSubview(background)
         
         slider = UIView()
         slider.layer.cornerRadius = 0
         slider.backgroundColor = UIColor(r: 100, g: 191, b: 251)
         slider.layer.cornerRadius = 16
         slider.clipsToBounds = true
-        addSubview(slider)
         
         sharedImage = UIImageView(image: #imageLiteral(resourceName: "shared"))
-        addSubview(sharedImage)
         privateImage = UIImageView(image: #imageLiteral(resourceName: "private"))
-        addSubview(privateImage)
         
         button = UIButton()
-        addSubview(button)
-        
+        isShared = false
+
+        super.init(frame: frame)
+
         setupLayout()
         
-        isShared = false
-        sliderPrivateConstraint.isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
         fatalError("init(coder:) has not been implemented")
     }
     
     //MARK:- UI Layout
     func setupLayout() {
+        addSubview(background)
+        addSubview(slider)
+        addSubview(sharedImage)
+        addSubview(privateImage)
+        addSubview(button)
+
         background.translatesAutoresizingMaskIntoConstraints = false
         background.anchorX(left: leftAnchor, leftConstant: 0, right: rightAnchor, rightConstant: 0)
         background.anchorY(top: topAnchor, topConstant: 0, bottom: bottomAnchor, bottomConstant: 0)
@@ -82,6 +82,7 @@ class SharedSwitch: UIView {
         
         slider.translatesAutoresizingMaskIntoConstraints = false
         sliderPrivateConstraint = slider.leftAnchor.constraint(equalTo: background.leftAnchor)
+        sliderPrivateConstraint.isActive = true
         sliderSharedConstraint = slider.rightAnchor.constraint(equalTo: background.rightAnchor)
         slider.size(width: 50)
         slider.anchorY(top: background.topAnchor, bottom: background.bottomAnchor)

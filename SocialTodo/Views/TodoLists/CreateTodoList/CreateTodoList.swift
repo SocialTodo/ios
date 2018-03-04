@@ -15,8 +15,11 @@ class CreateTodoList: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     var todoList: TodoList? {
         didSet {
-            titleField.textField.text = todoList?.title
-            sharingSwitch.isShared = todoList?.isShared
+            guard let todoList = todoList else {
+                return
+            }
+            titleField.textField.text = todoList.title
+            sharingSwitch.isShared = todoList.isShared
         }
     }
     var todoListIndex: Int?
@@ -118,9 +121,7 @@ class CreateTodoList: UIViewController, UITableViewDelegate, UITableViewDataSour
         guard let title = titleField.textField.text else {
             return
         }
-        guard let isShared = sharingSwitch.isShared else {
-            return
-        }
+        let isShared = sharingSwitch.isShared
         if var todoList = self.todoList {
             guard let id = todoList.id else {
                 return

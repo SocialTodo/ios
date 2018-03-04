@@ -24,12 +24,12 @@
 		C756E33B204278DC001AC717 /* TodoItemDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C756E33A204278DC001AC717 /* TodoItemDelegate.swift */; };
 		C767F5D7201923D100C532D0 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767F5D6201923D100C532D0 /* Constants.swift */; };
 		C767F5DA201924EE00C532D0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C767F5D9201924EE00C532D0 /* Extensions.swift */; };
+		C78A3C1A204C9BD100414928 /* ClapButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78A3C19204C9BD100414928 /* ClapButton.swift */; };
 		C78F79D8202E89D2004E7F56 /* FriendCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78F79D7202E89D2004E7F56 /* FriendCell.swift */; };
 		C78F79DE202EA32D004E7F56 /* FriendsTodoListsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78F79DD202EA32D004E7F56 /* FriendsTodoListsView.swift */; };
 		C78F79E0202EA355004E7F56 /* FriendTodoListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78F79DF202EA355004E7F56 /* FriendTodoListCell.swift */; };
 		C78F79E2202EA383004E7F56 /* FriendsTodoItemsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78F79E1202EA383004E7F56 /* FriendsTodoItemsView.swift */; };
 		C78F79E4202EA3A5004E7F56 /* FriendTodoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78F79E3202EA3A5004E7F56 /* FriendTodoItemCell.swift */; };
-		C78F79E6202EA43A004E7F56 /* AddFriendTodoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78F79E5202EA43A004E7F56 /* AddFriendTodoItemCell.swift */; };
 		C78F79E8202FDF1A004E7F56 /* ProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C78F79E7202FDF1A004E7F56 /* ProfileController.swift */; };
 		C7A42A4D201FBC960099F6A2 /* SharedSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A42A4C201FBC960099F6A2 /* SharedSwitch.swift */; };
 		C7DD7A6120435F9800863E61 /* AddTodoItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7DD7A6020435F9800863E61 /* AddTodoItemCell.swift */; };
@@ -108,12 +108,12 @@
 		C77EBE961FD3D589004403B0 /* FriendsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsView.swift; sourceTree = "<group>"; };
 		C77EBE9C1FD3D5B7004403B0 /* TodoListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListsView.swift; sourceTree = "<group>"; };
 		C77EBEA01FD3D5C7004403B0 /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
+		C78A3C19204C9BD100414928 /* ClapButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClapButton.swift; sourceTree = "<group>"; };
 		C78F79D7202E89D2004E7F56 /* FriendCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendCell.swift; sourceTree = "<group>"; };
 		C78F79DD202EA32D004E7F56 /* FriendsTodoListsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTodoListsView.swift; sourceTree = "<group>"; };
 		C78F79DF202EA355004E7F56 /* FriendTodoListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTodoListCell.swift; sourceTree = "<group>"; };
 		C78F79E1202EA383004E7F56 /* FriendsTodoItemsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTodoItemsView.swift; sourceTree = "<group>"; };
 		C78F79E3202EA3A5004E7F56 /* FriendTodoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTodoItemCell.swift; sourceTree = "<group>"; };
-		C78F79E5202EA43A004E7F56 /* AddFriendTodoItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendTodoItemCell.swift; sourceTree = "<group>"; };
 		C78F79E7202FDF1A004E7F56 /* ProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileController.swift; sourceTree = "<group>"; };
 		C7A42A4C201FBC960099F6A2 /* SharedSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedSwitch.swift; sourceTree = "<group>"; };
 		C7DD7A6020435F9800863E61 /* AddTodoItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTodoItemCell.swift; sourceTree = "<group>"; };
@@ -293,7 +293,7 @@
 			children = (
 				C78F79E1202EA383004E7F56 /* FriendsTodoItemsView.swift */,
 				C78F79E3202EA3A5004E7F56 /* FriendTodoItemCell.swift */,
-				C78F79E5202EA43A004E7F56 /* AddFriendTodoItemCell.swift */,
+				C78A3C19204C9BD100414928 /* ClapButton.swift */,
 			);
 			path = FriendsTodoItems;
 			sourceTree = "<group>";
@@ -741,6 +741,7 @@
 				C7440129204B3165008085D2 /* FriendTodoItem.swift in Sources */,
 				C756E33B204278DC001AC717 /* TodoItemDelegate.swift in Sources */,
 				C78F79E8202FDF1A004E7F56 /* ProfileController.swift in Sources */,
+				C78A3C1A204C9BD100414928 /* ClapButton.swift in Sources */,
 				E9CBCF681FEEE37700E8D7F7 /* TodoListsView.swift in Sources */,
 				E9CBCF671FEEE37400E8D7F7 /* FriendsView.swift in Sources */,
 				C78F79E4202EA3A5004E7F56 /* FriendTodoItemCell.swift in Sources */,
@@ -750,7 +751,6 @@
 				C767F5D7201923D100C532D0 /* Constants.swift in Sources */,
 				C7EF931E2023AAC600F9A68D /* TodoCheckbox.swift in Sources */,
 				C7A42A4D201FBC960099F6A2 /* SharedSwitch.swift in Sources */,
-				C78F79E6202EA43A004E7F56 /* AddFriendTodoItemCell.swift in Sources */,
 				C71C09F9201EE80E00DAF961 /* TodoItemsView.swift in Sources */,
 				C7DE93CD1FD28906006F73F0 /* MasterView.swift in Sources */,
 				C744012B204B3C7D008085D2 /* User.swift in Sources */,
