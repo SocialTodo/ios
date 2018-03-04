@@ -42,11 +42,7 @@ class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewD
 	override func viewDidLoad() {
 		super.viewDidLoad()
 
-		navigationItem.title = "Friends"
-
-		navigationItem.rightBarButtonItem = myListsButton
-		myListsButton.customView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showMyLists)))
-        
+        setupNavBar()
 		setupLayout()
 
         tableView.dataSource = self
@@ -57,6 +53,8 @@ class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewD
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
+        setupNavBar()
         
         friendsController.getFriends { (friends, friendsImages) in
             self.friends = friends
@@ -81,6 +79,16 @@ class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewD
         tableView.anchorY(top: margins.topAnchor, bottom: margins.bottomAnchor)
 
 	}
+    
+    func setupNavBar() {
+        navigationController?.navigationBar.prefersLargeTitles = false
+        navigationController?.navigationBar.barTintColor = UIColor.lightNavColor
+        navigationController?.navigationBar.titleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 28) ?? UIFont.boldSystemFont(ofSize: 28), NSAttributedStringKey.foregroundColor: UIColor.white]
+
+        navigationItem.title = "Friends"
+        navigationItem.rightBarButtonItem = myListsButton
+        myListsButton.customView?.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(showMyLists)))
+    }
     
     //MARK:- UI Button Handlers
 	@objc func showMyLists() {
@@ -112,8 +120,7 @@ class FriendsView: ScrollableViewController, UITableViewDataSource, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let friend = friends[indexPath.row]
         let friendsTodoListsView = FriendsTodoListsView(friend: friend)
-        let navigationVC = UINavigationController(rootViewController: friendsTodoListsView)
-        present(navigationVC, animated: true, completion: nil)
+        navigationController?.pushViewController(friendsTodoListsView, animated: true)
     }
 
 

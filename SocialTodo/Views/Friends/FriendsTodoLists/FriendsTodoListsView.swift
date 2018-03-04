@@ -42,14 +42,7 @@ class FriendsTodoListsView: UIViewController, UITableViewDelegate, UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationItem.title = "\(friend.name)'s Todo Lists"
-        
-        if let navigationController = navigationController {
-            navigationController.navigationBar.prefersLargeTitles = true
-            navigationController.navigationBar.barTintColor = UIColor(r: 0, g: 154, b: 233)
-            navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 22) ?? UIFont.boldSystemFont(ofSize: 22), NSAttributedStringKey.foregroundColor: UIColor.white]
-        }
-        
+        setupNavBar()
         setupLayout()
         
         tableView.dataSource = self
@@ -60,6 +53,7 @@ class FriendsTodoListsView: UIViewController, UITableViewDelegate, UITableViewDa
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        setupNavBar()
     }
     
     //MARK:- UI Layout
@@ -72,8 +66,18 @@ class FriendsTodoListsView: UIViewController, UITableViewDelegate, UITableViewDa
         background.anchorY(top: view.topAnchor, bottom: view.bottomAnchor)
         
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        tableView.anchorX(left: view.leftAnchor, right: view.rightAnchor)
+        tableView.anchorX(left: view.leftAnchor, leftConstant: 8, right: view.rightAnchor, rightConstant: -8)
         tableView.anchorY(top: view.topAnchor, bottom: view.bottomAnchor)
+    }
+    
+    func setupNavBar() {
+        self.navigationItem.title = friend.name
+        if let navigationController = navigationController {
+            navigationController.navigationBar.prefersLargeTitles = true
+            navigationController.navigationBar.barTintColor = UIColor(r: 0, g: 154, b: 233)
+            navigationController.navigationBar.tintColor = UIColor(r: 199, g: 244, b: 250)
+            navigationController.navigationBar.largeTitleTextAttributes = [NSAttributedStringKey.font: UIFont(name: "AvenirNext-Bold", size: 28) ?? UIFont.boldSystemFont(ofSize: 22), NSAttributedStringKey.foregroundColor: UIColor.white]
+        }
     }
     
     //MARK:- UI Button Handlers
