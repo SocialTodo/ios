@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegate, TodoItemDelegate {
+class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegate {
     //MARK:- Properties
     let todoListDelegate: TodoListDelegate
     let todoItemsController = TodoItemsController()
@@ -187,7 +187,9 @@ class TodoItemsView: UIViewController, UITableViewDataSource, UITableViewDelegat
             return cell
         }
     }
-    
+}
+
+extension TodoItemsView: TodoItemDelegate {
     //MARK:- Todo Item Methods
     func addTodoItem(todoItem: TodoItem) {
         todoItems?.append(todoItem)

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableViewDelegate, TodoListDelegate {
+class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableViewDelegate {
     //MARK:- Properties
     let todoListsController = TodoListsController()
     var todoLists: [TodoList]?
@@ -182,6 +182,10 @@ class TodoListsView: ScrollableViewController, UITableViewDataSource, UITableVie
         navigationController?.pushViewController(TodoItemVC, animated: true)
     }
     
+    
+}
+
+extension TodoListsView: TodoListDelegate {
     //MARK:- Todo List Methods
     func didPopTodoItemsView() {
         scrollView.isScrollEnabled = true
